@@ -89,10 +89,9 @@ var flashvars = {
 var session = Cookies.getJSON('tpt_session');
 
 //
-//	2. 	Make a variable to store of the recorded video URL which can be a YouTube
-//		link or the pipe one.
+//	2.	Track if we can go to the final page
 //
-let recording_url = "";
+var we_cant_progress = true;
 
 //
 //	<<>	React when the user wants to log in.
@@ -106,9 +105,9 @@ $('#submit').on("click", function(event) {
 	event.preventDefault();
 
 	//
-	//	2.	Move forward only if we have at least one video
+	//	2.	Check if we are not allowed to move forward
 	//
-	if(!session[youtube_url] || !session.recording)
+	if(we_cant_progress)
 	{
 		alert("You need to record a video");
 		return;
@@ -150,6 +149,11 @@ $(".form-group").change(function() {
 	Cookies.set('tpt_session', session);
 
 	//
+	//	5.	Mark that we can move forward
+	//
+	we_cant_progress = false;
+
+	//
 	//	5.	Make the first request to save the partial data that the user
 	//		submitted, so then in our DB we know what is missing and can
 	//		ping the user to let them know what is left.
@@ -185,7 +189,18 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 	//
 	//	1.	Get the URL of the recorded video
 	//
-	session.recording = "https://" + location + "/" + flashvars.accountHash + "/" + filename + ".mp4";
+	session.recording = "https://"
+					  + location
+					  + "/"
+					  + flashvars.accountHash
+					  + "/"
+					  + filename
+					  + ".mp4";
+
+	//
+	//	2.	Mark that we can move forward
+	//
+	we_cant_progress = false;
 
 	//
 	//	2.	Update Cookies no matter what for simplicity sake
@@ -196,14 +211,27 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 //
 //	React when the video was successfully saved
 //
-function onSaveOk(streamName, streamDuration, userId, cameraName, micName, recorderId, audioCodec, videoCodec, fileType, videoId, audioOnly, location)
-{
+function onSaveOk(
+	streamName, streamDuration, userId, cameraName, micName, recorderId,
+	audioCodec, videoCodec, fileType, videoId, audioOnly, location
+){
 	var args = Array.prototype.slice.call(arguments);
 
 	//
 	//	1.	Get the URL of the recorded video
 	//
-	session.recording = "https://" + location + "/" + flashvars.accountHash + "/" + streamName + ".mp4";
+	session.recording = "https://"
+					  + location
+					  + "/"
+					  + flashvars.accountHash
+					  + "/"
+					  + streamName
+					  + ".mp4";
+
+	//
+	//	2.	Mark that we can move forward
+	//
+	we_cant_progress = false;
 
 	//
 	//	2.	Update Cookies no matter what for simplicity sake
