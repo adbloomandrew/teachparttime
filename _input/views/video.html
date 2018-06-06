@@ -24,9 +24,13 @@
 
 	<hr>
 
-	<p>Created a Video already? Paste the URL below.<p>
-
-	<input id="youtube_url" type="text">
+	<div class="form-group">
+		<label>Created a Video already? Paste the URL below.</label>
+		<input id="youtube_url" type="text" required="">
+		<div class="invalid-feedback">
+			There is something wrong with the email.
+		</div>
+	</div>
 
 	<button id="submit">Submit</button>
 
@@ -80,8 +84,13 @@ var flashvars = {
 //
 
 //
-//	Make a variable to store of the recorded video URL which can be a YouTube
-//	link or the pipe one.
+//	1.	Get the user session from the cookies
+//
+var session = Cookies.getJSON('tpt_session');
+
+//
+//	2. 	Make a variable to store of the recorded video URL which can be a YouTube
+//		link or the pipe one.
 //
 let recording_url = "";
 
@@ -97,24 +106,64 @@ $('#submit').on("click", function(event) {
 	event.preventDefault();
 
 	//
-	//	2.	Get the input value
+	//	2.	Move forward only if we have at least one video
 	//
-	let youtube_url = $('#youtube_url').value();
-
-	//
-	//	3.	Check to see if the user pasted a YT url, and make sure the
-	//		youtube_url is empty, meaning Pipe did not add the recording
-	//		URL already. We want Pipe to have precedence.
-	//
-	if(youtube_url && !youtube_url.length)
+	if(!session[youtube_url] || !session.recording)
 	{
-		recording_url = youtube_url;
+		alert("You need to record a video");
+		return;
 	}
 
 	//
 	//	->	Redirect the user to the next step
 	//
 	window.location.replace('thankyou.html');
+
+});
+
+//
+//	3.	Setup a listener which will react each time a input form is
+//		changed so we can keep saving the user information so he or she
+//		can always return to the form later
+//
+$(".form-group").change(function() {
+
+	//
+	//	1.	Get the ID of the input form, which will become the key of the
+	//		JS Object
+	//
+	var key = $($( this ).children()[1]).attr('id');
+
+	//
+	//	2.	Get the value that will be saved under the Key
+	//
+	var value = $($( this ).children()[1]).val();
+
+	//
+	//	3.	Save or update the data in the user session
+	//
+	session[key] = value;
+
+	//
+	//	4.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session);
+
+	//
+	//	5.	Make the first request to save the partial data that the user
+	//		submitted, so then in our DB we know what is missing and can
+	//		ping the user to let them know what is left.
+	//
+	$.post("http://mockbin.com/request", session, function(data, status) {
+
+		console.log("Saved");
+
+	})
+	.fail(function(error) {
+
+		console.log(error);
+
+	});
 
 });
 
@@ -133,7 +182,15 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 {
 	var args = Array.prototype.slice.call(arguments);
 
-	recording_url = "https://" + location + "/" + flashvars.accountHash + "/" + filename + ".mp4";
+	//
+	//	1.	Get the URL of the recorded video
+	//
+	session.recording = "https://" + location + "/" + flashvars.accountHash + "/" + filename + ".mp4";
+
+	//
+	//	2.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session);
 }
 
 //
@@ -143,7 +200,15 @@ function onSaveOk(streamName, streamDuration, userId, cameraName, micName, recor
 {
 	var args = Array.prototype.slice.call(arguments);
 
-	ecording_url = "https://" + location + "/" + flashvars.accountHash + "/" + streamName + ".mp4";
+	//
+	//	1.	Get the URL of the recorded video
+	//
+	session.recording = "https://" + location + "/" + flashvars.accountHash + "/" + streamName + ".mp4";
+
+	//
+	//	2.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session);
 }
 
 </script>
