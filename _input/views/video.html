@@ -1,0 +1,149 @@
+<form>
+
+	<h1>Final Step: Record a short Introduction Video</h1>
+
+	<p>To complete your application, simply record a quick 60-second video interview and include the following:</p>
+
+	<ul>
+		<li>Your First and Last Name.</li>
+		<li>The City you live in.</li>
+		<li>Your Level of education.</li>
+		<li>Describe your experience with kids or teaching in just a few sentences.</li>
+		<li>After your introduction, please tell or read a short story (<a href="mouse.html" target="_blank"></a>here’s a sample to read)</a>.</li>
+	</ul>
+
+	<hr>
+
+	<p>If you're looking for inspiration, click <a href="https://www.youtube.com/watch?v=nOgrYxcBTyw">here</a> to see a successful demo video.</p>
+
+	<p>Have you already created a video? Simply upload it to YouTube and paste the url into the field below.</p>
+
+	<hr>
+
+	<div id="hdfvr-content"></div>
+
+	<hr>
+
+	<p>Created a Video already? Paste the URL below.<p>
+
+	<input id="youtube_url" type="text">
+
+	<button id="submit">Submit</button>
+
+</form>
+
+<script>
+
+//
+//	1.	Set size options for the video player size that is used for HTML 5
+//
+var size = {
+	width: 520,
+	height: 330
+};
+
+//
+//	2.	Set settings for the video recorder in general
+//
+var flashvars = {
+	qualityurl: "avq/480p.xml",
+	accountHash: "9686b37512ceb0ef660755cdb0e8bd5f",
+	eid: 2,
+	showMenu: "true",
+	mrt: 120,
+	sis: 0,
+	asv: 1,
+	mv: 0,
+	dpv: 0,
+	ao: 0,
+	dup: 0
+};
+
+//
+//	3.	Run the video recorder
+//
+(function() {
+	var pipe = document.createElement('script');
+	pipe.type = 'text/javascript';
+	pipe.async = true;
+	pipe.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 's1.addpipe.com/1.3/pipe.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(pipe, s);
+})();
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	Make a variable to store of the recorded video URL which can be a YouTube
+//	link or the pipe one.
+//
+let recording_url = "";
+
+//
+//	<<>	React when the user wants to log in.
+//
+$('#submit').on("click", function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Get the input value
+	//
+	let youtube_url = $('#youtube_url').value();
+
+	//
+	//	3.	Check to see if the user pasted a YT url, and make sure the
+	//		youtube_url is empty, meaning Pipe did not add the recording
+	//		URL already. We want Pipe to have precedence.
+	//
+	if(youtube_url && !youtube_url.length)
+	{
+		recording_url = youtube_url;
+	}
+
+	//
+	//	->	Redirect the user to the next step
+	//
+	window.location.replace('thankyou.html');
+
+});
+
+//	 _        _____    _____   _______   _   _   ______   _____     _____
+//	| |      |_   _|  / ____| |__   __| | \ | | |  ____| |  __ \   / ____|
+//	| |        | |   | (___      | |    |  \| | | |__    | |__) | | (___
+//	| |        | |    \___ \     | |    | . ` | |  __|   |  _  /   \___ \
+//	| |____   _| |_   ____) |    | |    | |\  | | |____  | | \ \   ____) |
+//	|______| |_____| |_____/     |_|    |_| \_| |______| |_|  \_\ |_____/
+//
+
+//
+//	React when the video was uploaded successfully
+//
+function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
+{
+	var args = Array.prototype.slice.call(arguments);
+
+	recording_url = "https://" + location + "/" + flashvars.accountHash + "/" + filename + ".mp4";
+}
+
+//
+//	React when the video was successfully saved
+//
+function onSaveOk(streamName, streamDuration, userId, cameraName, micName, recorderId, audioCodec, videoCodec, fileType, videoId, audioOnly, location)
+{
+	var args = Array.prototype.slice.call(arguments);
+
+	ecording_url = "https://" + location + "/" + flashvars.accountHash + "/" + streamName + ".mp4";
+}
+
+</script>

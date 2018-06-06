@@ -1,0 +1,8 @@
+#
+#	teachparttime.com
+#
+
+User-agent: *
+Allow: /
+
+Sitemap: https://teachparttime.com/sitemap.xml

@@ -1,0 +1,75 @@
+<form>
+
+	<h1">Create an account</h1>
+
+	<input type="full_name" id="full_name" placeholder="Full name" autocomplete="full-name" required="" autofocus="">
+
+	<input type="email" id="email" placeholder="Email" autocomplete="email" required="">
+
+	<button type="submit">Apply</button>
+
+</form>
+
+<script>
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<>	React when the user submits the form
+//
+$('form').on("submit", function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Get the user inputs
+	//
+	var full_name = $('#full_name').val();
+	var email = $('#email').val();
+
+	//
+	//	3.	Create the object that will hold all the user data until
+	//		he or she finishes filling the form
+	//
+	var session = {
+		full_name: full_name,
+		email: email
+	}
+
+	//
+	//	4.	Save the filled data in a cookie
+	//
+	Cookies.set('tpt_session', session);
+
+	//
+	//	5.	Make the first request to save the partial data that the user
+	//		submitted, so then in our DB we know what is missing and can
+	//		ping the user to let them know what is left.
+	//
+	$.post("http://mockbin.com/request", session, function(data, status) {
+
+		//
+		//	->	Redirect the user to the next step
+		//
+		window.location.replace('form.html');
+
+	})
+	.fail(function(error) {
+
+		window.location.replace('error.html');
+
+	});
+
+});
+
+</script>

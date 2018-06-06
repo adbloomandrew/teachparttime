@@ -1,0 +1,264 @@
+<form>
+
+	<h1">Tell us about Yourself</h1>
+
+	<div class="form-group">
+		<label>Your City & State/Province</label>
+		<input id="city" type="text" required="">
+		<div class="invalid-feedback">
+			There is something wrong with the email.
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>Country</label>
+		<input id="country" type="text" required="">
+		<div class="invalid-feedback">
+			There is something wrong with the email.
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>Phone</label>
+		<input id="phone" type="text" required="">
+		<div class="invalid-feedback">
+			There is something wrong with the email.
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">What is your Education level?</label>
+		<select id="education" class="form-control">
+			<option value="null" disabled>Select an option</option>
+			<option value="University/College Degree">University/College Degree</option>
+			<option value="Enrolled in University/College">Enrolled in University/College</option>
+			<option value="Associates Degree">Associates Degree</option>
+			<option value="High School Degree">High School Degree</option>
+			<option value="No Degree">No Degree</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">Are you legally eligible to work in the USA or Canada?</label>
+		<select id="work_permit" class="form-control">
+			<option value="null" disabled>Select an option</option>
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+		</select>
+	</div>
+
+	<div id="ms" class="form-group">
+		<label>What is your Daytime(Mon-Sun) availability? Please select two or more</label>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="6:40 - 7:10am EST" id="ms_1">
+			<label class="form-check-label" for="ms_1">
+				6:40 - 7:10am EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="7:20 - 7:50am EST" id="ms_2">
+			<label class="form-check-label" for="ms_2">
+				7:20 - 7:50am EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="8:20 - 8:30am EST" id="ms_3">
+			<label class="form-check-label" for="ms_3">
+				8:20 - 8:30am EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="8:40 - 9:10am EST" id="ms_4">
+			<label class="form-check-label" for="ms_4">
+				8:40 - 9:10am EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="ms_check_all">
+			<label class="form-check-label" for="ms_check_all">
+				Check All
+			</label>
+		</div>
+		<div class="invalid-feedback">
+			There is something wrong with the email.
+		</div>
+	</div>
+
+	<div id="fs" class="form-group">
+		<label>How about on Friday and Saturday night? Please select two or more</label>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="8:40 - 9:10pm EST" id="fs_1">
+			<label class="form-check-label" for="fs_1">
+				8:40 - 9:10pm EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="9:20 - 9:50pm EST" id="fs_2">
+			<label class="form-check-label" for="fs_2">
+				9:20 - 9:50pm EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="10:00 - 10:30pm EST" id="fs_3">
+			<label class="form-check-label" for="fs_3">
+				10:00 - 10:30pm EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="10:40 - 11:10pm EST" id="fs_4">
+			<label class="form-check-label" for="fs_4">
+				10:40 - 11:10pm EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="11:20 - 11:50pm EST" id="fs_5">
+			<label class="form-check-label" for="fs_5">
+				11:20 - 11:50pm EST
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="" id="fs_check_all">
+			<label class="form-check-label" for="fs_check_all">
+				Check All
+			</label>
+		</div>
+		<div class="invalid-feedback">
+			There is something wrong with the email.
+		</div>
+	</div>
+
+	<button type="submit">Next</button>
+
+</form>
+
+<script>
+
+//
+//	1.	Get the user session from the cookies
+//
+var session = Cookies.getJSON('tpt_session');
+
+//
+//	2.	Loop over the whole object and look for the matching HTML element,
+//		and populate it with the data.
+//
+$.each(session, function(key, value) {
+
+	//
+	//	1.	Set the value of the input
+	//
+	$('#' + key).val(value)
+
+	//
+	//	2.	Check if we are dealing with checkboxes
+	//
+	if(value === true)
+	{
+		//
+		//	1.	Mark the checkbox as selected
+		//
+		$('#' + key).prop("checked", true);
+	}
+
+});
+
+//
+//	3.	Setup a listener which will react each time a input form is
+//		changed so we can keep saving the user information so he or she
+//		can always return to the form later
+//
+$(".form-group").change(function() {
+
+	//
+	//	1.	Get the ID of the input form, which will become the key of the
+	//		JS Object
+	//
+	var key = $($( this ).children()[1]).attr('id');
+
+	//
+	//	2.	Get the value that will be saved under the Key
+	//
+	var value = $($( this ).children()[1]).val();
+
+	//
+	//	3.	Check if we got some values to save
+	//
+	if(!key || !value)
+	{
+		//
+		//	1.	Loop over
+		//
+		$(this).children().each(function(index, div) {
+
+			$(div).children().each(function(index, check) {
+
+				if(check.checked)
+				{
+					var key = $(check).attr('id');
+
+					console.log(key);
+
+					session[key] = true;
+
+				}
+
+			});
+
+		});
+	}
+
+	//
+	//	1.	Save or update the data in the user session
+	//
+	session[key] = value;
+
+	//
+	//	4.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session);
+
+	//
+	//	5.	Make the first request to save the partial data that the user
+	//		submitted, so then in our DB we know what is missing and can
+	//		ping the user to let them know what is left.
+	//
+	$.post("http://mockbin.com/request", session, function(data, status) {
+
+		console.log("Saved");
+
+	})
+	.fail(function(error) {
+
+		console.log(error);
+
+	});
+
+});
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<>	React when the user wants to log in.
+//
+$('form').on("submit", function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	->	Redirect the user to the next step
+	//
+	window.location.replace('resume.html');
+
+});
+
+</script>

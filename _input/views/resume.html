@@ -1,0 +1,54 @@
+<form>
+
+	<h1">Resume</h1>
+
+	<div class="form-group">
+		<label for="exampleFormControlFile1">Please upload a copy of your latest resume.</label>
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" id="customFile">
+			<label class="custom-file-label" for="customFile">Choose file</label>
+		</div>
+	</div>
+
+	<button type="submit">Next</button>
+
+</form>
+
+<script>
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<>	React when the user wants to log in.
+//
+$('form').on("submit", function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Get the user inputs
+	//
+	var full_name = $('#full_name').val();
+	var email = $('#email').val();
+
+
+
+
+	//
+	//	->	Redirect the user to the next step
+	//
+	window.location.replace('video.html');
+
+});
+
+</script>
