@@ -43,7 +43,8 @@ $('form').on("submit", function(event) {
 	//
 	var session = {
 		full_name: full_name,
-		email: email
+		email: email,
+		done: false;
 	}
 
 	//
@@ -56,7 +57,7 @@ $('form').on("submit", function(event) {
 	//		submitted, so then in our DB we know what is missing and can
 	//		ping the user to let them know what is left.
 	//
-	$.post("http://mockbin.com/request", session, function(data, status) {
+	$.post("https://mockbin.com/request", session, function(data, status) {
 
 		//
 		//	->	Redirect the user to the next step
