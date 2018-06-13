@@ -40,7 +40,49 @@
 		<script crossorigin="anonymous" src="./assets/js/js.cookie-v2.2.0.min.js"></script>
 
 		<link rel="stylesheet" href="./assets/css/bootstrap-v4.0.0.min.css">
-		<link rel="stylesheet" href="./assets/css/style.css">
+
+		<script type="text/javascript">
+
+			//
+			//	This code will load a different CSS file based on the domain
+			//	the user uses to visit the site, this way we can customize
+			//	the experience for each domain
+			//
+
+			//
+			//	1.	By default we assume we are working under the dev env.
+			//
+			var css = 'dev';
+
+			//
+			//	2.	Check under which domain we are, and change the name of
+			//		the CSS file.
+			//
+			if(document.location.hostname == 'potato.teachpart-time.com')
+			{
+				css = 'potato';
+			}
+
+			//
+			//	3.	Get the header of the page
+			//
+			var head  = document.getElementsByTagName('head')[0];
+
+			//
+			//	4.	Create a link element with the custom CSS
+			//
+			var link  = document.createElement('link');
+				link.rel  = 'stylesheet';
+				link.href = './assets/css/' + css + '.css';
+
+			//
+			//	5.	Append the Link object to the header so the browser
+			//		can load the custom CSS.
+			//
+			head.appendChild(link);
+
+		</script>
+
 	</head>
 
 	<body>
