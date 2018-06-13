@@ -38,8 +38,30 @@
 
 <script>
 
+//	  _____  ______  _______  _______  _____  _   _   _____   _____
+//	 / ____||  ____||__   __||__   __||_   _|| \ | | / ____| / ____|
+//	| (___  | |__      | |      | |     | |  |  \| || |  __ | (___
+//	 \___ \ |  __|     | |      | |     | |  | . ` || | |_ | \___ \
+//	 ____) || |____    | |      | |    _| |_ | |\  || |__| | ____) |
+//	|_____/ |______|   |_|      |_|   |_____||_| \_| \_____||_____/
 //
-//	1.	Set size options for the video player size that is used for HTML 5
+
+//
+//	1.	This nr. tells Pipe Video to which environment to save the video.
+//		by default we assume we are dealing with the Development environment.
+//
+var environment = 2;
+
+//
+//	2.	Check if we are running on the production domain
+//
+if(get_domain(document.location.hostname) != 'teachpart-time')
+{
+	environment = 1;
+}
+
+//
+//	3.	Set size options for the video player size that is used for HTML 5
 //
 var size = {
 	width: 520,
@@ -47,12 +69,12 @@ var size = {
 };
 
 //
-//	2.	Set settings for the video recorder in general
+//	4.	Set settings for the video recorder in general
 //
 var flashvars = {
 	qualityurl: "avq/480p.xml",
 	accountHash: "9686b37512ceb0ef660755cdb0e8bd5f",
-	eid: 2,
+	eid: environment,
 	showMenu: "true",
 	mrt: 120,
 	sis: 0,
@@ -64,16 +86,14 @@ var flashvars = {
 };
 
 //
-//	3.	Run the video recorder
+//	5.	Get the user session from the cookies
 //
-(function() {
-	var pipe = document.createElement('script');
-	pipe.type = 'text/javascript';
-	pipe.async = true;
-	pipe.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 's1.addpipe.com/1.3/pipe.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(pipe, s);
-})();
+var session = Cookies.getJSON('tpt_session');
+
+//
+//	6.	Track if we can go to the final page
+//
+var we_cant_progress = true;
 
 //	  ____    _   _
 //	 / __ \  | \ | |
@@ -82,16 +102,6 @@ var flashvars = {
 //	| |__| | | |\  |
 //	 \____/  |_| \_|
 //
-
-//
-//	1.	Get the user session from the cookies
-//
-var session = Cookies.getJSON('tpt_session');
-
-//
-//	2.	Track if we can go to the final page
-//
-var we_cant_progress = true;
 
 //
 //	<<>	React when the user wants to log in.
@@ -114,9 +124,32 @@ $('#submit').on("click", function(event) {
 	}
 
 	//
-	//	->	Redirect the user to the next step
+	//	3.	Mark the session as complete, meaning the user did went through
+	//		the whole form.
 	//
-	window.location.replace('thankyou.html');
+	session.done = true;
+
+	//
+	//	4.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session);
+
+	//
+	//	5.	Save all the final data to the DB
+	//
+	$.post("https://mockbin.com/request", session, function(data, status) {
+
+		//
+		//	->	Redirect the user to the next step
+		//
+		window.location.replace('thankyou.html');
+
+	})
+	.fail(function(error) {
+
+		console.log(error);
+
+	});
 
 });
 
@@ -158,7 +191,7 @@ $(".form-group").change(function() {
 	//		submitted, so then in our DB we know what is missing and can
 	//		ping the user to let them know what is left.
 	//
-	$.post("http://mockbin.com/request", session, function(data, status) {
+	$.post("https://mockbin.com/request", session, function(data, status) {
 
 		console.log("Saved");
 
@@ -180,43 +213,66 @@ $(".form-group").change(function() {
 //
 
 //
-//	React when the video was uploaded successfully
+//	WARNING: 	this functions needs to be before we initialize Pipe Video
+//				so Pipe can see this functions and use them
+//
+
+//
+//	FOR MOBILE: react when the video is saved
 //
 function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 {
-	var args = Array.prototype.slice.call(arguments);
-
-	//
-	//	1.	Get the URL of the recorded video
-	//
-	session.recording = "https://"
-					  + location
-					  + "/"
-					  + flashvars.accountHash
-					  + "/"
-					  + filename
-					  + ".mp4";
-
-	//
-	//	2.	Mark that we can move forward
-	//
-	we_cant_progress = false;
-
-	//
-	//	2.	Update Cookies no matter what for simplicity sake
-	//
-	Cookies.set('tpt_session', session);
+	video_saved(location, streamName);
 }
 
 //
-//	React when the video was successfully saved
+//	FOR DESKTOP: react when the video is saved
 //
 function onSaveOk(
 	streamName, streamDuration, userId, cameraName, micName, recorderId,
 	audioCodec, videoCodec, fileType, videoId, audioOnly, location
-){
-	var args = Array.prototype.slice.call(arguments);
+)
+{
+	video_saved(location, streamName);
+}
 
+//	 _____    _____   _____    ______
+//	|  __ \  |_   _| |  __ \  |  ____|
+//	| |__) |   | |   | |__) | | |__
+//	|  ___/    | |   |  ___/  |  __|
+//	| |       _| |_  | |      | |____
+//	|_|      |_____| |_|      |______|
+//
+
+//
+//	1.	Initialize Pipe
+//
+(function() {
+	var pipe = document.createElement('script');
+	pipe.type = 'text/javascript';
+	pipe.async = true;
+	pipe.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 's1.addpipe.com/1.3/pipe.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(pipe, s);
+})();
+
+//	 _    _   ______   _        _____    ______   _____     _____
+//	| |  | | |  ____| | |      |  __ \  |  ____| |  __ \   / ____|
+//	| |__| | | |__    | |      | |__) | | |__    | |__) | | (___
+//	|  __  | |  __|   | |      |  ___/  |  __|   |  _  /   \___ \
+//	| |  | | | |____  | |____  | |      | |____  | | \ \   ____) |
+//	|_|  |_| |______| |______| |_|      |______| |_|  \_\ |_____/
+//
+
+//
+//	This is the main function that has all the code to handle the saved
+//	video. This is done because Pipe Video, will call back different
+//	function based on the device the video was recorded.
+//
+//	This way we have one function that takes care of everything.
+//
+function video_saved(location, streamName)
+{
 	//
 	//	1.	Get the URL of the recorded video
 	//
@@ -234,9 +290,34 @@ function onSaveOk(
 	we_cant_progress = false;
 
 	//
-	//	2.	Update Cookies no matter what for simplicity sake
+	//	3.	Update Cookies no matter what for simplicity sake
 	//
 	Cookies.set('tpt_session', session);
+
+	//
+	//	4.	Make the final call to save all of the data submitted by the user
+	//
+	$.post("https://mockbin.com/request", session, function(data, status) {
+
+		console.log("Saved");
+
+	})
+	.fail(function(error) {
+
+		console.log(error);
+
+	});
+}
+
+//
+//	Basic function to extract the domain out of the hostname. Won't work with
+//	domains like co.uk etc.
+//
+function get_domain(url)
+{
+	let peaces = url.split('.');
+
+	return peaces[peaces.length - 2];
 }
 
 </script>
