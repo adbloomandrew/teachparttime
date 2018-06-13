@@ -203,7 +203,7 @@ $(".form-group").change(function() {
 	//
 	//	4.	Update Cookies no matter what for simplicity sake
 	//
-	Cookies.set('tpt_session', session);
+	Cookies.set('tpt_session', session, { secure: true });
 
 	//
 	//	5.	Make the first request to save the partial data that the user

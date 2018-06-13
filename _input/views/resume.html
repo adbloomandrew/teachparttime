@@ -84,7 +84,7 @@ $(function () {
 		//
 		//	2.	Update Cookies no matter what for simplicity sake
 		//
-		Cookies.set('tpt_session', session);
+		Cookies.set('tpt_session', session, { secure: true });
 
 		//
 		//	->	Redirect the user to the next step

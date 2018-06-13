@@ -50,7 +50,7 @@ $('form').on("submit", function(event) {
 	//
 	//	4.	Save the filled data in a cookie
 	//
-	Cookies.set('tpt_session', session);
+	Cookies.set('tpt_session', session, { secure: true });
 
 	//
 	//	5.	Make the first request to save the partial data that the user

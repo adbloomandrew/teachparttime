@@ -132,7 +132,7 @@ $('#submit').on("click", function(event) {
 	//
 	//	4.	Update Cookies no matter what for simplicity sake
 	//
-	Cookies.set('tpt_session', session);
+	Cookies.set('tpt_session', session, { secure: true });
 
 	//
 	//	5.	Save all the final data to the DB
@@ -179,7 +179,7 @@ $(".form-group").change(function() {
 	//
 	//	4.	Update Cookies no matter what for simplicity sake
 	//
-	Cookies.set('tpt_session', session);
+	Cookies.set('tpt_session', session, { secure: true });
 
 	//
 	//	5.	Mark that we can move forward
@@ -292,7 +292,7 @@ function video_saved(location, streamName)
 	//
 	//	3.	Update Cookies no matter what for simplicity sake
 	//
-	Cookies.set('tpt_session', session);
+	Cookies.set('tpt_session', session, { secure: true });
 
 	//
 	//	4.	Make the final call to save all of the data submitted by the user
