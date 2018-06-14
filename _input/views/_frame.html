@@ -13,6 +13,7 @@
 
 		<script crossorigin="anonymous" src="./assets/js/jquery-3.2.1.min.js"></script>
 		<script crossorigin="anonymous" src="./assets/js/js.cookie-v2.2.0.min.js"></script>
+		<script crossorigin="anonymous" src="./assets/js/moment-v2.22.2.js"></script>
 
 		<link rel="stylesheet" href="./assets/css/bootstrap-v4.0.0.min.css">
 
@@ -55,6 +56,68 @@
 			//		can load the custom CSS.
 			//
 			head.appendChild(link);
+
+		</script>
+
+		<script>
+
+			//
+			//	This function will save data from the form to Airtable
+			//
+			function save_to_airtable(session, callback)
+			{
+
+				//
+				//	1.	Make a variable that will hold the end part of the URL
+				//		where if we created a row, we can later one updated it
+				//
+				var airtable_row_id = "";
+				var action_type = "post";
+
+				//
+				//	2.	Check if we have the row ID in Airtable, if we do we know
+				//		we can update the data instead of creating it.
+				//
+				if(session.id)
+				{
+					airtable_row_id = "/" + session.id;
+					action_type = "patch"
+				}
+
+				//
+				//	->	Execute the query
+				//
+				$.ajax({
+					url: 'https://api.airtable.com/v0/appMm7V8XWifHqCja/QKids' + airtable_row_id,
+					type: action_type,
+					dataType: 'json',
+					headers: {
+						Authorization: "Bearer keybQ7ssbtUqLRTtw"
+					},
+					data: {
+						fields: session.fields
+					},
+				})
+				.done(function(data) {
+
+					console.log("Saved...");
+
+					return callback(data.id);
+
+				}).fail(function(error) {
+
+					//
+					//	<>> Log what happened
+					//
+					console.log(error.responseText);
+
+					//
+					//	->	Redirect the user to the error page
+					//
+					return window.location.replace('error.html');
+
+				});
+			}
 
 		</script>
 

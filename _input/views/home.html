@@ -42,32 +42,34 @@ $('form').on("submit", function(event) {
 	//		he or she finishes filling the form
 	//
 	var session = {
-		full_name: full_name,
-		email: email,
-		done: false
+		fields: {
+			name: full_name,
+			email: email,
+			submission_date: moment().toISOString()
+		}
 	}
 
 	//
-	//	4.	Save the filled data in a cookie
+	//	4.	Save the data to Airtable
 	//
-	Cookies.set('tpt_session', session, { secure: true });
+	save_to_airtable(session, function(id) {
 
-	//
-	//	5.	Make the first request to save the partial data that the user
-	//		submitted, so then in our DB we know what is missing and can
-	//		ping the user to let them know what is left.
-	//
-	$.post("https://mockbin.com/request", session, function(data, status) {
+		//
+		//	2.	Save the Airtable ID so we can update the user record in all
+		//		the subsequent pages.
+		//
+		session.id = id;
+
+		//
+		//	3.	Save the whole user session so we can save the progress of the
+		//		page.
+		//
+		Cookies.set('tpt_session', session, { secure: true });
 
 		//
 		//	->	Redirect the user to the next step
 		//
 		window.location.replace('form.html');
-
-	})
-	.fail(function(error) {
-
-		window.location.replace('error.html');
 
 	});
 

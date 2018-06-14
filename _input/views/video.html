@@ -127,7 +127,7 @@ $('#submit').on("click", function(event) {
 	//	3.	Mark the session as complete, meaning the user did went through
 	//		the whole form.
 	//
-	session.done = true;
+	session.fields.completion_date = moment().toISOString();
 
 	//
 	//	4.	Update Cookies no matter what for simplicity sake
@@ -137,26 +137,21 @@ $('#submit').on("click", function(event) {
 	//
 	//	5.	Save all the final data to the DB
 	//
-	$.post("https://mockbin.com/request", session, function(data, status) {
+	save_to_airtable(session, function() {
 
 		//
 		//	->	Redirect the user to the next step
 		//
 		window.location.replace('thankyou.html');
 
-	})
-	.fail(function(error) {
-
-		console.log(error);
-
 	});
 
 });
 
 //
-//	3.	Setup a listener which will react each time a input form is
-//		changed so we can keep saving the user information so he or she
-//		can always return to the form later
+//	Setup a listener which will react each time a input form is
+//	changed so we can keep saving the user information so he or she
+//	can always return to the form later
 //
 $(".form-group").change(function() {
 
@@ -174,33 +169,24 @@ $(".form-group").change(function() {
 	//
 	//	3.	Save or update the data in the user session
 	//
-	session[key] = value;
+	session.fields[key] = value;
 
 	//
-	//	4.	Update Cookies no matter what for simplicity sake
+	//	5.	Update Cookies no matter what for simplicity sake
 	//
 	Cookies.set('tpt_session', session, { secure: true });
 
 	//
-	//	5.	Mark that we can move forward
+	//	6.	Mark that we can move forward
 	//
 	we_cant_progress = false;
 
 	//
-	//	5.	Make the first request to save the partial data that the user
+	//	7.	Make the first request to save the partial data that the user
 	//		submitted, so then in our DB we know what is missing and can
 	//		ping the user to let them know what is left.
 	//
-	$.post("https://mockbin.com/request", session, function(data, status) {
-
-		console.log("Saved");
-
-	})
-	.fail(function(error) {
-
-		console.log(error);
-
-	});
+	save_to_airtable(session, function() {});
 
 });
 
@@ -245,7 +231,7 @@ function onSaveOk(
 //
 
 //
-//	1.	Initialize Pipe
+//	Initialize Pipe
 //
 (function() {
 	var pipe = document.createElement('script');
@@ -274,20 +260,20 @@ function onSaveOk(
 function video_saved(location, streamName)
 {
 	//
-	//	1.	Get the URL of the recorded video
-	//
-	session.recording = "https://"
-					  + location
-					  + "/"
-					  + flashvars.accountHash
-					  + "/"
-					  + streamName
-					  + ".mp4";
-
-	//
-	//	2.	Mark that we can move forward
+	//	1.	Mark that we can move forward
 	//
 	we_cant_progress = false;
+
+	//
+	//	2.	Get the URL of the recorded video
+	//
+	session.fields.video_url = "https://"
+							 + location
+							 + "/"
+							 + flashvars.accountHash
+							 + "/"
+							 + streamName
+							 + ".mp4";
 
 	//
 	//	3.	Update Cookies no matter what for simplicity sake
@@ -297,16 +283,7 @@ function video_saved(location, streamName)
 	//
 	//	4.	Make the final call to save all of the data submitted by the user
 	//
-	$.post("https://mockbin.com/request", session, function(data, status) {
-
-		console.log("Saved");
-
-	})
-	.fail(function(error) {
-
-		console.log(error);
-
-	});
+	save_to_airtable(session, function() {});
 }
 
 //

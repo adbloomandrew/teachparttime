@@ -32,6 +32,19 @@
 <script>
 
 //
+//	1.	Get the user session from the cookies
+//
+var session = Cookies.getJSON('tpt_session');
+
+session.fields.resume = [
+	{
+		"url": "https://0x4447.com/assets/img/home/header@1x.jpg"
+	}
+]
+
+save_to_airtable(session, function() {});
+
+//
 //	Get the user session from the cookies
 //
 var session = Cookies.getJSON('tpt_session');
