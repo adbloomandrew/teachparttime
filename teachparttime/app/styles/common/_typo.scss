@@ -1,0 +1,57 @@
+// typo font styles
+.typo-h1 {
+  @include font(h1);
+}
+
+.typo-h3  {
+  @include font(h3);
+}
+
+.typo-h4 {
+  @include font(h4);
+}
+
+.typo-paragraph {
+  @include font(paragraph);
+}
+
+.typo-bold {
+  font-weight: 700;
+}
+
+.typo-italic  {
+  font-style: italic;
+}
+
+// colors
+.text-white {
+  color: $color-white;
+
+  &:after {
+    background-color: $color-white;
+  }
+}
+
+.text-gray {
+  color: $color-gray-dark;
+
+  &:after {
+    background-color: $color-gray-dark;
+  }
+}
+
+.text-violet {
+  color: $color-violet-light;
+
+  &:after {
+    background-color: $color-violet-light;
+  }
+}
+
+.text-blue {
+  color: $color-blue;
+
+  &:after {
+    background-color: $color-blue;
+  }
+}

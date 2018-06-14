@@ -1,0 +1,17 @@
+.divider {
+  border: none;
+  border-bottom: 1px solid $color-red-lightest;
+  width: 100%;
+
+  &__pink {
+    border-color: $color-pink;
+  }
+
+  &__gray {
+    border-color: $color-red-lightest;
+  }
+
+  &__bold {
+    border-width: 3px;
+  }
+}

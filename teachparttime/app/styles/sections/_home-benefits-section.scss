@@ -1,0 +1,18 @@
+.home-benefits-section {
+  padding: 40px 0;
+  background-color: $color-white;
+
+  .benefits-list {
+    @include list-unstyled;
+
+    .list-item {
+      @include relative;
+      padding-left: 30px;
+
+      svg {
+        @include svg-icon($color-pink, 18px);
+        @include absolute(top 3px left 0);
+      }
+    }
+  }
+}

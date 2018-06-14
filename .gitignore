@@ -5,3 +5,4 @@
 /_input/*.html
 _preview
 node_modules/
+.idea

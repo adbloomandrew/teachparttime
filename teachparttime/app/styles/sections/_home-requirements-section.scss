@@ -1,0 +1,19 @@
+.home-requirements-section {
+  background-color: $color-violet-light;
+  padding-top: 35px;
+
+  .arrow-list {
+    @include list-unstyled;
+
+    .list-item {
+      position: relative;
+      padding-left: 30px;
+
+      svg {
+        @include absolute(left 0 top 50%);
+        @include svg-icon($color-pink, 15px, 20px);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/nav';
+@import "~bootstrap/scss/progress";
+
+// 7ninjas scss mixins
+@import '~@7ninjas/scss-mixins/src/animations';
+@import '~@7ninjas/scss-mixins/src/breakpoints';
+@import '~@7ninjas/scss-mixins/src/fonts';
+@import '~@7ninjas/scss-mixins/src/flex';
+@import '~@7ninjas/scss-mixins/src/forms';
+@import '~@7ninjas/scss-mixins/src/grid';
+@import '~@7ninjas/scss-mixins/src/icons';
+@import '~@7ninjas/scss-mixins/src/positioning';
+@import '~@7ninjas/scss-mixins/src/spacing';
+@import '~@7ninjas/scss-mixins/src/typography';
+@import '~@7ninjas/scss-mixins/src/utils';
+
+// Custom styles
+@import 'mixins/mixins';
+@import 'common/common';
+@import 'components/components';
+@import 'sections/sections';

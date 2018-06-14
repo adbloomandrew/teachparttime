@@ -1,0 +1,39 @@
+.footer-section {
+  background-color: $color-gray-dark;
+  padding: 30px 0 70px;
+
+  font-family: $font-family-base;
+  font-size: 16px;
+  font-weight: 300;
+  color: $color-white;
+
+  .footer-label {
+    margin-bottom: 10px;
+  }
+
+  .footer-nav {
+    @include list-unstyled;
+
+    .nav-item {
+      @include inline-flex;
+
+      &:not(:last-child) {
+        @include relative;
+        padding-right: 16px;
+
+        &:after {
+          @include pseudo;
+          @include absolute(top 0 right 7px);
+          @include size(2px, 100%);
+          background-color: $color-white;
+        }
+      }
+
+      .link {
+        @include link-variant($color-white, $color-white);
+        font-weight: 700;
+      }
+    }
+  }
+
+}

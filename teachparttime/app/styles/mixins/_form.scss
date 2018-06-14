@@ -1,0 +1,124 @@
+@import '~bootstrap/scss/mixins/resize';
+
+// Default input variables
+
+$color-success: #6acb00;
+$brand-primary: #2189ff;
+$gray-lighter: #e6e6e6;
+
+//Input
+$input-color: #212121;
+$input-placeholder-color: $color-gray-dark;
+$input-bg: $color-white;
+$input-border-width: 1px;
+$input-border-color: #bbbbbb;
+$input-border-radius: 4px;
+$input-box-shadow: inset 0px 2px 3px #dddddd;
+$input-padding-y: 8px;
+$input-padding-x: 20px;
+
+$input-disabled-bg: #f0f0f0;
+
+$input-focus-color: $input-color;
+$input-focus-bg: #edf3ff;
+$input-focus-border-color: #75b6ff;
+$input-focus-box-shadow: $input-box-shadow;
+
+// Textarea
+$textarea-resizable: false;
+$textarea-resizable-direction: vertical;
+
+// Forms error
+$input-error-color: $input-color;
+$input-error-bg: $input-bg;
+$input-error-border-color: $brand-primary;
+$input-error-box-shadow: $input-box-shadow;
+$input-error-message-color: $brand-primary;
+
+@mixin input-focus() {
+  &:focus {
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    color: $input-focus-color;
+    outline: none;
+
+    @if $input-focus-box-shadow {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+@mixin input() {
+  background-clip: padding-box;
+  background-color: $input-bg;
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214.
+  background-image: none;
+  border: $input-border-width solid $input-border-color;
+  color: $input-color;
+  display: block;
+  // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: $input-padding-y $input-padding-x;
+  width: 100%;
+  border-radius: $input-border-radius;
+
+  @if $input-box-shadow {
+    box-shadow: $input-box-shadow;
+  }
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include input-focus();
+
+  // Placeholder
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $input-disabled-bg;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+
+  &.valid {
+    border-color: $color-success;
+  }
+
+  &.invalid {
+    background-color: $input-error-bg;
+    border-color: $input-error-border-color;
+    color: $input-error-color;
+
+    @if $input-box-shadow {
+      box-shadow: $input-error-box-shadow;
+    }
+  }
+}
+
+@mixin textarea() {
+  @include input();
+
+  height: auto;
+  //padding: $input-padding-y $input-padding-x;
+
+  @if ($textarea-resizable) {
+    @include resizable($textarea-resizable-direction);
+  }
+
+  @else {
+    resize: none;
+  }
+}

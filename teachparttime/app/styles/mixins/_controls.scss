@@ -1,0 +1,44 @@
+@mixin link-variant($color, $hover-color: false, $text-decoration: none) {
+  @include outline-none;
+  transition: color $transition-duration-short ease;
+  color: $color;
+  text-decoration: $text-decoration;
+
+  &:after {
+    transition: background-color $transition-duration-short ease;
+    background-color: $color;
+  }
+
+  @include hover-focus {
+    text-decoration: $text-decoration;
+    cursor: pointer;
+
+    @if $hover-color {
+      color: $hover-color;
+
+      &:after {
+        background-color: $hover-color;
+      }
+
+      svg {
+        fill: $hover-color;
+      }
+    }
+    @else {
+      color: darken($color, 10%);
+
+      &:after {
+        background-color: darken($color, 10%);
+      }
+
+      svg {
+        fill: darken($color, 10%);
+      }
+    }
+  }
+
+  svg {
+    fill: $color;
+    transition: fill $transition-duration-short ease;
+  }
+}

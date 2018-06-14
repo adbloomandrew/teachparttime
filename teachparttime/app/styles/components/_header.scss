@@ -1,0 +1,13 @@
+.header {
+  background-color: $color-primary;
+  padding: 14px 0;
+
+  .progress {
+    max-width: 470px;
+    margin: 20px auto 0;
+
+    .progress-bar {
+      background-color: $color-pink;
+    }
+  }
+}

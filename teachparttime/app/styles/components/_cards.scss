@@ -1,0 +1,6 @@
+.card-block {
+  background-color: $color-white;
+  box-shadow: 0 4px 25px 1px transparentize($color-red-darkest, 0.92);
+  padding: 15px 30px 20px;
+  border-radius: $border-radius;
+}

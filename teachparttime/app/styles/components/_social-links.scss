@@ -1,0 +1,46 @@
+// Social links component styles
+
+.social-links {
+  // General styles
+
+  @include list-unstyled;
+  @include mb(0);
+  display: inline-block;
+
+  .list-item {
+    @include inline-flex;
+
+    &:not(:last-child) {
+      @include mr(5);
+    }
+  }
+
+  .social-link {
+    @include inline-flex;
+
+    svg {
+      @include svg-icon($width: 20px);
+    }
+  }
+
+  // types styles
+  // green || transparent || blue
+
+  &.green {
+    .social-link {
+      @include link-variant($color-green-light, $color-green-light);
+    }
+  }
+
+  &.transparent {
+    .social-link {
+      @include link-variant(transparentize($white, .8), $white);
+    }
+  }
+
+  &.blue {
+    .social-link {
+      @include link-variant($color-blue-darkest);
+    }
+  }
+}

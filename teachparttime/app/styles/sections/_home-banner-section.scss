@@ -1,0 +1,7 @@
+.home-banner-section {
+  padding: 20px 0;
+
+  .video-wrap {
+    @include responsive-embed();
+  }
+}

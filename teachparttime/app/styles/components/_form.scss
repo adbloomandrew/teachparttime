@@ -1,0 +1,45 @@
+.form-input {
+  @include input;
+  width: 100%;
+}
+
+.form-label {
+
+}
+
+.form-select {
+  @include input;
+  height: 42px;
+}
+
+.checkbox-label {
+  @include relative;
+  padding-left: 25px;
+  user-select: none;
+
+  input:checked ~ .checkmark:after {
+    opacity: 1;
+  }
+
+  .checkmark {
+    @include size(15px);
+    @include absolute(left 0 top 50%);
+    transform: translateY(-50%);
+    border: 1px solid $color-gray-dark;
+    cursor: pointer;
+
+    &:after {
+      @include pseudo;
+      @include size(15px);
+      @include absolute(left 0 top 50%);
+      transform: translateY(-50%);
+      background-color: $color-gray-dark;
+      background-image: url("data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%20765.2%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M960%2C233.4L468.2%2C725.1c-53.4%2C53.4-140%2C53.4-193.3%2C0L40%2C490.3c-53.4-53.4-53.4-140%2C0-193.3c53.4-53.4%2C140-53.4%2C193.3%2C0%09l138.2%2C138.2L766.6%2C40c53.4-53.4%2C140-53.4%2C193.3%2C0C1013.3%2C93.4%2C1013.3%2C180%2C960%2C233.4z%22%2F%3E%3C%2Fsvg%3E");
+      background-size: 65%;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+  }
+}
