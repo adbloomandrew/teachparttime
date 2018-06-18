@@ -235,22 +235,44 @@ $(".form-group").change(function() {
 	var value = $($(this).children()[1]).val();
 
 	//
-	//	3.	Check if we got some values to save
+	//	3.	If there are not default input values, there is a chance the
+	//		form change was because of check boxes.
 	//
 	if(!key || !value)
 	{
 		//
-		//	1.	Loop over
+		//	1.	Loop over check boxes
 		//
 		$(this).children().each(function(index, div) {
 
 			$(div).children().each(function(index, check) {
 
+				//
+				//	1.	If checked we enable the key, and save it to the
+				//		session
+				//
 				if(check.checked)
 				{
 					var key = $(check).attr('id');
 
 					session.fields[key] = true;
+				}
+
+				//
+				//	2.	If not checked we set an empty value so we remove it
+				//		from Airtable
+				//
+				if(!check.checked)
+				{
+					var key = $(check).attr('id');
+
+					//
+					//	1.	Make sure we have this key in our session
+					//
+					if(session.fields[key])
+					{
+						session.fields[key] = "";
+					}
 				}
 
 			});
