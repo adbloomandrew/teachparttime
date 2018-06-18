@@ -250,10 +250,7 @@ $(".form-group").change(function() {
 				{
 					var key = $(check).attr('id');
 
-					console.log(key);
-
 					session.fields[key] = true;
-
 				}
 
 			});
@@ -262,9 +259,15 @@ $(".form-group").change(function() {
 	}
 
 	//
-	//	4.	Save or update the data in the user session
+	//	4.	Set a non check box value only when there is data
 	//
-	session.fields[key] = value;
+	if(key || value)
+	{
+		//
+		//	1.	Save or update the data in the user session
+		//
+		session.fields[key] = value;
+	}
 
 	//
 	//	5.	Update Cookies no matter what for simplicity sake
