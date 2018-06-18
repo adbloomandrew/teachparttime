@@ -12,6 +12,32 @@
 
 <script>
 
+//
+//	1.	Get the user session from the cookies. At this stage we might not have
+//		it if we are dealing with a new user. A session will be present
+//		only if we are dealing with a returning user.
+//
+var session = Cookies.getJSON('tpt_session');
+
+//
+//	2.	Check if we got the session
+//
+if(session)
+{
+	//
+	//	1.	Loop over the whole object and look for the matching HTML element,
+	//		and populate it with the data.
+	//
+	$.each(session.fields, function(key, value) {
+
+		//
+		//	1.	Set the value of the input
+		//
+		$('#' + key).val(value);
+
+	});
+}
+
 //	  ____    _   _
 //	 / __ \  | \ | |
 //	| |  | | |  \| |
@@ -34,42 +60,80 @@ $('form').on("submit", function(event) {
 	//
 	//	2.	Get the user inputs
 	//
-	var full_name = $('#full_name').val();
-	var email = $('#email').val();
+	var full_name 	= $('#full_name').val();
+	var email 		= $('#email').val();
 
 	//
-	//	3.	Create the object that will hold all the user data until
-	//		he or she finishes filling the form
+	//	3.	If we have a session we update the data since the user might have
+	//		decided to change the name email or fix a typo.
 	//
-	var session = {
-		fields: {
-			name: full_name,
-			email: email,
-			submission_date: moment().toISOString()
+	if(session)
+	{
+		session.fields.full_name = full_name;
+		session.fields.email = email;
+	}
+
+	//
+	//	4.	If there isn't a session we create a new one.
+	//
+	if(!session)
+	{
+		session = {
+			fields: {
+				full_name: full_name,
+				email: email,
+				submission_date: moment().toISOString()
+			}
 		}
 	}
 
 	//
-	//	4.	Save the data to Airtable
+	//	5.	Insert or Updated the data to Airtable
 	//
 	save_to_airtable(session, function(id) {
 
 		//
-		//	2.	Save the Airtable ID so we can update the user record in all
+		//	1.	Save the Airtable ID so we can update the user record in all
 		//		the subsequent pages.
 		//
 		session.id = id;
 
 		//
-		//	3.	Save the whole user session so we can save the progress of the
-		//		page.
+		//	2.	Create the continuation ID so if used one can continue filling
+		//		the form from another device.
 		//
-		Cookies.set('tpt_session', session, { secure: true });
+		var url = 'https://'
+				+ document.location.hostname
+				+ '/restore?continuation_id='
+				+ id;
 
 		//
-		//	->	Redirect the user to the next step
+		//	3.	Create the data to be sent to Airtable
 		//
-		window.location.replace('form.html');
+		var continuation_url = {
+			id: id,
+			fields: {
+				continuation_url: url
+			}
+		}
+
+		//
+		//	3.	Update Airtable
+		//
+		save_to_airtable(continuation_url, function() {
+
+			//
+			//	2.	Save the whole user session so we can save the progress of the
+			//		page.
+			//
+			Cookies.set('tpt_session', session, { secure: true });
+
+			//
+			//	->	Redirect the user to the next step
+			//
+			window.location.replace('form.html');
+
+		});
 
 	});
 

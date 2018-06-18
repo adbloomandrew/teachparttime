@@ -201,7 +201,7 @@ $.each(session.fields, function(key, value) {
 	//
 	//	1.	Set the value of the input
 	//
-	$('#' + key).val(value)
+	$('#' + key).val(value);
 
 	//
 	//	2.	Check if we are dealing with checkboxes
@@ -227,12 +227,12 @@ $(".form-group").change(function() {
 	//	1.	Get the ID of the input form, which will become the key of the
 	//		JS Object
 	//
-	var key = $($( this ).children()[1]).attr('id');
+	var key = $($(this).children()[1]).attr('id');
 
 	//
 	//	2.	Get the value that will be saved under the Key
 	//
-	var value = $($( this ).children()[1]).val();
+	var value = $($(this).children()[1]).val();
 
 	//
 	//	3.	Check if we got some values to save
