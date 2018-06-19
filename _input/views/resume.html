@@ -1,31 +1,16 @@
-<script crossorigin="anonymous" src="./assets/js/jquery-ui-v1.12.1.min.js"></script>
-<script crossorigin="anonymous" src="./assets/js/jquery.iframe-transport-v1.0.1.js"></script>
-<script crossorigin="anonymous" src="./assets/js/jquery.fileupload-v9.21.0.js"></script>
+<script crossorigin="anonymous" src="./assets/js/aws-sdk-2.259.1.min.js"></script>
 
 <form>
 
 	<h1">Please upload a copy of your latest resume.</h1>
 
-	<!--
-
-		The fileinput-button span is used to style the file input field as button
-
-	-->
-	<span class="btn btn-success fileinput-button">
-		<i class="glyphicon glyphicon-plus"></i>
-		<span>Select files...</span>
-		<!-- The file input field used as target for the file upload widget -->
-		<input id="fileupload" type="file" name="files[]" multiple>
-	</span>
-
-	<!--
-
-		The global progress bar
-
-	-->
-	<div id="progress" class="progress">
-		<div class="progress-bar progress-bar-success"></div>
+	<div class="custom-file">
+		<input id="resume" type="file" class="custom-file-input">
+		<label class="custom-file-label" for="customFile">Choose file</label>
 	</div>
+
+	<button id="upload" type="submit" disabled>Upload</button>
+	<button id="skip" type="submit" disabled>Skip</button>
 
 </form>
 
@@ -36,77 +21,168 @@
 //
 var session = Cookies.getJSON('tpt_session');
 
-session.fields.resume = [
-	{
-		"url": "https://0x4447.com/assets/img/home/header@1x.jpg"
-	}
-]
+//
+//	Initialize the Amazon Cognito credentials provider
+//
+var albumBucketName = 'dev.teachpart-time.com-resumes';
+var bucketRegion = 'us-east-1';
+var IdentityPoolId = 'us-east-1:57db0921-622e-408f-a321-44d3df8d0823';
 
-save_to_airtable(session, function() {
+//
+//	Get temporary credentials from AWS to allow us to upload file to S3
+//
+AWS.config.update({
+	region: bucketRegion,
+	credentials: new AWS.CognitoIdentityCredentials({
+		IdentityPoolId: IdentityPoolId
+	})
+});
+
+//
+//	Initialize the S3 object pointing to the bucket where the resume needs to
+//	end up.
+//
+var s3 = new AWS.S3({
+	apiVersion: '2006-03-01',
+	params: {
+		Bucket: albumBucketName
+	}
+});
+
+//
+//	Check if the user already submitted a resume. And if so change the buttons
+//
+if(session.fields.resume)
+{
+	$('#skip').removeAttr("disabled");
+	$('#upload').text('Replace');
+}
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<> React to a file select, this way we can change the state of the page
+//
+$("input:file").change(function (){
+
+	//
+	//	1.	Remove the disabled attribute on the button so the user can
+	//		upload the file, since he or she did select it.
+	//
+	$('#upload').removeAttr("disabled");
+
+});
+
+$('#skip').on('click', function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
 
 	window.location.replace('video.html');
 
 });
 
 //
-//	Get the user session from the cookies
+//	<<>	React when the user submits the form
 //
-var session = Cookies.getJSON('tpt_session');
-
-//
-//	File uploader
-//
-$(function () {
-
-	'use strict';
+$('#upload').on('click', function(event) {
 
 	//
-	//	Start uploading the file
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
 	//
-	$('#fileupload').fileupload({
-		//
-		//	Set the URL where to send the data
-		//
-		url: "https://requestbin.fullcontact.com/1m81zj61",
-		//
-		//	Set the type of response to expect from the server. it should be
-		//	JSON right now, but while testing it must be text
-		//
-		dataType: 'text',
-		//
-		//	We just need to be able to send one file
-		//
-		singleFileUploads: true
-	})
-	.bind('fileuploadprogress', function (error, data) {
+	event.preventDefault();
+
+	//
+	//	2.	Update the UI to let the user know what is happening
+	//
+	$('#upload').text('Uploading...');
+
+	//
+	//	3..	Get the file information from the HTML form
+	//
+	var files = document.getElementById('resume').files;
+
+	//
+	//	4.	Get the first object
+	//
+	var file = files[0];
+
+	//
+	//	5.	Get the file name
+	//
+	var file_name = file.name;
+
+	//
+	//	6.	Create a request object which will allow us to monitor the progress
+	//		of the upload
+	//
+	var request = s3.putObject({
+		Key: file_name,
+		Body: file,
+		ACL: 'public-read'
+	});
+
+	//
+	//	7.	Add a listener to react every time there is a progress update so
+	//		we know how much of the file was sent.
+	//
+	request.on('httpUploadProgress', function (progress) {
+
+		//console.log(progress.loaded + " of " + progress.total + " bytes");
+		//console.log(Math.floor((progress.total - progress.loaded) / progress.total * 100));
+
+	});
+
+	//
+	//	8.	Start the upload process
+	//
+	request.send(function(res) {
 
 		//
-		//	1.	Calculate the percentage of data sent
+		//	1.	Let the user know we finished
 		//
-		var progress = parseInt(data.loaded / data.total * 100, 10);
+		$('#upload').text('Done!');
 
 		//
-		//	2.	Update the CSS progress bar to visually represent the %
+		//	2.	Create the public URL for the file that will be used by
+		//		Airtable to pull the file in to the table
 		//
-		$('#progress .progress-bar').css('width', progress + '%');
-
-	})
-	.bind('fileuploaddone', function (error, data) {
-
-		//
-		//	1.	Save or update the data in the user session
-		//
-		session.resume = data.result;
+		var url = "https://s3.amazonaws.com/"
+				+ "dev.teachpart-time.com-resumes/"
+				+ file_name;
 
 		//
-		//	2.	Update Cookies no matter what for simplicity sake
+		//	3.	Save the URL in to the user session
+		//
+		session.fields.resume = [
+			{
+				"url": url
+			}
+		];
+
+		//
+		//	4.	Update the session with the resume URL
 		//
 		Cookies.set('tpt_session', session, { secure: true });
 
 		//
-		//	->	Redirect the user to the next step
+		//	5.	Insert or Update Airtable
 		//
-		window.location.replace('video.html');
+		save_to_airtable(session, function() {
+
+			window.location.replace('video.html');
+
+		});
 
 	});
 
