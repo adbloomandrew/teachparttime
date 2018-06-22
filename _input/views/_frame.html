@@ -15,7 +15,7 @@
 		<script crossorigin="anonymous" src="./assets/js/js.cookie-v2.2.0.min.js"></script>
 		<script crossorigin="anonymous" src="./assets/js/moment-v2.22.2.js"></script>
 
-		<link rel="stylesheet" href="./assets/css/bootstrap-v4.0.0.min.css">
+		<!-- <link rel="stylesheet" href="./assets/css/bootstrap-v4.0.0.min.css"> -->
 
 		<script type="text/javascript">
 
@@ -125,19 +125,37 @@
 
 	<body>
 
-		<header>
-
-		</header>
-
-		<main role="main">
+		<div class="base-layout">
+			<!-- Header -->
+			<section class="header">
+				<div class="container text-center">
+					<img src="./assets/img/_global/logo.png" alt="Qkids" class="img-fluid">
+				</div>
+			</section>
+			<!-- End Header -->
 
 			{{>body}}
 
-			<footer class="container text-center">
+			<!-- Footer section -->
+			<section class="footer-section text-center">
+				<div class="container">
+					<div class="footer-label">Applications to become a Qkids teacher are managed by TeachPartTime.com</div>
+					<ul class="footer-nav">
+						<li class="nav-item">
+							<a href="http://www.teachparttime.com/terms-of-use/" class="link" target="_blank"
+							rel="noopener noreferrer">Terms of Service</a>
+						</li>
+						<li class="nav-item">
+							<a href="http://www.teachparttime.com/privacy-policy/" class="link" target="_blank"
+							rel="noopener noreferrer">Privacy Policy</a>
+						</li>
+					</ul>
+				</div>
+			</section>
 
-			</footer>
+		</div>
 
-		</main>
+		</div>
 
 	</body>
 
