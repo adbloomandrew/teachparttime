@@ -27,7 +27,7 @@
 				<li class="typo-h4 mb-1 text-gray">Describe your experience with kids or teaching in just a few sentences</li>
 				<li class="typo-h4 mb-1 text-gray">
 					After your introduction, please tell or read a short story
-					(<a href="mouse.html" class="link-violet">here’s a sample to read</a>)
+					(<a href="mouse.html" target="_blank" class="link-violet">here’s a sample to read</a>)
 				</li>
 			</ol>
 			<hr class="divider divider__gray mt-3 mb-5">
@@ -37,7 +37,7 @@
 				to see a succesful demo video.<br>
 				Have you already created a video? Simply upload it to youtube and paste the url into the field below.
 			</p>
-			<form action="">
+			<form>
 
 				<div class="w-520 mb-3">
 					<div class="video-recorder" id="hdfvr-content"></div>
@@ -45,7 +45,7 @@
 
 				<p class="typo-paragraph text-gray mb-3">Created a Video already? Paste the URL below.</p>
 				<div class="js-form-group mb-3">
-					<input type="url" class="form-input mb-1" name="youtube_url" id="youtube_url"
+					<input type="url" class="form-input mb-1" id="youtube_url"
 						   required placeholder="http://youtube.com/My-Video-URL" title="http://youtube.com/My-Video-URL">
 					<div class="file-note text-gray">
 						copy and paste your 1-minute Youtube video URL, make sure your video is set for sharing
@@ -187,33 +187,22 @@ $('#submit').on("click", function(event) {
 $(".js-form-group").change(function() {
 
 	//
-	//	1.	Get the ID of the input form, which will become the key of the
-	//		JS Object
+	//	1.	Save or update the data in the user session
 	//
-	var key = $($( this ).children()[1]).attr('id');
+	session.fields.youtube_url = $('#youtube_url').val();
 
 	//
-	//	2.	Get the value that will be saved under the Key
-	//
-	var value = $($( this ).children()[1]).val();
-
-	//
-	//	3.	Save or update the data in the user session
-	//
-	session.fields[key] = value;
-
-	//
-	//	5.	Update Cookies no matter what for simplicity sake
+	//	2.	Update Cookies no matter what for simplicity sake
 	//
 	Cookies.set('tpt_session', session, { secure: true });
 
 	//
-	//	6.	Mark that we can move forward
+	//	3.	Mark that we can move forward
 	//
 	we_cant_progress = false;
 
 	//
-	//	7.	Make the first request to save the partial data that the user
+	//	4.	Make the first request to save the partial data that the user
 	//		submitted, so then in our DB we know what is missing and can
 	//		ping the user to let them know what is left.
 	//
