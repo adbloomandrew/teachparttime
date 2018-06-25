@@ -24,7 +24,7 @@
 				<div class="js-form-group mb-5">
 					<div class="typo-h4 typo-bold text-gray form-label mb-3">Please upload a copy of your latest resume.*</div>
 					<label class="file-label">
-						<input name="resume" type="file" accept=".doc, .docx, .pdf" class="d-none">
+						<input id="resume" type="file" accept=".doc, .docx, .pdf" class="d-none">
 						<span class="control-gray-btn file-upload-btn mr-3">Choose file</span>
 						<span id="js-file-name" class="file-name">No file chosen</span>
 					</label>
@@ -38,16 +38,6 @@
 		</div>
 	</div>
 </section>
-
-
-<script>
-    $(document).ready(function () {
-        $("input[type='file']").change(function () {
-            var filename = $(this).val().split('\\').pop();
-            $('#js-file-name').text(filename ? filename : 'No file chosen')
-        })
-    });
-</script>
 
 <script>
 
@@ -114,6 +104,10 @@ $("input:file").change(function (){
 
 });
 
+//
+//	<<> If the user already uploaded a resume, give them the chance to skip
+//		this step.
+//
 $('#skip').on('click', function(event) {
 
 	//
