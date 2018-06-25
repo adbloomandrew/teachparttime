@@ -251,12 +251,18 @@ The data layer set for Google Tag Manager
 <a href="#banner-form-container" class="js-smooth-scroll control-pink-btn form-anchor-link">Apply</a>
 
 <script>
-    $(document).ready(function() {
-        const anchor = $('.form-anchor-link');
-        $(window).scroll(function () {
-            $('#banner-form-container').visible(true) ? anchor.fadeOut() : anchor.fadeIn();
-        })
-    })
+	var anchor = $('.form-anchor-link');
+
+	$(window).scroll(function () {
+		if($(window).scrollTop() + $(window).height() == $(document).height())
+		{
+			if($('#banner-form-container').is(':visible'))
+			{
+				anchor.show();
+			}
+		}
+	});
+
 </script>
 <!-- End Anchor link -->
 
