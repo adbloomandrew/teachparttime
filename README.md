@@ -16,7 +16,7 @@ Then build the project
 npm run build
 ```
 
-Then go to the `_preview` folder and open `home.html`
+To preview the project visit the `_preview` folder and click on the `home.html` file to open the page.
 
 # Where is this project hosted
 
@@ -29,6 +29,4 @@ You can do it manually by updating the file on S3, and then invalidating the cas
 # Everything in one command
 
 `npm run build && potato -s _output -u -b dev.teachpart-time.com -a KEY -t SECRET_KEY`
-
-To preview the project visit the `_preview` folder and click on the `home.html` file to open the page.
 
