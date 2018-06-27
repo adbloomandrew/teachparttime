@@ -37,9 +37,11 @@ The data layer set for Google Tag Manager
 
 					<form>
 
-						<input type="text" id="full_name" class="form-input mb-3" placeholder="Full name" autocomplete="full-name" required="" autofocus="">
+						<input type="text" id="full_name" class="form-input mb-3" placeholder="Full name" autocomplete="full-name" required autofocus>
 
-						<input type="email" id="email" class="form-input mb-3" placeholder="Email" autocomplete="email" required="">
+						<input type="email" id="email" class="form-input mb-3" placeholder="Email" autocomplete="email" required>
+
+						<input type="hidden" id="cid" class="form-input mb-3">
 
 						<button type="submit" class="control-pink-btn w-100 mb-2">Apply</button>
 
@@ -268,31 +270,49 @@ The data layer set for Google Tag Manager
 
 <script>
 
-	//
-	//	1.	Get the user session from the cookies. At this stage we might not have
-	//		it if we are dealing with a new user. A session will be present
-	//		only if we are dealing with a returning user.
-	//
-	var session = Cookies.getJSON('tpt_session');
+//
+//	1.	Get the user session from the cookies. At this stage we might not have
+//		it if we are dealing with a new user. A session will be present
+//		only if we are dealing with a returning user.
+//
+var session = Cookies.getJSON('tpt_session');
 
+//
+//	2.	Check if we got the session
+//
+if(session)
+{
 	//
-	//	2.	Check if we got the session
+	//	1.	Loop over the whole object and look for the matching HTML
+	//		element, and populate it with the data.
 	//
-	if(session)
-	{
+	$.each(session.fields, function(key, value) {
+
 		//
-		//	1.	Loop over the whole object and look for the matching HTML element,
-		//		and populate it with the data.
+		//	1.	Set the value of the inputs
 		//
-		$.each(session.fields, function(key, value) {
+		$('#' + key).val(value);
 
-			//
-			//	1.	Set the value of the input
-			//
-			$('#' + key).val(value);
+	});
+}
 
-		});
-	}
+//
+//	3.	Convert the query part of the URL in to a JS object so we can easily
+//		get to what we want.
+//
+var query_obj = get_queries_from_url(document.location.href);
+
+//
+//	4.	Check if the CID was passed in the URL
+//
+if(query_obj.cid)
+{
+	//
+	//	1.	Set the CID in to the hidden input. This way we know where the
+	//		user came from.
+	//
+	$('#cid').val(query_obj.cid);
+}
 
 //	  ____    _   _
 //	 / __ \  | \ | |
@@ -318,6 +338,7 @@ $('form').on("submit", function(event) {
 	//
 	var full_name 	= $('#full_name').val();
 	var email 		= $('#email').val();
+	var cid 		= $('#cid').val();
 
 	//
 	//	3.	If we have a session we update the data since the user might have
@@ -327,6 +348,7 @@ $('form').on("submit", function(event) {
 	{
 		session.fields.full_name = full_name;
 		session.fields.email = email;
+		session.fields.cid = cid;
 	}
 
 	//
@@ -338,6 +360,7 @@ $('form').on("submit", function(event) {
 			fields: {
 				full_name: full_name,
 				email: email,
+				cid: cid,
 				submission_date: moment().toISOString()
 			}
 		}
@@ -379,8 +402,8 @@ $('form').on("submit", function(event) {
 		save_to_airtable(continuation_url, function() {
 
 			//
-			//	1.	Save the whole user session so we can save the progress of the
-			//		page.
+			//	1.	Save the whole user session so we can save the progress of
+			//		the page.
 			//
 			Cookies.set('tpt_session', session, { secure: true });
 
@@ -394,5 +417,58 @@ $('form').on("submit", function(event) {
 	});
 
 });
+
+//
+//	This function will take the URL from the browser and parse it to extract
+//	all the query parameters and convert them in to a JS object.
+//
+function get_queries_from_url(url)
+{
+	//
+	//	1.	Split the sting in two peaces, on the left you get the URL. One
+	//		the right you get a new string with all the queries.
+	//
+	var left_right = url.split('?')
+
+	//
+	//	2.	Create the JS object that will hold all the queries
+	//
+	var queries = {};
+
+	//
+	//	3.	Check if we have the right side, meaning the query part of the URL
+	//
+	if(left_right[1])
+	{
+		//
+		//	1.	Take the string from the right side and split it again
+		//		to get the individual queries.
+		//
+		var query = left_right[1].split('&')
+
+		//
+		//	2.	Loop over the individual quires to get to the data that we care
+		//		about.
+		//
+		for(var i = 0; i < query.length; i++)
+		{
+			//
+			//	1.	Split in the middle of the query to get the key and the
+			//		value
+			//
+			var data = query[i].split('=');
+
+			//
+			//	2.	Save what we got in to the JS object
+			//
+			queries[data[0]] = data[1];
+		}
+	}
+
+	//
+	//	->	Return the query string as an JS object.
+	//
+	return queries;
+}
 
 </script>
