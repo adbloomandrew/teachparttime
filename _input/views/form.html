@@ -360,6 +360,128 @@ $('form').on("submit", function(event) {
 	event.preventDefault();
 
 	//
+	//	2.	Get the user session from the cookies. We do this before we move
+	//		to the next page so we make sure there is no missing data.
+	//
+	var session = Cookies.getJSON('tpt_session');
+
+	//
+	//	3.	An array holding all the required form fields
+	//
+	var form_required = [
+		'country', 'state',
+		'city', 'phone',
+		'education', 'work_permit'
+	];
+
+	//
+	//	4.	This are the possible checkboxes for Mon to Sun
+	//
+	var mon_sun_time = ['ms_1', 'ms_2', 'ms_3', 'ms_4'];
+
+	//
+	//	5.	This are the possible checkboxes for Fri to Sat
+	//
+	var fri_sat_time = ['fs_1', 'fs_2', 'fs_3', 'fs_4', 'fs_5'];
+
+	//
+	//	6. And array that will hold all the missing fields
+	//
+	var missing_list = [];
+
+	//
+	//	7.	Check if the session is actually present. Someone could have
+	//		deleted the session by hand.
+	//
+	if(session)
+	{
+		//
+		//	1.	Loop over each form input to see if something is missing.
+		//
+		$.each(form_required, function(index, key) {
+
+			//
+			//	1.	Check if the key has a value behind it
+			//
+			if(!session.fields[key])
+			{
+				missing_list.push(key);
+			}
+
+		});
+
+		//
+		//	2.	Create special variables to keep track if at least one
+		//		checkbox was selected.
+		//
+		var mon_sun = 0;
+		var fri_sat = 0;
+
+		//
+		//	3.	Loop over every checkbox and see if something was selected
+		//
+		$.each(mon_sun_time, function(index, key) {
+
+			//
+			//	1.	Check if the key has a value behind it
+			//
+			if(session.fields[key])
+			{
+				mon_sun++;
+			}
+
+		});
+
+		//
+		//	4.	Loop over every checkbox and see if something was selected
+		//
+		$.each(fri_sat_time, function(index, key) {
+
+			//
+			//	1.	Check if the key has a value behind it
+			//
+			if(session.fields[key])
+			{
+				fri_sat++;
+			}
+
+		});
+
+		//
+		//	5.	Check the count for each checkbox type, and if the result is
+		//		a big zero, then we know the user did not select anything.
+		//		If the result is a positive number, then we know something was
+		//		checked.
+		//
+		if(!mon_sun)
+		{
+			missing_list.push("at least one Mon to Sun time");
+		}
+
+		if(!fri_sat)
+		{
+			missing_list.push("at least one Fri to Sat time");
+		}
+	}
+
+	//
+	//	6.	If the array is not empty, then it means that there was at least
+	//		one missing spot.
+	//
+	if(missing_list.length)
+	{
+		//
+		//	1.	Join the array in to a nice sting
+		//
+		var missing_imputs = missing_list.join(', ');
+
+		//
+		//	->	Don't let the user move forward
+		//
+		return alert("You are missing the following fields: " + missing_imputs);
+	}
+
+	//
 	//	->	Redirect the user to the next step
 	//
 	window.location.replace('video.html');
