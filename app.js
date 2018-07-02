@@ -91,7 +91,7 @@ app.use(helmet.noCache());
 app.use(helmet.contentSecurityPolicy({
 	directives: {
 		defaultSrc: ["'none'"],
-		connectSrc: ["'self'", "api.airtable.com", "cognito-identity.us-east-1.amazonaws.com", "s3.amazonaws.com", "*.addpipe.com"],
+		connectSrc: ["'self'", "api.airtable.com", "cognito-identity.us-east-1.amazonaws.com", "s3.amazonaws.com", "*.addpipe.com", "wss://*.addpipe.com"],
 		fontSrc: ["'self'", "fonts.gstatic.com"],
 		frameSrc: ["'self'", "www.youtube.com"],
 		imgSrc: ["'self'", "data:", "*.addpipe.com"],
