@@ -10,24 +10,9 @@ router.get('/', function(req, res, next) {
 	let css_file = req.hostname.split('.')[0];
 
 	//
-	//	2.	By default we load the default CSS if no subdomain is found.
+	//	2.	Create the custom path to the CSS
 	//
-	let css = '/css/default.css';
-
-	//
-	//	3.	Check if the domain has a subdomain
-	//
-	if(css_file)
-	{
-		//
-		//	1.	Create the custom path to the CSS
-		//
-		css = '/css/' + css_file + '.css';
-	}
-
-	console.log(req.hostname);
-	console.log(css_file);
-	console.log(css);
+	css = '/css/' + css_file + '.css';
 
 	//
 	//	->	Render the HTML page
