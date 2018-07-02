@@ -97,7 +97,7 @@ app.use(helmet.contentSecurityPolicy({
 		imgSrc: ["'self'", "data:", "*.addpipe.com"],
 		mediaSrc: ["'none'"],
 		objectSrc: ["'none'"],
-		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com"],
+		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com", "cdnjs.cloudflare.com"],
 		styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"]
 	}
 }));
