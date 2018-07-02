@@ -484,7 +484,7 @@ $('form').on("submit", function(event) {
 	//
 	//	->	Redirect the user to the next step
 	//
-	window.location.replace('video.html');
+	return window.location.href = 'video';
 
 });
 

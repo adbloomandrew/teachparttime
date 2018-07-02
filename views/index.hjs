@@ -117,7 +117,7 @@ The data layer set for Google Tag Manager
 						Available to teach a minimum of 6 hours (12 classes) per week
 					</li>
 				</ul>
-				<img src="./assets/img/_global/home-2.jpg" alt="Teachers" class="img-fluid">
+				<img src="/img/home-2.jpg" alt="Teachers" class="img-fluid">
 			</div>
 		</div>
 	</div>
@@ -227,7 +227,7 @@ The data layer set for Google Tag Manager
 	<div class="container mt-1">
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<img src="./assets/img/_global/home-1.jpg" alt="office" class="img-fluid mb-4">
+				<img src="/img/home-1.jpg" alt="office" class="img-fluid mb-4">
 			</div>
 			<div class="col-12 col-md-6">
 				<p class="typo-h3 text-white mb-3">
@@ -410,7 +410,7 @@ $('form').on("submit", function(event) {
 			//
 			//	->	Redirect the user to the next step
 			//
-			window.location.replace('form.html');
+			return window.location.href = 'form';
 
 		});
 

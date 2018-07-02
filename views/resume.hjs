@@ -11,7 +11,7 @@
 
 </script>
 
-<script crossorigin="anonymous" src="./assets/js/aws-sdk-2.259.1.min.js"></script>
+<script crossorigin="anonymous" src="/js/aws-sdk-2.259.1.min.js"></script>
 
 <section class="register-register-section">
 	<div class="container">
@@ -209,7 +209,7 @@ $('#upload').on('click', function(event) {
 		//
 		save_to_airtable(session, function() {
 
-			window.location.replace('thankyou.html');
+			return window.location.href = 'thankyou';
 
 		});
 

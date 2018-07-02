@@ -165,7 +165,7 @@ $('#submit').on("click", function(event) {
 		//
 		//	->	Redirect the user to the next step
 		//
-		window.location.replace('resume.html');
+		return window.location.href = 'resume';
 
 	});
 

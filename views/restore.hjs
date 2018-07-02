@@ -107,7 +107,7 @@ if(continuation_id)
 		//
 		//	->	Redirect the user to the error page
 		//
-		return window.location.replace('error.html');
+		return window.location.href = 'error';
 
 	});
 }
