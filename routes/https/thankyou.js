@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 	//
 	//	2.	Create the custom path to the CSS
 	//
-	css = '/css/' + css_file + '.css';
+	css = css_file + '.css';
 
 	//
 	//	->	Render the HTML page
