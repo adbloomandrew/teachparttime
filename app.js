@@ -94,7 +94,7 @@ app.use(helmet.contentSecurityPolicy({
 		connectSrc: ["'self'", "api.airtable.com", "cognito-identity.us-east-1.amazonaws.com", "s3.amazonaws.com", "*.addpipe.com"],
 		fontSrc: ["'self'", "fonts.gstatic.com"],
 		frameSrc: ["'self'", "www.youtube.com"],
-		imgSrc: ["'self'", "data:"],
+		imgSrc: ["'self'", "data:", "*.addpipe.com"],
 		mediaSrc: ["'none'"],
 		objectSrc: ["'none'"],
 		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com"],
