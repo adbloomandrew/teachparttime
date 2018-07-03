@@ -32,7 +32,6 @@
 				</div>
 
 				<button id="upload" type="submit" disabled class="control-gray-btn mr-2">Upload</button>
-				<button id="skip" type="submit" disabled class="control-gray-btn">Skip</button>
 
 			</form>
 		</div>
@@ -79,7 +78,6 @@ var s3 = new AWS.S3({
 //
 if(session.fields.resume)
 {
-	$('#skip').removeAttr("disabled");
 	$('#upload').text('Replace');
 }
 
@@ -101,22 +99,6 @@ $("input:file").change(function (){
 	//		upload the file, since he or she did select it.
 	//
 	$('#upload').removeAttr("disabled");
-
-});
-
-//
-//	<<> If the user already uploaded a resume, give them the chance to skip
-//		this step.
-//
-$('#skip').on('click', function(event) {
-
-	//
-	//	1.	Prevent the default form action so we can process the action
-	//		our way.
-	//
-	event.preventDefault();
-
-	window.location.replace('video.html');
 
 });
 
