@@ -218,8 +218,6 @@ $('#upload').on('click', function(event) {
 			file_name: file_name
 		}
 
-		console.log(session);
-
 		//
 		//	5.	Update the session with the resume URL
 		//
