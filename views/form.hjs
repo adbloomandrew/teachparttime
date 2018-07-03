@@ -177,10 +177,20 @@ if(session)
 	//
 	$.each(session.fields, function(key, value) {
 
-		//
-		//	1.	Set the value of the input
-		//
-		$('#' + key).val(value).change();
+		console.log(key);
+
+		if(key == 'country')
+		{
+			//
+			//	1.	Set the value of the input
+			//
+			$('#' + key).val(value).change();
+		}
+		else
+		{
+			$('#' + key).val(value)
+		}
+
 
 		//
 		//	2.	Check if we are dealing with checkboxes
