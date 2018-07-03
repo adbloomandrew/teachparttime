@@ -161,7 +161,7 @@
 <script>
 
 //
-//	1.	Get the user session from the cookies
+//	Get the user session from the cookies
 //
 var session = Cookies.getJSON('tpt_session');
 
@@ -207,7 +207,7 @@ var form_required = [
 ];
 
 //
-//	React every time a country is selected
+//	<<> React every time a country is selected
 //
 $("#country").change(function() {
 
@@ -282,32 +282,29 @@ $("#country").change(function() {
 });
 
 //
-//	2.	Check if the session is present. How could the session be missing
-//		at this stage? Well someone could delete the cookie by hand.
+//	Run the following code only if we have a Cookie session.
+//
+//	IMPORTANT
+//
+//		This code needs to be bellow $("#country").change(function() {})
+//		this way the listener is active and will react to the programmatic
+//		changes that the following code will do.
 //
 if(session)
 {
 	//
-	//	2.	Loop over the whole object and look for the matching HTML element,
+	//	1.	Loop over the whole object and look for the matching HTML element,
 	//		and populate it with the data.
 	//
 	$.each(session.fields, function(key, value) {
 
-		console.log(key, value);
-
-		if(key == 'country')
-		{
-
-			//
-			//	1.	Set the value of the input
-			//
-			$('#' + key).val(value).change();
-		}
-		else
-		{
-			$('#' + key).val(value)
-		}
-
+		//
+		//	1.	Set the value for the input field while also triggering a
+		//		change action, so the listener that is above, can
+		//		populate the state input field. THis way we can recreate the
+		//		whole form.
+		//
+		$('#' + key).val(value).change();
 
 		//
 		//	2.	Check if we are dealing with checkboxes
@@ -324,7 +321,7 @@ if(session)
 }
 
 //
-//	3.	Setup a listener which will react each time a input form is
+//	<<> Setup a listener which will react each time a input form is
 //		changed so we can keep saving the user information so he or she
 //		can always return to the form later
 //
