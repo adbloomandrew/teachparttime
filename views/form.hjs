@@ -166,47 +166,6 @@
 var session = Cookies.getJSON('tpt_session');
 
 //
-//	2.	Check if the session is present. How could the session be missing
-//		at this stage? Well someone could delete the cookie by hand.
-//
-if(session)
-{
-	//
-	//	2.	Loop over the whole object and look for the matching HTML element,
-	//		and populate it with the data.
-	//
-	$.each(session.fields, function(key, value) {
-
-		console.log(key);
-
-		if(key == 'country')
-		{
-			//
-			//	1.	Set the value of the input
-			//
-			$('#' + key).val(value).change();
-		}
-		else
-		{
-			$('#' + key).val(value)
-		}
-
-
-		//
-		//	2.	Check if we are dealing with checkboxes
-		//
-		if(value == 'true')
-		{
-			//
-			//	1.	Mark the checkbox as selected
-			//
-			$('#' + key).prop("checked", true);
-		}
-
-	});
-}
-
-//
 //	A collection of all the states for the US and Canada
 //
 var states = {
@@ -321,6 +280,48 @@ $("#country").change(function() {
 	});
 
 });
+
+//
+//	2.	Check if the session is present. How could the session be missing
+//		at this stage? Well someone could delete the cookie by hand.
+//
+if(session)
+{
+	//
+	//	2.	Loop over the whole object and look for the matching HTML element,
+	//		and populate it with the data.
+	//
+	$.each(session.fields, function(key, value) {
+
+		console.log(key, value);
+
+		if(key == 'country')
+		{
+
+			//
+			//	1.	Set the value of the input
+			//
+			$('#' + key).val(value).change();
+		}
+		else
+		{
+			$('#' + key).val(value)
+		}
+
+
+		//
+		//	2.	Check if we are dealing with checkboxes
+		//
+		if(value == 'true')
+		{
+			//
+			//	1.	Mark the checkbox as selected
+			//
+			$('#' + key).prop("checked", true);
+		}
+
+	});
+}
 
 //
 //	3.	Setup a listener which will react each time a input form is
