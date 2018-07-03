@@ -180,7 +180,7 @@ if(session)
 		//
 		//	1.	Set the value of the input
 		//
-		$('#' + key).val(value);
+		$('#' + key).val(value).change();
 
 		//
 		//	2.	Check if we are dealing with checkboxes
