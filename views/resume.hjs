@@ -19,8 +19,9 @@
 			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Please upload a copy of your latest resume.</h1>
 			<div class="typo-h3 text-gray typo-bold text-center">* Required</div>
 			<hr class="divider divider__gray my-3">
+
 			<form>
-				<!-- File upload -->
+
 				<div class="js-form-group mb-5">
 					<div class="typo-h4 typo-bold text-gray form-label mb-3">Please upload a copy of your latest resume.*</div>
 					<label class="file-label">
@@ -31,9 +32,12 @@
 					<div class="file-note text-blue">Supported file formats: .doc, .docx or .pdf file</div>
 				</div>
 
+				<p id="file_name" class="d-none"></p>
+
 				<button id="upload" type="submit" disabled class="control-gray-btn mr-2">Upload</button>
 
 			</form>
+
 		</div>
 	</div>
 </section>
@@ -78,7 +82,26 @@ var s3 = new AWS.S3({
 //
 if(session.fields.resume)
 {
+	//
+	//	1.	Replace the text on the button so the user know what action
+	//		will this button take
+	//
 	$('#upload').text('Replace');
+
+	//
+	//	2.	Create the message for the file name
+	//
+	var message = session.resume.file_name + " was your last upload.";
+
+	//
+	//	3.	Set the message
+	//
+	$('#file_name').text(message);
+
+	//
+	//	4.	Unhidden the message placeholder.
+	//
+	$('#file_name').removeClass("d-none");
 }
 
 //	  ____    _   _
@@ -182,12 +205,20 @@ $('#upload').on('click', function(event) {
 		];
 
 		//
-		//	4.	Update the session with the resume URL
+		//	4.	Save the file name of the Resume so we can display it
+		//		on the page to let the know which file they already uploaded
+		//
+		session.resume = {
+			file_name: file_name
+		}
+
+		//
+		//	5.	Update the session with the resume URL
 		//
 		Cookies.set('tpt_session', session, { secure: true });
 
 		//
-		//	5.	Insert or Update Airtable
+		//	6.	Insert or Update Airtable
 		//
 		save_to_airtable(session, function() {
 
