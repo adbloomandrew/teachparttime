@@ -78,30 +78,36 @@ var s3 = new AWS.S3({
 });
 
 //
-//	Check if the user already submitted a resume. And if so change the buttons
+//	Check if we've got the cookie from the browser.
 //
-if(session.fields.resume)
+if(session)
 {
 	//
-	//	1.	Replace the text on the button so the user know what action
-	//		will this button take
+	//	Check if the user already submitted a resume. And if so change the buttons
 	//
-	$('#upload').text('Replace');
+	if(session.fields.resume)
+	{
+		//
+		//	1.	Replace the text on the button so the user know what action
+		//		will this button take
+		//
+		$('#upload').text('Replace');
 
-	//
-	//	2.	Create the message for the file name
-	//
-	var message = session.resume.file_name + " was your last upload.";
+		//
+		//	2.	Create the message for the file name
+		//
+		var message = session.resume.file_name + " was your last upload.";
 
-	//
-	//	3.	Set the message
-	//
-	$('#file_name').text(message);
+		//
+		//	3.	Set the message
+		//
+		$('#file_name').text(message);
 
-	//
-	//	4.	Unhidden the message placeholder.
-	//
-	$('#file_name').removeClass("d-none");
+		//
+		//	4.	Unhidden the message placeholder.
+		//
+		$('#file_name').removeClass("d-none");
+	}
 }
 
 //	  ____    _   _
@@ -211,6 +217,8 @@ $('#upload').on('click', function(event) {
 		session.resume = {
 			file_name: file_name
 		}
+
+		console.log(session);
 
 		//
 		//	5.	Update the session with the resume URL
