@@ -227,12 +227,17 @@ $("#country").change(function() {
 		$('#state').prop("disabled", true);
 
 		//
-		//	2.	Get the index of the state
+		//	2.	Clear the selection despite the state
+		//
+		$('#state').val('');
+
+		//
+		//	3.	Get the index of the state
 		//
 		var index = form_required.indexOf('state');
 
 		//
-		//	3.	Check if the state variable exists
+		//	4.	Check if the state variable exists
 		//
 		if(index > -1)
 		{
