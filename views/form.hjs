@@ -29,10 +29,10 @@
 					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country*</label>
 					<select id="country" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
-						<option value="USA">USA</option>
-						<option value="Canada">Canada</option>
-						<option value="UK">UK</option>
-						<option value="Other">Other</option>
+						<option value="usa">USA</option>
+						<option value="canada">Canada</option>
+						<option value="uk">UK</option>
+						<option value="other">Other</option>
 					</select>
 				</div>
 
@@ -41,61 +41,6 @@
 					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State*</label>
 					<select id="state" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
-						<option value="AK">Alaska</option>
-						<option value="AL">Alabama</option>
-						<option value="AR">Arkansas</option>
-						<option value="AZ">Arizona</option>
-						<option value="CA">California</option>
-						<option value="CO">Colorado</option>
-						<option value="CT">Connecticut</option>
-						<option value="DC">District of Columbia</option>
-						<option value="DE">Delaware</option>
-						<option value="FL">Florida</option>
-						<option value="GA">Georgia</option>
-						<option value="GU">Guam</option>
-						<option value="HI">Hawaii</option>
-						<option value="IA">Iowa</option>
-						<option value="ID">Idaho</option>
-						<option value="IL">Illinois</option>
-						<option value="IN">Indiana</option>
-						<option value="KS">Kansas</option>
-						<option value="KY">Kentucky</option>
-						<option value="LA">Louisiana</option>
-						<option value="MA">Massachusetts</option>
-						<option value="MD">Maryland</option>
-						<option value="ME">Maine</option>
-						<option value="MI">Michigan</option>
-						<option value="MN">Minnesota</option>
-						<option value="MO">Missouri</option>
-						<option value="MS">Mississippi</option>
-						<option value="MT">Montana</option>
-						<option value="NC">North Carolina</option>
-						<option value="ND">North Dakota</option>
-						<option value="NE">Nebraska</option>
-						<option value="NH">New Hampshire</option>
-						<option value="NJ">New Jersey</option>
-						<option value="NM">New Mexico</option>
-						<option value="NV">Nevada</option>
-						<option value="NY">New York</option>
-						<option value="OH">Ohio</option>
-						<option value="OK">Oklahoma</option>
-						<option value="OR">Oregon</option>
-						<option value="PA">Pennsylvania</option>
-						<option value="PR">Puerto Rico</option>
-						<option value="RI">Rhode Island</option>
-						<option value="SC">South Carolina</option>
-						<option value="SD">South Dakota</option>
-						<option value="TN">Tennessee</option>
-						<option value="TX">Texas</option>
-						<option value="UT">Utah</option>
-						<option value="VA">Virginia</option>
-						<option value="VI">Virgin Islands</option>
-						<option value="VT">Vermont</option>
-						<option value="WA">Washington</option>
-						<option value="WI">Wisconsin</option>
-						<option value="WV">West Virginia</option>
-						<option value="WY">Wyomin</option>
-						<option value="Other">Other</option>
 					</select>
 				</div>
 
@@ -252,6 +197,122 @@ if(session)
 }
 
 //
+//	A collection of all the states for the US and Canada
+//
+var states = {
+	usa: {
+		"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
+		"CA": "California", "CO": "Colorado", "CT": "Connecticut",
+		"DE": "Delaware", "FL": "Florida", "GA": "Georgia", "HI": "Hawaii",
+		"ID": "Idaho", "IL": "Illinois", "IN": "Indiana", "IA": "Iowa",
+		"KS": "Kansas", "KY": "Kentucky", "LA": "Louisiana", "ME": "Maine",
+		"MD": "Maryland", "MA": "Massachusetts", "MI": "Michigan",
+		"MN": "Minnesota", "MS": "Mississippi", "MO": "Missouri",
+		"MT": "Montana", "NE": "Nebraska", "NV": "Nevada",
+		"NH": "New Hampshire", "NJ": "New Jersey", "NM": "New Mexico",
+		"NY": "New York", "NC": "North Carolina", "ND": "North Dakota",
+		"OH": "Ohio", "OK": "Oklahoma", "OR": "Oregon", "PA": "Pennsylvania",
+		"RI": "Rhode Island", "SC": "South Carolina", "SD": "South Dakota",
+		"TN": "Tennessee", "TX": "Texas", "UT": "Utah", "VT": "Vermont",
+		"VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
+		"WI": "Wisconsin", "WY": "Wyomin", "Other": "Other"
+	},
+	canada: {
+		"AB": "Alberta", "BC": "British Columbia", "MB": "Manitoba",
+		"NB": "New Brunswick", "NL": "Newfoundland and Labrador",
+		"NS": "Nova Scotia", "NT": "Northwest Territories", "NU": "Nunavut",
+		"ON": "Ontario", "PE": "Prince Edward Island", "QC": "Quebec",
+		"SK": "Saskatchewan", "YT": "Yukon"
+	}
+}
+
+//
+//	This array is used to validate the form. It is outside the submit check
+//	because we need to edit it based on the country that was selected.
+//
+//	Only for the US and Canada you can select a state
+//
+var form_required = [
+	'country', 'city', 'phone',
+	'education', 'work_permit'
+];
+
+//
+//	React every time a country is selected
+//
+$("#country").change(function() {
+
+	//
+	//	1.	Get the selected country
+	//
+	var country = $(this).val();
+
+	//
+	//	2.	Only two countries have states
+	//
+	if(country != 'usa' && country != 'canada')
+	{
+		//
+		//	1.	Disable the drop down for the state
+		//
+		$('#state').prop("disabled", true);
+
+		//
+		//	2.	Get the index of the state
+		//
+		var index = form_required.indexOf('state');
+
+		//
+		//	3.	Check if the state variable exists
+		//
+		if(index > -1)
+		{
+			//
+			//	1.	Remove the state from the array so we don't validate
+			//		it when US and Canada are not selected.
+			//
+			form_required.splice(index, 1);
+		}
+
+		//
+		//	->	Stop the code
+		//
+		return;
+	}
+
+	//
+	//	3.	Add the state check so when we submit the form we know that
+	//		the state needs to be selected. For countries that are not
+	//		US and Canada we don't need to force a state.
+	//
+	form_required.push('state');
+
+	//
+	//	4.	Re-enable the drop down regardless of its state.
+	//
+	$('#state').prop("disabled", false);
+
+	//
+	//	5.	Remove everything from the state selection so we work with a
+	//		clean slate.
+	//
+	$('#state').find('option').not(':first').remove();
+
+	//
+	//	6.	Loop over the states for a givven country and add them to
+	//		the drop down selection.
+	//
+	$.each(states[country], function(key, value) {
+
+		$('#state').append($("<option></option>")
+                   .attr("value", key)
+                   .text(value));
+
+	});
+
+});
+
+//
 //	3.	Setup a listener which will react each time a input form is
 //		changed so we can keep saving the user information so he or she
 //		can always return to the form later
@@ -366,31 +427,22 @@ $('form').on("submit", function(event) {
 	var session = Cookies.getJSON('tpt_session');
 
 	//
-	//	3.	An array holding all the required form fields
-	//
-	var form_required = [
-		'country', 'state',
-		'city', 'phone',
-		'education', 'work_permit'
-	];
-
-	//
-	//	4.	This are the possible checkboxes for Mon to Sun
+	//	3.	This are the possible checkboxes for Mon to Sun
 	//
 	var mon_sun_time = ['ms_1', 'ms_2', 'ms_3', 'ms_4'];
 
 	//
-	//	5.	This are the possible checkboxes for Fri to Sat
+	//	4.	This are the possible checkboxes for Fri to Sat
 	//
 	var fri_sat_time = ['fs_1', 'fs_2', 'fs_3', 'fs_4', 'fs_5'];
 
 	//
-	//	6. And array that will hold all the missing fields
+	//	5. And array that will hold all the missing fields
 	//
 	var missing_list = [];
 
 	//
-	//	7.	Check if the session is actually present. Someone could have
+	//	6.	Check if the session is actually present. Someone could have
 	//		deleted the session by hand.
 	//
 	if(session)
