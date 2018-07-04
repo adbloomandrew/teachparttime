@@ -11,6 +11,8 @@
 
 </script>
 
+<script crossorigin="anonymous" src="/js/jquery.inputmask.bundle.min.js"></script>
+
 <section class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
@@ -52,7 +54,7 @@
                 {{!-- Phone --}}
 				<div class="js-form-group mb-3">
 					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Phone</label>
-					<input type="tel" class="form-input" id="phone" placeholder="(555) 555-5555" title="(555) 555-5555">
+					<input type="tel" class="form-input" id="phone" placeholder="(555) 555-5555">
 				</div>
 
                 {{!-- Education --}}
@@ -195,6 +197,16 @@ var states = {
 }
 
 //
+// A collection of all the phone masks
+//
+var phone_mask = {
+    usa: "+1(999)999-9999",
+    canada: "+1(999)999-9999",
+    uk: "+44-99-9999-9999",
+}
+
+
+//
 //	This array is used to validate the form. It is outside the submit check
 //	because we need to edit it based on the country that was selected.
 //
@@ -214,6 +226,11 @@ $("#country").change(function() {
 	//	1.	Get the selected country
 	//
 	var country = $(this).val();
+
+    // Add phone mask
+    if(country !== 'other' && country !== 'null') {
+        $('#phone').inputmask({"mask": phone_mask[country]});
+    }
 
 	//
 	//	2.	Only two countries have states
