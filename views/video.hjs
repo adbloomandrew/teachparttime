@@ -14,8 +14,7 @@
 <section class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
-			<h1 class="typo-h1 text-blue text-center mb-2">Final Step: Record a short Introduction Video</h1>
-			<div class="typo-h3 text-gray typo-bold text-center">* Required</div>
+			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Record a Brief Video</h1>
 			<hr class="divider divider__gray my-3">
 			<p class="typo-h4 typo-bold text-gray mb-2">
 				To complete your application, simply record a quick 60-second video interview and include the following:
