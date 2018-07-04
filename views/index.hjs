@@ -41,6 +41,15 @@ The data layer set for Google Tag Manager
 
 						<input type="email" id="email" class="form-input mb-3" placeholder="Email" autocomplete="email" required>
 
+                        <select id="education" class="form-select mb-3">
+                            <option value="null" selected="selected" disabled="disabled">What is your Education level?</option>
+                            <option value="University/College Degree">University/College Degree</option>
+                            <option value="Enrolled in University/College">Enrolled in University/College</option>
+                            <option value="Associates Degree">Associates Degree</option>
+                            <option value="High School Degree">High School Degree</option>
+                            <option value="No Degree">No Degree</option>
+                        </select>
+
 						<input type="hidden" id="cid" class="form-input mb-3">
 
 						<button type="submit" class="control-pink-btn w-100 mb-2">Apply</button>
@@ -339,6 +348,7 @@ $('form').on("submit", function(event) {
 	var full_name 	= $('#full_name').val();
 	var email 		= $('#email').val();
 	var cid 		= $('#cid').val();
+	var education   = $('#education').val();
 
 	//
 	//	3.	If we have a session we update the data since the user might have
@@ -349,6 +359,7 @@ $('form').on("submit", function(event) {
 		session.fields.full_name = full_name;
 		session.fields.email = email;
 		session.fields.cid = cid;
+		session.fields.education = education;
 	}
 
 	//
@@ -361,6 +372,7 @@ $('form').on("submit", function(event) {
 				full_name: full_name,
 				email: email,
 				cid: cid,
+                education: education,
 				submission_date: moment().toISOString()
 			}
 		}
