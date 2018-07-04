@@ -49,6 +49,15 @@
 </section>
 
 <script>
+    $(document).ready(function () {
+        $("input[type='file']").change(function () {
+            var filename = $(this).val().split('\\').pop();
+            $('#js-file-name').text(filename ? filename : 'No file chosen')
+        })
+    });
+</script>
+
+<script>
 
 //
 //	1.	Get the user session from the cookies
