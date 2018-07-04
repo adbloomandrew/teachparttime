@@ -15,7 +15,6 @@
 	<div class="container">
 		<div class="card-block register-card">
 			<h1 class="typo-h1 text-blue text-center mb-2">Step 2: Tell us about Yourself</h1>
-			<div class="typo-h3 text-gray typo-bold text-center">* Required</div>
 			<hr class="divider divider__gray my-3">
 			<div class="message text-center text-gray mb-3">
 				Note: Your privacy is very important to us. To better serve you, the form information you enter is recorded in
@@ -26,7 +25,7 @@
 
 
 				<div class="js-form-group mb-3">
-					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country*</label>
+					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country</label>
 					<select id="country" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 						<option value="usa">USA</option>
@@ -38,7 +37,7 @@
 
 
 				<div class="js-form-group mb-3">
-					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State*</label>
+					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State</label>
 					<select id="state" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 					</select>
@@ -46,19 +45,19 @@
 
 
 				<div class="js-form-group mb-3">
-					<label for="city" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province*</label>
+					<label for="city" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province</label>
 					<input type="text" class="form-input" id="city" placeholder="City, State (Salt Lake City, UT)" title="City, State (Salt Lake City, UT)">
 				</div>
 
 
 				<div class="js-form-group mb-3">
-					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province*</label>
+					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province</label>
 					<input type="tel" class="form-input" id="phone" placeholder="555-555-5555" title="555-555-5555">
 				</div>
 
 
 				<div class="js-form-group mb-3">
-					<label for="education" class="typo-h4 typo-bold text-gray form-label w-100">What is your Education level?*</label>
+					<label for="education" class="typo-h4 typo-bold text-gray form-label w-100">What is your Education level?</label>
 					<select id="education" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 						<option value="University/College Degree">University/College Degree</option>
@@ -71,7 +70,7 @@
 
 
 				<div class="js-form-group mb-3">
-					<label for="work_permit" class="typo-h4 typo-bold text-gray form-label w-100">Are you legally eligible to work in the USA or Canada?*</label>
+					<label for="work_permit" class="typo-h4 typo-bold text-gray form-label w-100">Are you legally eligible to work in the USA or Canada?</label>
 					<select id="work_permit" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 						<option value="yes">Yes</option>
@@ -87,7 +86,7 @@
 
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						What is your Daytime(Mon-Sun) availability? Please select two or more*
+						What is your Daytime(Mon-Sun) availability? Please select two or more
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -116,7 +115,7 @@
 
 				<div class="js-form-group mb-3" id="fs">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						How about on Friday and Saturday night? Please select two or more*
+						How about on Friday and Saturday night? Please select two or more
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
