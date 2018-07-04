@@ -48,6 +48,7 @@
 	</div>
 </section>
 
+{{!-- This script change label in 'choose file' input --}}
 <script>
     $(document).ready(function () {
         $("input[type='file']").change(function () {
