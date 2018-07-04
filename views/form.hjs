@@ -23,7 +23,7 @@
 
 			<form>
 
-
+                {{!-- Country --}}
 				<div class="js-form-group mb-3">
 					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country</label>
 					<select id="country" class="form-select">
@@ -35,7 +35,13 @@
 					</select>
 				</div>
 
+                {{!-- City --}}
+                <div class="js-form-group mb-3">
+                    <label for="city" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province</label>
+                    <input type="text" class="form-input" id="city" placeholder="City, State (Salt Lake City, UT)" title="City, State (Salt Lake City, UT)">
+                </div>
 
+                {{!-- State --}}
 				<div class="js-form-group mb-3">
 					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State</label>
 					<select id="state" class="form-select">
@@ -43,19 +49,13 @@
 					</select>
 				</div>
 
-
+                {{!-- Phone --}}
 				<div class="js-form-group mb-3">
-					<label for="city" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province</label>
-					<input type="text" class="form-input" id="city" placeholder="City, State (Salt Lake City, UT)" title="City, State (Salt Lake City, UT)">
+					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Phone</label>
+					<input type="tel" class="form-input" id="phone" placeholder="(555) 555-5555" title="(555) 555-5555">
 				</div>
 
-
-				<div class="js-form-group mb-3">
-					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province</label>
-					<input type="tel" class="form-input" id="phone" placeholder="555-555-5555" title="555-555-5555">
-				</div>
-
-
+                {{!-- Education --}}
 				<div class="js-form-group mb-3">
 					<label for="education" class="typo-h4 typo-bold text-gray form-label w-100">What is your Education level?</label>
 					<select id="education" class="form-select">
@@ -68,7 +68,7 @@
 					</select>
 				</div>
 
-
+                {{!-- Work permit --}}
 				<div class="js-form-group mb-3">
 					<label for="work_permit" class="typo-h4 typo-bold text-gray form-label w-100">Are you legally eligible to work in the USA or Canada?</label>
 					<select id="work_permit" class="form-select">
@@ -83,7 +83,7 @@
 					start working with us, so feel free to Check All if you can be available.
 				</p>
 
-
+                {{!-- Daytime(Mon-Sun) --}}
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
 						What is your Daytime(Mon-Sun) availability? Please select two or more
@@ -112,7 +112,7 @@
 					</div>
 				</div>
 
-
+                {{!-- Friday and Saturday night --}}
 				<div class="js-form-group mb-3" id="fs">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
 						How about on Friday and Saturday night? Please select two or more
@@ -146,7 +146,7 @@
 					</div>
 				</div>
 
-
+                {{!-- Submit --}}
 				<div class="text-right">
 					<button class="control-gray-btn" type="submit">NEXT</button>
 				</div>
