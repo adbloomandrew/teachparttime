@@ -67,15 +67,10 @@
 					</select>
 				</div>
 
-				<p class="typo-paragraph text-gray mb-3 register-paragraph">
-					Let us know some good times for you to be able to teach! You can always change your availability once you
-					start working with us, so feel free to Check All if you can be available.
-				</p>
-
                 {{!-- Daytime(Mon-Sun) --}}
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						What is your Daytime(Mon-Sun) availability? Please select two or more
+                        Your Daytime Availability
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -104,7 +99,7 @@
                 {{!-- Friday and Saturday night --}}
 				<div class="js-form-group mb-3" id="fs">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						How about on Friday and Saturday night? Please select two or more
+                        Evening Availability (Fri + Sat Only)
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
