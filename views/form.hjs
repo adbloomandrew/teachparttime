@@ -21,7 +21,7 @@
 
 			<form>
 
-                {{!-- Country --}}
+				{{!-- Country --}}
 				<div class="js-form-group mb-3">
 					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country</label>
 					<select id="country" class="form-select">
@@ -39,7 +39,7 @@
                     <input type="text" class="form-input" id="city" placeholder="Salt Lake City" title="City">
                 </div>
 
-                {{!-- State --}}
+				{{!-- State --}}
 				<div class="js-form-group mb-3">
 					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State</label>
 					<select id="state" class="form-select">
@@ -47,13 +47,13 @@
 					</select>
 				</div>
 
-                {{!-- Phone --}}
+				{{!-- Phone --}}
 				<div class="js-form-group mb-3">
 					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Phone</label>
 					<input type="tel" class="form-input" id="phone" placeholder="(555) 555-5555">
 				</div>
 
-                {{!-- Work permit --}}
+				{{!-- Work permit --}}
 				<div class="js-form-group mb-3">
 					<label for="work_permit" class="typo-h4 typo-bold text-gray form-label w-100">Are you legally eligible to work in the USA or Canada?</label>
 					<select id="work_permit" class="form-select">
@@ -63,10 +63,10 @@
 					</select>
 				</div>
 
-                {{!-- Daytime(Mon-Sun) --}}
+				{{!-- Daytime(Mon-Sun) --}}
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-                        Your Daytime Availability
+						Your Daytime Availability
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -92,10 +92,10 @@
 					</div>
 				</div>
 
-                {{!-- Friday and Saturday night --}}
+				{{!-- Friday and Saturday night --}}
 				<div class="js-form-group mb-3" id="fs">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-                        Evening Availability (Fri + Sat Only)
+						Evening Availability (Fri + Sat Only)
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -126,7 +126,7 @@
 					</div>
 				</div>
 
-                {{!-- Submit --}}
+				{{!-- Submit --}}
 				<div class="text-right">
 					<button class="control-gray-btn" type="submit">NEXT</button>
 				</div>
@@ -175,12 +175,12 @@ var states = {
 }
 
 //
-// A collection of all the phone masks
+//	A collection of all the phone masks
 //
 var phone_mask = {
-    usa: "+1(999)999-9999",
-    canada: "+1(999)999-9999",
-    uk: "+44-99-9999-9999",
+	usa: "+1(999)999-9999",
+	canada: "+1(999)999-9999",
+	uk: "+44-99-9999-9999",
 }
 
 
@@ -204,13 +204,18 @@ $("#country").change(function() {
 	//
 	var country = $(this).val();
 
-    // Add phone mask
-    if(country !== 'other' && country !== 'null') {
-        $('#phone').inputmask({"mask": phone_mask[country]});
-    }
+	//
+	//	2.	Add phone mask
+	//
+	if(country !== 'other' && country !== 'null')
+	{
+		$('#phone').inputmask({
+			mask: phone_mask[country]
+		});
+	}
 
 	//
-	//	2.	Only two countries have states
+	//	3.	Only two countries have states
 	//
 	if(country != 'usa' && country != 'canada')
 	{
@@ -248,32 +253,32 @@ $("#country").change(function() {
 	}
 
 	//
-	//	3.	Add the state check so when we submit the form we know that
+	//	4.	Add the state check so when we submit the form we know that
 	//		the state needs to be selected. For countries that are not
 	//		US and Canada we don't need to force a state.
 	//
 	form_required.push('state');
 
 	//
-	//	4.	Re-enable the drop down regardless of its state.
+	//	5.	Re-enable the drop down regardless of its state.
 	//
 	$('#state').prop("disabled", false);
 
 	//
-	//	5.	Remove everything from the state selection so we work with a
+	//	6.	Remove everything from the state selection so we work with a
 	//		clean slate.
 	//
 	$('#state').find('option').not(':first').remove();
 
 	//
-	//	6.	Loop over the states for a givven country and add them to
+	//	7.	Loop over the states for a givven country and add them to
 	//		the drop down selection.
 	//
 	$.each(states[country], function(key, value) {
 
 		$('#state').append($("<option></option>")
-                   .attr("value", key)
-                   .text(value));
+				   .attr("value", key)
+				   .text(value));
 
 	});
 
