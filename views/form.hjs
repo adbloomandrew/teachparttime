@@ -18,10 +18,6 @@
 		<div class="card-block register-card">
 			<h1 class="typo-h1 text-blue text-center mb-2">Step 2: Tell us about Yourself</h1>
 			<hr class="divider divider__gray my-3">
-			<div class="message text-center text-gray mb-3">
-				Note: Your privacy is very important to us. To better serve you, the form information you enter is recorded in
-				real time.
-			</div>
 
 			<form>
 
