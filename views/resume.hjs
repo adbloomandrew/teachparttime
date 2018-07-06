@@ -43,10 +43,10 @@
 				<p id="file_name" class="d-none"></p>
 				<p id="upload_status"></p>
 
-                <div class="d-flex align-items-start justify-content-between flex-wrap">
-
-                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>Submit</button>
-
+                <div class="d-flex align-items-start justify-content-center flex-wrap">
+                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
+                        SUBMIT APPLICATION
+                    </button>
                 </div>
 
 			</form>
