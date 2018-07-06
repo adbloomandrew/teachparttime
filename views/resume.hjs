@@ -41,11 +41,12 @@
 				</div>
 
 				<p id="file_name" class="d-none"></p>
+				<p id="upload_status"></p>
 
-                <button id="upload" type="submit" disabled class="file-upload-btn control-gray-btn mb-4">Upload</button>
+                <div class="d-flex align-items-start justify-content-between flex-wrap">
 
-                <div class="d-flex align-items-start justify-content-center flex-wrap">
-                    <button type="submit" id="submit" class="control-pink-btn submit-btn">SUBMIT APPLICATION</button>
+                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>Submit</button>
+
                 </div>
 
 			</form>
@@ -53,16 +54,6 @@
 		</div>
 	</div>
 </section>
-
-{{!-- This script change label in 'choose file' input --}}
-<script>
-    $(document).ready(function () {
-        $("input[type='file']").change(function () {
-            var filename = $(this).val().split('\\').pop();
-            $('#js-file-name').text(filename ? filename : 'No file chosen')
-        })
-    });
-</script>
 
 <script>
 
@@ -110,23 +101,17 @@ if(session)
 	if(session.fields.resume)
 	{
 		//
-		//	1.	Replace the text on the button so the user know what action
-		//		will this button take
-		//
-		$('#upload').text('Replace');
-
-		//
-		//	2.	Create the message for the file name
+		//	1.	Create the message for the file name
 		//
 		var message = session.resume.file_name + " was your last upload.";
 
 		//
-		//	3.	Set the message
+		//	2.	Set the message
 		//
 		$('#file_name').text(message);
 
 		//
-		//	4.	Unhidden the message placeholder.
+		//	3.	Unhidden the message placeholder.
 		//
 		$('#file_name').removeClass("d-none");
 	}
@@ -143,20 +128,7 @@ if(session)
 //
 //	<<> React to a file select, this way we can change the state of the page
 //
-$("input:file").change(function (){
-
-	//
-	//	1.	Remove the disabled attribute on the button so the user can
-	//		upload the file, since he or she did select it.
-	//
-	$('#upload').removeAttr("disabled");
-
-});
-
-//
-//	<<>	React when the user submits the form
-//
-$('#upload').on('click', function(event) {
+$('#submit').on('click', function(event) {
 
 	//
 	//	1.	Prevent the default form action so we can process the action
@@ -165,24 +137,42 @@ $('#upload').on('click', function(event) {
 	event.preventDefault();
 
 	//
-	//	2.	Update the UI to let the user know what is happening
+	//	2.	Redirect the user to the thank you page, when they click the
+	//		submit button.
 	//
-	$('#upload').text('Uploading...');
+	return window.location.href = 'thankyou';
+
+});
+
+//
+//	<<>	React when the user submits the form
+//
+$("input:file").change(function() {
 
 	//
-	//	3..	Get the file information from the HTML form
+	//	1.	Set in the UI the state, so the user knows what is happening.
+	//
+	$('#upload_status').text("Uploading...");
+
+	//
+	//	2.	Get the file information from the HTML form
 	//
 	var files = document.getElementById('resume').files;
 
 	//
-	//	4.	Get the first object
+	//	3.	Get the first object
 	//
 	var file = files[0];
 
 	//
-	//	5.	Get the file name
+	//	4.	Get the file name
 	//
 	var file_name = file.name;
+
+	//
+	//	5.	Updated the UI to let the user know which file was selected
+	//
+	$('#js-file-name').text(file_name ? file_name : 'No file chosen');
 
 	//
 	//	6.	Create a request object which will allow us to monitor the progress
@@ -224,7 +214,8 @@ $('#upload').on('click', function(event) {
 				+ file_name;
 
 		//
-		//	3.	Save the URL in to the user session
+		//	3.	Save the URL in to the user session in a way that Airtable
+		//		is able to understand that it is dealing with a file.
 		//
 		session.fields.resume = [
 			{
@@ -234,7 +225,10 @@ $('#upload').on('click', function(event) {
 
 		//
 		//	4.	Save the file name of the Resume so we can display it
-		//		on the page to let the know which file they already uploaded
+		//		on the page to let the know which file they already uploaded.
+		//
+		//		We save this outside the fields key so it dose not conflict
+		//		with Airtable
 		//
 		session.resume = {
 			file_name: file_name
@@ -250,7 +244,16 @@ $('#upload').on('click', function(event) {
 		//
 		save_to_airtable(session, function() {
 
-			return window.location.href = 'thankyou';
+			//
+			//	1.	Let the user know when the upload is done.
+			//
+			$('#upload_status').text("Done.");
+
+			//
+			//	2.	Once the file is successfully uploaded, we enable the
+			//		submit button to let the user complete the form.
+			//
+			$('#submit').removeAttr("disabled");
 
 		});
 
