@@ -105,23 +105,17 @@ if(session)
 	if(session.fields.resume)
 	{
 		//
-		//	1.	Replace the text on the button so the user know what action
-		//		will this button take
-		//
-		$('#upload').text('Replace');
-
-		//
-		//	2.	Create the message for the file name
+		//	1.	Create the message for the file name
 		//
 		var message = session.resume.file_name + " was your last upload.";
 
 		//
-		//	3.	Set the message
+		//	2.	Set the message
 		//
 		$('#file_name').text(message);
 
 		//
-		//	4.	Unhidden the message placeholder.
+		//	3.	Unhidden the message placeholder.
 		//
 		$('#file_name').removeClass("d-none");
 	}
@@ -160,22 +154,27 @@ $('#submit').on('click', function(event) {
 $("input:file").change(function (event) {
 
 	//
-	//	1.	Get the file information from the HTML form
+	//	1.	Set in the UI the state, so the user knows what is happening.
+	//
+	$('#upload_status').text("Uploading...");
+
+	//
+	//	2.	Get the file information from the HTML form
 	//
 	var files = document.getElementById('resume').files;
 
 	//
-	//	2.	Get the first object
+	//	3.	Get the first object
 	//
 	var file = files[0];
 
 	//
-	//	3.	Get the file name
+	//	4.	Get the file name
 	//
 	var file_name = file.name;
 
 	//
-	//	4.	Create a request object which will allow us to monitor the progress
+	//	5.	Create a request object which will allow us to monitor the progress
 	//		of the upload
 	//
 	var request = s3.putObject({
@@ -185,7 +184,7 @@ $("input:file").change(function (event) {
 	});
 
 	//
-	//	5.	Add a listener to react every time there is a progress update so
+	//	6.	Add a listener to react every time there is a progress update so
 	//		we know how much of the file was sent.
 	//
 	request.on('httpUploadProgress', function (progress) {
@@ -196,7 +195,7 @@ $("input:file").change(function (event) {
 	});
 
 	//
-	//	6.	Start the upload process
+	//	7.	Start the upload process
 	//
 	request.send(function(res) {
 
@@ -221,6 +220,8 @@ $("input:file").change(function (event) {
 				"url": url
 			}
 		];
+
+		console.log(file_name);
 
 		//
 		//	4.	Save the file name of the Resume so we can display it
