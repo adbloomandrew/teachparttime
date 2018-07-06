@@ -149,17 +149,27 @@ $("input:file").change(function() {
 	$('#upload_status').text("Uploading...");
 
 	//
-	//	2.	Extract the file name
+	//	2.	Get the file information from the HTML form
 	//
-	var file_name = $(this).val().split('\\').pop();
+	var files = document.getElementById('resume').files;
 
 	//
-	//	3.	Show in the UI the name of the file that was selected
+	//	3.	Get the first object
 	//
-    $('#js-file-name').text(file_name ? file_name : 'No file chosen');
+	var file = files[0];
 
 	//
-	//	4.	Create a request object which will allow us to monitor the progress
+	//	4.	Get the file name
+	//
+	var file_name = file.name;
+
+	//
+	//	5.	Updated the UI to let the user know which file was selected
+	//
+	$('#js-file-name').text(file_name ? file_name : 'No file chosen');
+
+	//
+	//	6.	Create a request object which will allow us to monitor the progress
 	//		of the upload
 	//
 	var request = s3.putObject({
@@ -169,7 +179,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	5.	Add a listener to react every time there is a progress update so
+	//	7.	Add a listener to react every time there is a progress update so
 	//		we know how much of the file was sent.
 	//
 	request.on('httpUploadProgress', function (progress) {
@@ -180,7 +190,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	6.	Start the upload process
+	//	8.	Start the upload process
 	//
 	request.send(function(res) {
 
@@ -215,6 +225,8 @@ $("input:file").change(function() {
 		session.resume = {
 			file_name: file_name
 		}
+
+		console.log(session);
 
 		//
 		//	5.	Update the session with the resume URL
