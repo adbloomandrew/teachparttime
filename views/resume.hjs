@@ -49,16 +49,6 @@
 	</div>
 </section>
 
-{{!-- This script change label in 'choose file' input --}}
-<script>
-    $(document).ready(function () {
-        $("input[type='file']").change(function () {
-            var filename = $(this).val().split('\\').pop();
-            $('#js-file-name').text(filename ? filename : 'No file chosen')
-        })
-    });
-</script>
-
 <script>
 
 //
@@ -159,22 +149,17 @@ $("input:file").change(function() {
 	$('#upload_status').text("Uploading...");
 
 	//
-	//	2.	Get the file information from the HTML form
+	//	2.	Extract the file name
 	//
-	var files = document.getElementById('resume').files;
+	var file_name = $(this).val().split('\\').pop();
 
 	//
-	//	3.	Get the first object
+	//	3.	Show in the UI the name of the file that was selected
 	//
-	var file = files[0];
+    $('#js-file-name').text(file_name ? file_name : 'No file chosen');
 
 	//
-	//	4.	Get the file name
-	//
-	var file_name = file.name;
-
-	//
-	//	5.	Create a request object which will allow us to monitor the progress
+	//	4.	Create a request object which will allow us to monitor the progress
 	//		of the upload
 	//
 	var request = s3.putObject({
@@ -184,7 +169,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	6.	Add a listener to react every time there is a progress update so
+	//	5.	Add a listener to react every time there is a progress update so
 	//		we know how much of the file was sent.
 	//
 	request.on('httpUploadProgress', function (progress) {
@@ -195,7 +180,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	7.	Start the upload process
+	//	6.	Start the upload process
 	//
 	request.send(function(res) {
 
