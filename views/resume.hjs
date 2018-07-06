@@ -21,10 +21,16 @@
 
 			<form>
 
-				<div class="js-form-group mb-5">
+				<div class="js-form-group mb-3">
 					<div class="typo-h4 text-gray form-label mb-3">
                         <div class="typo-bold">Please upload a copy of your latest resume.</div>
-                        If you do not have on hand, you may provide at a later time.
+                        Mobile users, you can upload files stored in your iCloud or Google docs.
+                        <div class="text-red text-small my-3">
+                            No resume on hand? You may temporarily skip this step
+                            via the submit button. However, you will still be asked to
+                            provide your resume via email prior to completing your
+                            Qkids application.
+                        </div>
                     </div>
 					<label class="file-label">
 						<input id="resume" type="file" accept=".doc, .docx, .pdf" class="d-none">
@@ -36,10 +42,10 @@
 
 				<p id="file_name" class="d-none"></p>
 
-                <div class="d-flex align-items-start justify-content-between flex-wrap">
-                    <button id="upload" type="submit" disabled class="control-gray-btn mr-2">Upload</button>
+                <button id="upload" type="submit" disabled class="file-upload-btn control-gray-btn mb-4">Upload</button>
 
-                    <button type="submit" id="submit" class="control-pink-btn submit-btn">Submit</button>
+                <div class="d-flex align-items-start justify-content-center flex-wrap">
+                    <button type="submit" id="submit" class="control-pink-btn submit-btn">SUBMIT APPLICATION</button>
                 </div>
 
 			</form>
