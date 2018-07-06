@@ -35,7 +35,7 @@
 				</div>
 
 				<p id="file_name" class="d-none"></p>
-				<p id="upload_status" class="d-none"></p>
+				<p id="upload_status"></p>
 
                 <div class="d-flex align-items-start justify-content-between flex-wrap">
 
@@ -208,7 +208,8 @@ $("input:file").change(function() {
 				+ file_name;
 
 		//
-		//	3.	Save the URL in to the user session
+		//	3.	Save the URL in to the user session in a way that Airtable
+		//		is able to understand that it is dealing with a file.
 		//
 		session.fields.resume = [
 			{
@@ -216,17 +217,16 @@ $("input:file").change(function() {
 			}
 		];
 
-		console.log(file_name);
-
 		//
 		//	4.	Save the file name of the Resume so we can display it
-		//		on the page to let the know which file they already uploaded
+		//		on the page to let the know which file they already uploaded.
+		//
+		//		We save this outside the fields key so it dose not conflict
+		//		with Airtable
 		//
 		session.resume = {
 			file_name: file_name
 		}
-
-		console.log(session);
 
 		//
 		//	5.	Update the session with the resume URL
