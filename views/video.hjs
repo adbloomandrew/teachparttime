@@ -14,29 +14,21 @@
 <section class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
-			<h1 class="typo-h1 text-blue text-center mb-2">Final Step: Record a short Introduction Video</h1>
-			<div class="typo-h3 text-gray typo-bold text-center">* Required</div>
+			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Record a Brief Video</h1>
 			<hr class="divider divider__gray my-3">
-			<p class="typo-h4 typo-bold text-gray mb-2">
-				To complete your application, simply record a quick 60-second video interview and include the following:
-			</p>
-			<ol class="step-list pl-3 mb-3">
-				<li class="typo-h4 mb-1 text-gray">Your First and Last Name</li>
-				<li class="typo-h4 mb-1 text-gray">The City you live in</li>
-				<li class="typo-h4 mb-1 text-gray">Your Level of education</li>
-				<li class="typo-h4 mb-1 text-gray">Describe your experience with kids or teaching in just a few sentences</li>
-				<li class="typo-h4 mb-1 text-gray">
-					After your introduction, please tell or read a short story
-					(<a href="mouse.html" target="_blank" class="link-violet">here’s a sample to read</a>)
-				</li>
-			</ol>
-			<hr class="divider divider__gray mt-3 mb-5">
-			<p class="typo-h4 text-gray mb-3">
-				If you're looking for inspiration, click
-				<a href="https://www.youtube.com/watch?v=nOgrYxcBTyw" class="link-violet" target="_blank" rel="noopener noreferrer">here </a>
-				to see a succesful demo video.<br>
-				Have you already created a video? Simply upload it to youtube and paste the url into the field below.
-			</p>
+            <p class="typo-h4 text-gray mb-3">
+                <span class="typo-bold text-black">
+                    Please record a brief video introduction of yourself (60 seconds).
+                </span>
+                State your name, where you are from and what
+                experience you have with kids that will make you a great online
+                teacher.
+                (<a href="https://www.youtube.com/watch?v=nOgrYxcBTyw"
+                    class="link-violet" target="_blank" rel="noopener noreferrer">
+                preview a sample video introduction here</a>)
+                <br>
+                <span class="text-red pt-1">After recording, you must hit the upload button to save your new video.</span>
+            </p>
 			<form>
 
 				<div class="w-520 mb-3">
@@ -47,12 +39,9 @@
 				<div class="js-form-group mb-3">
 					<input type="url" class="form-input mb-1" id="youtube_url"
 						   required placeholder="http://youtube.com/My-Video-URL" title="http://youtube.com/My-Video-URL">
-					<div class="file-note text-gray">
-						copy and paste your 1-minute Youtube video URL, make sure your video is set for sharing
-					</div>
 				</div>
-				<div class="d-flex align-items-start justify-content-between flex-wrap">
-					<button type="submit" id="submit" class="control-pink-btn submit-btn">Next</button>
+				<div class="d-flex align-items-start justify-content-end flex-wrap">
+					<button type="submit" id="submit" class="control-gray-btn submit-btn">Next</button>
 				</div>
 			</form>
 		</div>
@@ -308,5 +297,4 @@ function get_domain(url)
 
 	return peaces[peaces.length - 2];
 }
-
 </script>

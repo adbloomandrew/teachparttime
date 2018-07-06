@@ -11,22 +11,19 @@
 
 </script>
 
+<script crossorigin="anonymous" src="/js/jquery.inputmask.bundle.min.js"></script>
+
 <section class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
 			<h1 class="typo-h1 text-blue text-center mb-2">Step 2: Tell us about Yourself</h1>
-			<div class="typo-h3 text-gray typo-bold text-center">* Required</div>
 			<hr class="divider divider__gray my-3">
-			<div class="message text-center text-gray mb-3">
-				Note: Your privacy is very important to us. To better serve you, the form information you enter is recorded in
-				real time.
-			</div>
 
 			<form>
 
-
+				{{!-- Country --}}
 				<div class="js-form-group mb-3">
-					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country*</label>
+					<label for="country" class="typo-h4 typo-bold text-gray form-label w-100">Country</label>
 					<select id="country" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 						<option value="usa">USA</option>
@@ -36,42 +33,29 @@
 					</select>
 				</div>
 
+                {{!-- City --}}
+                <div class="js-form-group mb-3">
+                    <label for="city" class="typo-h4 typo-bold text-gray form-label w-100">City</label>
+                    <input type="text" class="form-input" id="city" placeholder="Salt Lake City" title="City">
+                </div>
 
+				{{!-- State --}}
 				<div class="js-form-group mb-3">
-					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State*</label>
+					<label for="state" class="typo-h4 typo-bold text-gray form-label w-100">State</label>
 					<select id="state" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 					</select>
 				</div>
 
-
+				{{!-- Phone --}}
 				<div class="js-form-group mb-3">
-					<label for="city" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province*</label>
-					<input type="text" class="form-input" id="city" placeholder="City, State (Salt Lake City, UT)" title="City, State (Salt Lake City, UT)">
+					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Phone</label>
+					<input type="tel" class="form-input" id="phone" placeholder="(555) 555-5555">
 				</div>
 
-
+				{{!-- Work permit --}}
 				<div class="js-form-group mb-3">
-					<label for="phone" class="typo-h4 typo-bold text-gray form-label w-100">Your City & State/Province*</label>
-					<input type="tel" class="form-input" id="phone" placeholder="555-555-5555" title="555-555-5555">
-				</div>
-
-
-				<div class="js-form-group mb-3">
-					<label for="education" class="typo-h4 typo-bold text-gray form-label w-100">What is your Education level?*</label>
-					<select id="education" class="form-select">
-						<option value="null" selected="selected" disabled="disabled">Select an option</option>
-						<option value="University/College Degree">University/College Degree</option>
-						<option value="Enrolled in University/College">Enrolled in University/College</option>
-						<option value="Associates Degree">Associates Degree</option>
-						<option value="High School Degree">High School Degree</option>
-						<option value="No Degree">No Degree</option>
-					</select>
-				</div>
-
-
-				<div class="js-form-group mb-3">
-					<label for="work_permit" class="typo-h4 typo-bold text-gray form-label w-100">Are you legally eligible to work in the USA or Canada?*</label>
+					<label for="work_permit" class="typo-h4 typo-bold text-gray form-label w-100">Are you legally eligible to work in the USA or Canada?</label>
 					<select id="work_permit" class="form-select">
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 						<option value="yes">Yes</option>
@@ -79,15 +63,10 @@
 					</select>
 				</div>
 
-				<p class="typo-paragraph text-gray mb-3 register-paragraph">
-					Let us know some good times for you to be able to teach! You can always change your availability once you
-					start working with us, so feel free to Check All if you can be available.
-				</p>
-
-
+				{{!-- Daytime(Mon-Sun) --}}
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						What is your Daytime(Mon-Sun) availability? Please select two or more*
+						Your Daytime Availability
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -113,10 +92,10 @@
 					</div>
 				</div>
 
-
+				{{!-- Friday and Saturday night --}}
 				<div class="js-form-group mb-3" id="fs">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						How about on Friday and Saturday night? Please select two or more*
+						Evening Availability (Fri + Sat Only)
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -147,7 +126,7 @@
 					</div>
 				</div>
 
-
+				{{!-- Submit --}}
 				<div class="text-right">
 					<button class="control-gray-btn" type="submit">NEXT</button>
 				</div>
@@ -196,14 +175,23 @@ var states = {
 }
 
 //
+//	A collection of all the phone masks
+//
+var phone_mask = {
+	usa: "+1(999)999-9999",
+	canada: "+1(999)999-9999",
+	uk: "+44-99-9999-9999",
+}
+
+
+//
 //	This array is used to validate the form. It is outside the submit check
 //	because we need to edit it based on the country that was selected.
 //
 //	Only for the US and Canada you can select a state
 //
 var form_required = [
-	'country', 'city', 'phone',
-	'education', 'work_permit'
+	'country', 'city', 'phone', 'work_permit'
 ];
 
 //
@@ -217,7 +205,17 @@ $("#country").change(function() {
 	var country = $(this).val();
 
 	//
-	//	2.	Only two countries have states
+	//	2.	Add phone mask
+	//
+	if(country !== 'other' && country !== 'null')
+	{
+		$('#phone').inputmask({
+			mask: phone_mask[country]
+		});
+	}
+
+	//
+	//	3.	Only two countries have states
 	//
 	if(country != 'usa' && country != 'canada')
 	{
@@ -255,32 +253,32 @@ $("#country").change(function() {
 	}
 
 	//
-	//	3.	Add the state check so when we submit the form we know that
+	//	4.	Add the state check so when we submit the form we know that
 	//		the state needs to be selected. For countries that are not
 	//		US and Canada we don't need to force a state.
 	//
 	form_required.push('state');
 
 	//
-	//	4.	Re-enable the drop down regardless of its state.
+	//	5.	Re-enable the drop down regardless of its state.
 	//
 	$('#state').prop("disabled", false);
 
 	//
-	//	5.	Remove everything from the state selection so we work with a
+	//	6.	Remove everything from the state selection so we work with a
 	//		clean slate.
 	//
 	$('#state').find('option').not(':first').remove();
 
 	//
-	//	6.	Loop over the states for a givven country and add them to
+	//	7.	Loop over the states for a givven country and add them to
 	//		the drop down selection.
 	//
 	$.each(states[country], function(key, value) {
 
 		$('#state').append($("<option></option>")
-                   .attr("value", key)
-                   .text(value));
+				   .attr("value", key)
+				   .text(value));
 
 	});
 
