@@ -151,7 +151,7 @@ $('#submit').on('click', function(event) {
 //
 //	<<>	React when the user submits the form
 //
-$("input:file").change(function (event) {
+$("input:file").change(function() {
 
 	//
 	//	1.	Set in the UI the state, so the user knows what is happening.
