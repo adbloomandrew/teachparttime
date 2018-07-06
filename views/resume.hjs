@@ -247,7 +247,7 @@ $("input:file").change(function() {
 			//	2.	Once the file is successfully uploaded, we enable the
 			//		submit button to let the user complete the form.
 			//
-			$('#upload').removeAttr("disabled");
+			$('#submit').removeAttr("disabled");
 
 		});
 
