@@ -35,11 +35,12 @@
 				</div>
 
 				<p id="file_name" class="d-none"></p>
+				<p id="upload_status" class="d-none"></p>
 
                 <div class="d-flex align-items-start justify-content-between flex-wrap">
-                    <button id="upload" type="submit" disabled class="control-gray-btn mr-2">Upload</button>
 
-                    <button type="submit" id="submit" class="control-pink-btn submit-btn">Submit</button>
+                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>Submit</button>
+
                 </div>
 
 			</form>
@@ -137,20 +138,7 @@ if(session)
 //
 //	<<> React to a file select, this way we can change the state of the page
 //
-$("input:file").change(function (){
-
-	//
-	//	1.	Remove the disabled attribute on the button so the user can
-	//		upload the file, since he or she did select it.
-	//
-	$('#upload').removeAttr("disabled");
-
-});
-
-//
-//	<<>	React when the user submits the form
-//
-$('#upload').on('click', function(event) {
+$('#submit').on('click', function(event) {
 
 	//
 	//	1.	Prevent the default form action so we can process the action
@@ -159,27 +147,35 @@ $('#upload').on('click', function(event) {
 	event.preventDefault();
 
 	//
-	//	2.	Update the UI to let the user know what is happening
+	//	2.	Redirect the user to the thank you page, when they click the
+	//		submit button.
 	//
-	$('#upload').text('Uploading...');
+	return window.location.href = 'thankyou';
+
+});
+
+//
+//	<<>	React when the user submits the form
+//
+$("input:file").change(function (event) {
 
 	//
-	//	3..	Get the file information from the HTML form
+	//	1.	Get the file information from the HTML form
 	//
 	var files = document.getElementById('resume').files;
 
 	//
-	//	4.	Get the first object
+	//	2.	Get the first object
 	//
 	var file = files[0];
 
 	//
-	//	5.	Get the file name
+	//	3.	Get the file name
 	//
 	var file_name = file.name;
 
 	//
-	//	6.	Create a request object which will allow us to monitor the progress
+	//	4.	Create a request object which will allow us to monitor the progress
 	//		of the upload
 	//
 	var request = s3.putObject({
@@ -189,7 +185,7 @@ $('#upload').on('click', function(event) {
 	});
 
 	//
-	//	7.	Add a listener to react every time there is a progress update so
+	//	5.	Add a listener to react every time there is a progress update so
 	//		we know how much of the file was sent.
 	//
 	request.on('httpUploadProgress', function (progress) {
@@ -200,7 +196,7 @@ $('#upload').on('click', function(event) {
 	});
 
 	//
-	//	8.	Start the upload process
+	//	6.	Start the upload process
 	//
 	request.send(function(res) {
 
@@ -244,7 +240,11 @@ $('#upload').on('click', function(event) {
 		//
 		save_to_airtable(session, function() {
 
-			return window.location.href = 'thankyou';
+			//
+			//	1.	Once the file is successfully uploaded, we enable the
+			//		submit button to let the user complete the form.
+			//
+			$('#upload').removeAttr("disabled");
 
 		});
 
