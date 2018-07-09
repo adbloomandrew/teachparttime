@@ -47,6 +47,7 @@
                     <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
                         SUBMIT APPLICATION
                     </button>
+
                     <button type="submit" id="skip" class="d-none">Skip</button>
                 </div>
 
