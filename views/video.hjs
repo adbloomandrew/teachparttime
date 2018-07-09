@@ -23,11 +23,11 @@
                 State your name, where you are from and what
                 experience you have with kids that will make you a great online
                 teacher.
-                (<a href="https://www.youtube.com/watch?v=nOgrYxcBTyw"
+                <a href="https://www.youtube.com/watch?v=nOgrYxcBTyw"
                     class="link-violet" target="_blank" rel="noopener noreferrer">
-                preview a sample video introduction here</a>)
+                    Preview a sample video introduction here.</a>
                 <br>
-                <span class="text-red pt-1">After recording, you must hit the upload button to save your new video.</span>
+                <span class="d-block text-red my-3">After recording, you must hit the upload button to save your new video.</span>
             </p>
 			<form>
 
