@@ -28,7 +28,6 @@
 						<option value="null" selected="selected" disabled="disabled">Select an option</option>
 						<option value="usa">USA</option>
 						<option value="canada">Canada</option>
-						<option value="uk">UK</option>
 						<option value="other">Other</option>
 					</select>
 				</div>
