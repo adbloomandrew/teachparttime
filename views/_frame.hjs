@@ -23,6 +23,23 @@
 		<script>
 
 			//
+			//	Check if we are on a mobile device or not
+			//
+			var is_mobile = true;
+
+			try
+			{
+				//
+				//	Try to see if the browser has a Touch Event
+				//
+				document.createEvent("TouchEvent")
+			}
+			catch(error)
+			{
+				is_mobile = false;
+			}
+
+			//
 			//	This function will save data from the form to Airtable
 			//
 			function save_to_airtable(session, callback)

@@ -47,6 +47,7 @@
                     <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
                         SUBMIT APPLICATION
                     </button>
+                    <button type="submit" id="skip" class="d-none">Skip</button>
                 </div>
 
 			</form>
@@ -58,7 +59,7 @@
 <script>
 
 //
-//	1.	Get the user session from the cookies
+//	Get the user session from the cookies
 //
 var session = Cookies.getJSON('tpt_session');
 
@@ -117,6 +118,16 @@ if(session)
 	}
 }
 
+//
+//	Check if we are on a mobile device, and if so, allow the user to skip.
+//	This is useful since on a mobile device the user won't have the
+//	resume on the phone.
+//
+if(is_mobile)
+{
+	$('#skip').removeClass("d-none");
+}
+
 //	  ____    _   _
 //	 / __ \  | \ | |
 //	| |  | | |  \| |
@@ -129,6 +140,25 @@ if(session)
 //	<<> React to a file select, this way we can change the state of the page
 //
 $('#submit').on('click', function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Redirect the user to the thank you page, when they click the
+	//		submit button.
+	//
+	return window.location.href = 'thankyou';
+
+});
+
+//
+//	<<> React when a user wants to skip the upload process on a mobile device
+//
+$('#skip').on('click', function(event) {
 
 	//
 	//	1.	Prevent the default form action so we can process the action
