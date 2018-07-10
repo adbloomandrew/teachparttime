@@ -9,6 +9,20 @@
 		}
 	}];
 
+	//
+	//	Get the user session from the cookies
+	//
+	var session = Cookies.getJSON('tpt_session');
+
+	//
+	//	Check to see if we the user submited already a resume and if so we skip
+	//	this page.
+	//
+	if(session.fields.resume)
+	{
+		 window.location.href = 'thankyou';
+	}
+
 </script>
 
 <script crossorigin="anonymous" src="/js/aws-sdk-2.259.1.min.js"></script>
@@ -73,11 +87,6 @@
 //	 ____) || |____    | |      | |    _| |_ | |\  || |__| | ____) |
 //	|_____/ |______|   |_|      |_|   |_____||_| \_| \_____||_____/
 //
-
-//
-//	Get the user session from the cookies
-//
-var session = Cookies.getJSON('tpt_session');
 
 //
 //	Initialize the Amazon Cognito credentials provider
@@ -150,15 +159,6 @@ if(session)
 if(is_mobile)
 {
 	$('#skip').removeClass("d-none");
-}
-
-//
-//	Check to see if we the user submited already a resume and if so we skip
-//	this page.
-//
-if(session.fields.resume)
-{
-	 window.location.href = 'thankyou';
 }
 
 //	  ____    _   _
