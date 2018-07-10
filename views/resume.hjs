@@ -159,7 +159,6 @@ if(is_mobile)
 if(session.fields.resume.length > 0)
 {
 	 window.location.href = 'thankyou';
-	 return;
 }
 
 //	  ____    _   _
