@@ -11,21 +11,25 @@
 
 </script>
 
-
-<div class="example-section">
+<div class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
-			<h1 class="typo-h1 text-blue text-center mb-2">Thank-you! You don't have a degree.</h1>
+			<h1 class="typo-h1 text-blue text-center mb-2">
+				Thank-you for your interest in Qkids
+			</h1>
 			<hr class="divider divider__gray my-3">
-			<div class="text-gray mb-3">
-				<p class="typo-h3 my-2">We’ve emailed you a confirmation.</p>
-				<p class="typo-h3 my-2">There is no additional action for you to take at this time.</p>
-				<p class="typo-h3 my-2">Qkids will be in touch with you shortly via email to verify the details of your application and discuss next steps in the hiring process.</p>
-				<p class="typo-h3 my-2">
-					To inquire about your application, you may email:
-					<a href="mailto:teacher@qkids.net" class="link-violet">teacher@qkids.net</a>
-				</p>
-			</div>
+			<p class="text-gray typo-h3 mb-3">
+				The Qkids teacher evaluation team will be reviewing your information shortly. Please note that the team
+				only contacts applicants who meet the
+				<a href="/#requirements" class="link-blue">minimum teacher requirements</a>
+				to continue the online application process.
+			</p>
+			<p class="text-gray typo-h3 mb-3">
+				If you do not receive an email, you may not have met these minimum requirements.
+			</p>
+			<p class="text-gray typo-h3 mb-3">
+				Thank-you for your interest in Qkids!
+			</p>
 		</div>
 	</div>
 </div>

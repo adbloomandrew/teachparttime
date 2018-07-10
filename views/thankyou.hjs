@@ -11,21 +11,20 @@
 
 </script>
 
-
-<div class="example-section">
+<div class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
-			<h1 class="typo-h1 text-blue text-center mb-2">Thank-you! Your application is now complete</h1>
+			<h1 class="typo-h1 text-blue text-center mb-2">
+				Success! Your application has been submitted
+			</h1>
 			<hr class="divider divider__gray my-3">
-			<div class="text-gray mb-3">
-				<p class="typo-h3 my-2">We’ve emailed you a confirmation.</p>
-				<p class="typo-h3 my-2">There is no additional action for you to take at this time.</p>
-				<p class="typo-h3 my-2">Qkids will be in touch with you shortly via email to verify the details of your application and discuss next steps in the hiring process.</p>
-				<p class="typo-h3 my-2">
-					To inquire about your application, you may email:
-					<a href="mailto:teacher@qkids.net" class="link-violet">teacher@qkids.net</a>
-				</p>
-			</div>
+			<p class="text-gray typo-h3 mb-3">
+				We’ve emailed you a confirmation. There is no additional action for you to take at this time.
+			</p>
+			<p class="text-gray typo-h3 my-2">
+				Qkids will be in touch with you shortly via email to verify the details of your application and discuss
+				next steps in the hiring process.
+			</p>
 		</div>
 	</div>
 </div>
