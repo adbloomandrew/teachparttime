@@ -1,32 +1,25 @@
-# teachparttime.com
+# Teachpartime.com
 
-This is the official repository for teachparttime.com.
+This is the server for the site
 
-# How to run this project
+# How to run
 
-First install all the necessary modules
+1. You need to create a `.env` file inside the root folder of the project. You can do this by hand, or you can install `sudo npm install -g @0x4447/cucumber` and run inside the root folder this command: `cucumber`. The `.env` will be automatically created for you.
+2. Run `npm install`
+3. Run `npm start`
 
-```
-npm install
-```
+# What to expect
 
-Then build the project
+1. The server will start and load all the Environment Variables from the .env file
+2. The server will start locally
+3. The server will restart automatically at each file change, except if it is: .hjs, .css, or anything file in the public folder.
 
-```
-npm run build
-```
+# Stack Details
 
-To preview the project visit the `_preview` folder and click on the `home.html` file to open the page.
-
-# Where is this project hosted
-
-This project is hosted on AWS. We use S3 to store the site, and then use CloudFront to deliver the site using AWS Certificate Manager.
+- This project is hosted on Heroku,
+- We use S3 to store resumes,
+- Use Cognito Identity Pool to give the user temporary credentials to access S3.
 
 # How to update the site
 
-You can do it manually by updating the file on S3, and then invalidating the cash in CloudFront. Or you can use [potato](https://www.npmjs.com/package/@0x4447/potato) to automatically do it for you.
-
-# Everything in one command
-
-`npm run build && potato -s _output -u -b dev.teachpart-time.com -a KEY -t SECRET_KEY`
-
+Heroku is setup with auto deployment, this means that every time there will be a new commit in to the master branch, the site will automatically redeploy.

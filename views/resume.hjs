@@ -1,0 +1,340 @@
+<script>
+
+	//
+	//	The data layer set for Google Tag Manager
+	//
+	dataLayer = [{
+		"page": {
+			"type": "resume"
+		}
+	}];
+
+	//
+	//	Check to see if we the user submited already a resume and if so we skip
+	//	this page.
+	//
+	if(session.fields.resume)
+	{
+		window.location.href = 'thankyou';
+	}
+
+	//
+	//	Check to see what type of degree the user has, and if they don't
+	//	have any, then we skip this page.
+	//
+	if(session.fields.education == "No Degree")
+	{
+		window.location.href = 'thankyou_no';
+	}
+
+</script>
+
+<script crossorigin="anonymous" src="/js/aws-sdk-2.259.1.min.js"></script>
+
+<section class="register-register-section">
+	<div class="container">
+		<div class="card-block register-card">
+			<h1 class="typo-h1 text-blue text-center mb-2">Final Step: Upload Your Resume</h1>
+			<hr class="divider divider__gray my-3">
+
+			<form>
+
+				<div class="js-form-group mb-3">
+					<div class="typo-h4 text-gray form-label mb-3">
+
+                        <div class="typo-bold">Please upload a copy of your latest resume.</div>
+
+                        <div id="for_mobile" class="d-none">
+
+	                        Mobile users, you can upload files stored in your iCloud or Google docs.
+
+	                        <div class="text-red text-small my-3">
+	                            No resume on hand? You may temporarily skip this step
+	                            via the submit button. However, you will still be asked to
+	                            provide your resume via email prior to completing your
+	                            Qkids application.
+	                        </div>
+
+                        </div>
+
+                    </div>
+					<label class="file-label">
+						<input id="resume" type="file" accept=".doc, .docx, .pdf" class="d-none">
+						<span class="control-gray-btn file-upload-btn mr-3">Choose file</span>
+						<span id="js-file-name" class="file-name">No file chosen</span>
+					</label>
+					<div class="file-note text-blue">Supported file formats: .doc, .docx or .pdf file</div>
+				</div>
+
+				<p id="file_name" class="d-none"></p>
+				<p id="upload_status"></p>
+
+                <div class="text-center ">
+
+                    <button type="submit" id="skip" class="d-none btn p-0 mt-5">
+                        <em class="text-black mr-1 text-decoration-none">or</em>
+                        <span class="btn-link">Skip for now and provide later</span>
+                    </button>
+                </div>
+                <hr>
+
+                <div class="d-flex align-items-start justify-content-center flex-wrap mt-4">
+                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
+                        SUBMIT APPLICATION
+                    </button>
+                </div>
+
+			</form>
+
+		</div>
+	</div>
+</section>
+
+<script>
+
+//	  _____  ______  _______  _______  _____  _   _   _____   _____
+//	 / ____||  ____||__   __||__   __||_   _|| \ | | / ____| / ____|
+//	| (___  | |__      | |      | |     | |  |  \| || |  __ | (___
+//	 \___ \ |  __|     | |      | |     | |  | . ` || | |_ | \___ \
+//	 ____) || |____    | |      | |    _| |_ | |\  || |__| | ____) |
+//	|_____/ |______|   |_|      |_|   |_____||_| \_| \_____||_____/
+//
+
+//
+//	Initialize the Amazon Cognito credentials provider
+//
+var albumBucketName = 'dev.teachpart-time.com-resumes';
+var bucketRegion = 'us-east-1';
+var IdentityPoolId = 'us-east-1:57db0921-622e-408f-a321-44d3df8d0823';
+
+//
+//	Get temporary credentials from AWS to allow us to upload file to S3
+//
+AWS.config.update({
+	region: bucketRegion,
+	credentials: new AWS.CognitoIdentityCredentials({
+		IdentityPoolId: IdentityPoolId
+	})
+});
+
+//
+//	Initialize the S3 object pointing to the bucket where the resume needs to
+//	end up.
+//
+var s3 = new AWS.S3({
+	apiVersion: '2006-03-01',
+	params: {
+		Bucket: albumBucketName
+	}
+});
+
+//	 __  __              _____   _   _
+//	|  \/  |     /\     |_   _| | \ | |
+//	| \  / |    /  \      | |   |  \| |
+//	| |\/| |   / /\ \     | |   | . ` |
+//	| |  | |  / ____ \   _| |_  | |\  |
+//	|_|  |_| /_/    \_\ |_____| |_| \_|
+//
+
+//
+//	Check if we've got the cookie from the browser.
+//
+if(session)
+{
+	//
+	//	Check if the user already submitted a resume. And if so change the buttons
+	//
+	if(session.fields.resume)
+	{
+		//
+		//	1.	Create the message for the file name
+		//
+		var message = session.resume.file_name + " was your last upload.";
+
+		//
+		//	2.	Set the message
+		//
+		$('#file_name').text(message);
+
+		//
+		//	3.	Unhidden the message placeholder.
+		//
+		$('#file_name').removeClass("d-none");
+	}
+}
+
+//
+//	Check if we are on a mobile device, and if so, allow the user to skip.
+//	This is useful since on a mobile device the user won't have the
+//	resume on the phone.
+//
+if(is_mobile)
+{
+	$('#for_mobile').removeClass("d-none");
+	$('#skip').removeClass("d-none");
+}
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<> React to a file select, this way we can change the state of the page
+//
+$('#submit').on('click', function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Redirect the user to the thank you page, when they click the
+	//		submit button.
+	//
+	return window.location.href = 'thankyou';
+
+});
+
+//
+//	<<> React when a user wants to skip the upload process on a mobile device
+//
+$('#skip').on('click', function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Redirect the user to the thank you page, when they click the
+	//		submit button.
+	//
+	return window.location.href = 'thankyou_skip';
+
+});
+
+//
+//	<<>	React when the user submits the form
+//
+$("input:file").change(function() {
+
+	//
+	//	1.	Set in the UI the state, so the user knows what is happening.
+	//
+	$('#upload_status').text("Uploading...");
+
+	//
+	//	2.	Get the file information from the HTML form
+	//
+	var files = document.getElementById('resume').files;
+
+	//
+	//	3.	Get the first object
+	//
+	var file = files[0];
+
+	//
+	//	4.	Get the file name
+	//
+	var file_name = file.name;
+
+	//
+	//	5.	Updated the UI to let the user know which file was selected
+	//
+	$('#js-file-name').text(file_name ? file_name : 'No file chosen');
+
+	//
+	//	6.	Create a request object which will allow us to monitor the progress
+	//		of the upload
+	//
+	var request = s3.putObject({
+		Key: file_name,
+		Body: file,
+		ACL: 'public-read'
+	});
+
+	//
+	//	7.	Add a listener to react every time there is a progress update so
+	//		we know how much of the file was sent.
+	//
+	request.on('httpUploadProgress', function (progress) {
+
+		//console.log(progress.loaded + " of " + progress.total + " bytes");
+		//console.log(Math.floor((progress.total - progress.loaded) / progress.total * 100));
+
+	});
+
+	//
+	//	8.	Start the upload process
+	//
+	request.send(function(res) {
+
+		//
+		//	1.	Let the user know we finished
+		//
+		$('#upload').text('Done!');
+
+		//
+		//	2.	Create the public URL for the file that will be used by
+		//		Airtable to pull the file in to the table
+		//
+		var url = "https://s3.amazonaws.com/"
+				+ "dev.teachpart-time.com-resumes/"
+				+ file_name;
+
+		//
+		//	3.	Save the URL in to the user session in a way that Airtable
+		//		is able to understand that it is dealing with a file.
+		//
+		session.fields.resume = [
+			{
+				"url": url
+			}
+		];
+
+		//
+		//	4.	Save the file name of the Resume so we can display it
+		//		on the page to let the know which file they already uploaded.
+		//
+		//		We save this outside the fields key so it dose not conflict
+		//		with Airtable
+		//
+		session.resume = {
+			file_name: file_name
+		}
+
+		//
+		//	5.	Update the session with the resume URL
+		//
+		Cookies.set('tpt_session', session, { secure: true });
+
+		//
+		//	6.	Insert or Update Airtable
+		//
+		save_to_airtable(session, function() {
+
+			//
+			//	1.	Let the user know when the upload is done.
+			//
+			$('#upload_status').text("Done.");
+
+			//
+			//	2.	Once the file is successfully uploaded, we enable the
+			//		submit button to let the user complete the form.
+			//
+			$('#submit').removeAttr("disabled");
+
+		});
+
+	});
+
+});
+
+</script>

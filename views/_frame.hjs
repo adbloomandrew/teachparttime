@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="author" content="0x4447 LLC">
+
+		<title>{{ title }}</title>
+		<meta name="description" content="{{ description }}">
+
+		<script crossorigin="anonymous" src="/js/jquery-3.2.1.min.js"></script>
+		<script crossorigin="anonymous" src="/js/js.cookie-v2.2.0.min.js"></script>
+		<script crossorigin="anonymous" src="/js/moment-v2.22.2.js"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+
+		<link rel="stylesheet" href="/css/bootstrap-v4.1.1.css">
+		<link rel="stylesheet" href="/css/clients/{{ css }}">
+
+		<script>
+
+			//
+			//	Check if we are on a mobile device or not
+			//
+			var is_mobile = true;
+
+			//
+			//	Try to see if the browser has a Touch Event
+			//
+			try
+			{
+				document.createEvent("TouchEvent")
+			}
+			catch(error)
+			{
+				is_mobile = false;
+			}
+
+			//
+			//	Get the user session from the cookies
+			//
+			var session = Cookies.getJSON('tpt_session');
+
+			//
+			//	This function will save data from the form to Airtable
+			//
+			function save_to_airtable(session, callback)
+			{
+
+				//
+				//	1.	Make a variable that will hold the end part of the URL
+				//		where if we created a row, we can later one updated it
+				//
+				var airtable_row_id = "";
+				var action_type = "post";
+
+				//
+				//	2.	Check if we have the row ID in Airtable, if we do we know
+				//		we can update the data instead of creating it.
+				//
+				if(session.id)
+				{
+					airtable_row_id = "/" + session.id;
+					action_type = "patch"
+				}
+
+				//
+				//	->	Execute the query
+				//
+				$.ajax({
+					url: 'https://api.airtable.com/v0/appMm7V8XWifHqCja/QKids' + airtable_row_id,
+					type: action_type,
+					dataType: 'json',
+					headers: {
+						Authorization: "Bearer keybQ7ssbtUqLRTtw"
+					},
+					data: {
+						fields: session.fields
+					}
+				})
+				.done(function(data) {
+
+					console.log("Saved...");
+
+					return callback(data.id);
+
+				}).fail(function(error) {
+
+					//
+					//	<>> Log what happened
+					//
+					console.log(error);
+
+					//
+					//	->	Redirect the user to the error page
+					//
+					return window.location.href = 'error';
+
+				});
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="base-layout">
+			<!-- Header -->
+			<section class="header">
+				<div class="container text-center">
+					<img src="/img/logo.png" alt="Qkids" class="img-fluid">
+				</div>
+			</section>
+			<!-- End Header -->
+
+			{{>body}}
+
+			<!-- Footer section -->
+			<section class="footer-section text-center">
+				<div class="container">
+					<div class="footer-label">Applications to become a Qkids teacher are managed by TeachPartTime.com</div>
+					<ul class="footer-nav">
+						<li class="nav-item">
+							<a href="http://www.teachparttime.com/terms-of-use/" class="link" target="_blank"
+							rel="noopener noreferrer">Terms of Service</a>
+						</li>
+						<li class="nav-item">
+							<a href="http://www.teachparttime.com/privacy-policy/" class="link" target="_blank"
+							rel="noopener noreferrer">Privacy Policy</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+		</div>
+
+	</body>
+
+</html>

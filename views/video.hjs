@@ -1,0 +1,333 @@
+<script>
+
+	//
+	//	The data layer set for Google Tag Manager
+	//
+	dataLayer = [{
+		"page": {
+			"type": "video"
+		}
+	}];
+
+	//
+	//	Check to see if the video was already submitted, and if so we skip
+	//	this page and go to the next one,
+	//
+	if(session.fields.video_url || session.fields.youtube_url)
+	{
+		window.location.href = 'resume';
+	}
+
+	//
+	//	Check to see what type of degree the user has, and if they don't
+	//	have any, then we skip this page.
+	//
+	if(session.fields.education == "No Degree")
+	{
+		window.location.href = 'thankyou_no';
+	}
+
+</script>
+
+<section class="register-register-section">
+	<div class="container">
+		<div class="card-block register-card">
+			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Record a Brief Video</h1>
+			<hr class="divider divider__gray my-3">
+            <p class="typo-h4 text-gray mb-3">
+                <span class="typo-bold text-black">
+                    Please record a brief video introduction of yourself (60 seconds).
+                </span>
+                State your name, where you are from and what
+                experience you have with kids that will make you a great online
+                teacher.
+                <a href="https://www.youtube.com/watch?v=nOgrYxcBTyw"
+                    class="link-violet" target="_blank" rel="noopener noreferrer">
+                    Preview a sample video introduction here.</a>
+                <br>
+                <span class="d-block text-red my-3">After recording, you must hit the upload button to save your new video.</span>
+            </p>
+
+            <p id="is_video" class="d-none">You already recorded a video.</p>
+
+			<form>
+
+				<div class="w-520 mb-3">
+					<div class="video-recorder" id="hdfvr-content"></div>
+				</div>
+
+				<p class="typo-paragraph text-gray mb-3">Created a Video already? Paste the URL below.</p>
+				<div class="js-form-group mb-3">
+					<input type="url" class="form-input mb-1" id="youtube_url"
+						   required placeholder="http://youtube.com/My-Video-URL" title="http://youtube.com/My-Video-URL">
+				</div>
+				<div class="d-flex align-items-start justify-content-end flex-wrap">
+					<button type="submit" id="submit" class="control-gray-btn submit-btn">Next</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+<script>
+
+//	  _____  ______  _______  _______  _____  _   _   _____   _____
+//	 / ____||  ____||__   __||__   __||_   _|| \ | | / ____| / ____|
+//	| (___  | |__      | |      | |     | |  |  \| || |  __ | (___
+//	 \___ \ |  __|     | |      | |     | |  | . ` || | |_ | \___ \
+//	 ____) || |____    | |      | |    _| |_ | |\  || |__| | ____) |
+//	|_____/ |______|   |_|      |_|   |_____||_| \_| \_____||_____/
+//
+
+//
+//	This nr. tells Pipe Video to which environment to save the video.
+//	by default we assume we are dealing with the Development environment.
+//
+var environment = 2;
+
+//
+//	Check if we are running on the production domain
+//
+if(get_domain(document.location.hostname) != 'teachpart-time')
+{
+	environment = 1;
+}
+
+//
+//	Set size options for the video player size that is used for HTML 5
+//
+var size = {
+	width: 520,
+	height: 330
+};
+
+//
+//	Set settings for the video recorder in general
+//
+var flashvars = {
+	qualityurl: "avq/480p.xml",
+	accountHash: "9686b37512ceb0ef660755cdb0e8bd5f",
+	eid: environment,
+	showMenu: "true",
+	mrt: 120,
+	sis: 0,
+	asv: 1,
+	mv: 0,
+	dpv: 0,
+	ao: 0,
+	dup: 0
+};
+
+//
+//	Track if we can go to the final page
+//
+var we_cant_progress = true;
+
+//
+//	Check to see if the user already recorded a video, and if so, we display
+//	a message reminding them about this fact.
+//
+if(session.fields.video_url || session.fields.youtube_url)
+{
+	//
+	//	1.	Mark that we can move to the next page.
+	//
+	we_cant_progress = false;
+
+	//
+	//	2.	Show reminder.
+	//
+	$('#is_video').removeClass("d-none");
+}
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<>	React when the user wants to log in.
+//
+$('#submit').on("click", function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Check if we are not allowed to move forward
+	//
+	if(we_cant_progress)
+	{
+		alert("You need to record a video");
+		return;
+	}
+
+	//
+	//	3.	Mark the session as complete, meaning the user did went through
+	//		the whole form.
+	//
+	session.fields.completion_date = moment().toISOString();
+
+	//
+	//	4.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session, { secure: true });
+
+	//
+	//	5.	Save all the final data to the DB
+	//
+	save_to_airtable(session, function() {
+
+		//
+		//	->	Redirect the user to the next step
+		//
+		return window.location.href = 'resume';
+
+	});
+
+});
+
+//
+//	Setup a listener which will react each time a input form is
+//	changed so we can keep saving the user information so he or she
+//	can always return to the form later
+//
+$(".js-form-group").change(function() {
+
+	//
+	//	1.	Save or update the data in the user session
+	//
+	session.fields.youtube_url = $('#youtube_url').val();
+
+	//
+	//	2.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session, { secure: true });
+
+	//
+	//	3.	Mark that we can move forward
+	//
+	we_cant_progress = false;
+
+	//
+	//	4.	Make the first request to save the partial data that the user
+	//		submitted, so then in our DB we know what is missing and can
+	//		ping the user to let them know what is left.
+	//
+	save_to_airtable(session, function() {});
+
+});
+
+//	 _        _____    _____   _______   _   _   ______   _____     _____
+//	| |      |_   _|  / ____| |__   __| | \ | | |  ____| |  __ \   / ____|
+//	| |        | |   | (___      | |    |  \| | | |__    | |__) | | (___
+//	| |        | |    \___ \     | |    | . ` | |  __|   |  _  /   \___ \
+//	| |____   _| |_   ____) |    | |    | |\  | | |____  | | \ \   ____) |
+//	|______| |_____| |_____/     |_|    |_| \_| |______| |_|  \_\ |_____/
+//
+
+//
+//	WARNING: 	this functions needs to be before we initialize Pipe Video
+//				so Pipe can see this functions and use them
+//
+
+//
+//	FOR MOBILE: react when the video is saved
+//
+function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
+{
+	video_saved(location, filename);
+}
+
+//
+//	FOR DESKTOP: react when the video is saved
+//
+function onSaveOk(
+	streamName, streamDuration, userId, cameraName, micName, recorderId,
+	audioCodec, videoCodec, fileType, videoId, audioOnly, location
+)
+{
+	video_saved(location, streamName);
+}
+
+//	 _____    _____   _____    ______
+//	|  __ \  |_   _| |  __ \  |  ____|
+//	| |__) |   | |   | |__) | | |__
+//	|  ___/    | |   |  ___/  |  __|
+//	| |       _| |_  | |      | |____
+//	|_|      |_____| |_|      |______|
+//
+
+//
+//	Initialize Pipe
+//
+(function() {
+	var pipe = document.createElement('script');
+	pipe.type = 'text/javascript';
+	pipe.async = true;
+	pipe.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 's1.addpipe.com/1.3/pipe.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(pipe, s);
+})();
+
+//	 _    _   ______   _        _____    ______   _____     _____
+//	| |  | | |  ____| | |      |  __ \  |  ____| |  __ \   / ____|
+//	| |__| | | |__    | |      | |__) | | |__    | |__) | | (___
+//	|  __  | |  __|   | |      |  ___/  |  __|   |  _  /   \___ \
+//	| |  | | | |____  | |____  | |      | |____  | | \ \   ____) |
+//	|_|  |_| |______| |______| |_|      |______| |_|  \_\ |_____/
+//
+
+//
+//	This is the main function that has all the code to handle the saved
+//	video. This is done because Pipe Video, will call back different
+//	function based on the device the video was recorded.
+//
+//	This way we have one function that takes care of everything.
+//
+function video_saved(location, streamName)
+{
+	//
+	//	1.	Mark that we can move forward
+	//
+	we_cant_progress = false;
+
+	//
+	//	2.	Get the URL of the recorded video
+	//
+	session.fields.video_url = "https://"
+							 + location
+							 + "/"
+							 + flashvars.accountHash
+							 + "/"
+							 + streamName
+							 + ".mp4";
+
+	//
+	//	3.	Update Cookies no matter what for simplicity sake
+	//
+	Cookies.set('tpt_session', session, { secure: true });
+
+	//
+	//	4.	Make the final call to save all of the data submitted by the user
+	//
+	save_to_airtable(session, function() {});
+}
+
+//
+//	Basic function to extract the domain out of the hostname. Won't work with
+//	domains like co.uk etc.
+//
+function get_domain(url)
+{
+	let peaces = url.split('.');
+
+	return peaces[peaces.length - 2];
+}
+</script>

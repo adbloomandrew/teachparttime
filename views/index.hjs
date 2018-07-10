@@ -1,0 +1,479 @@
+<script>
+
+	//
+	//	The data layer set for Google Tag Manager
+	//
+	dataLayer = [{
+		"page": {
+			"type": "home"
+		}
+	}];
+
+</script>
+
+<!-- Banner section -->
+<section class="home-banner-section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-12 col-lg-6">
+				<div class="typo-paragraph text-violet mb-2">Watch our short video about life as a Qkids Teacher:</div>
+				<div class="video-wrap mb-5 mb-lg-0">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Zs9_Z0XSJ00" frameborder="0" allow="encrypted-media" allowfullscreen=""></iframe>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6" id="banner-form-container">
+				<div class="card-block">
+					<h2 class="typo-h1 text-violet text-center mb-0">
+						<span class="typo-bold">Earn $16-20/hr</span> and begin <span class="d-sm-block">Your Online Teaching Career.</span>
+					</h2>
+					<hr class="divider my-2">
+					<p class="typo-paragraph text-gray mb-3">
+						Apply to join thousands of people who work parttime from home and teach online with Qkids.
+					</p>
+					<p class="typo-paragraph text-gray mb-2">
+						To qualify, you must have a degree or be currently enrolled in a university program. Prior teaching
+						experience or equivalent in education, tutoring, mentoring, or schooling.s
+					</p>
+
+					<form>
+
+						<input type="text" id="full_name" class="form-input mb-3" placeholder="Full name" autocomplete="full-name" required autofocus>
+
+						<input type="email" id="email" class="form-input mb-3" placeholder="Email" autocomplete="email" required>
+
+                        <select id="education" class="form-select mb-3">
+                            <option value="null" selected="selected" disabled="disabled">What is your Education level?</option>
+                            <option value="University/College Degree">University/College Degree</option>
+                            <option value="Enrolled in University/College">Enrolled in University/College</option>
+                            <option value="Associates Degree">Associates Degree</option>
+                            <option value="High School Degree">High School Degree</option>
+                            <option value="No Degree">No Degree</option>
+                        </select>
+
+						<input type="hidden" id="cid" class="form-input mb-3">
+
+						<button type="submit" class="control-pink-btn w-100 mb-2">Apply</button>
+
+					</form>
+
+					<p class="typo-paragraph text-gray">
+						You can withdraw consent anytime. By applying, you agree to our
+						<a class="link-violet" href="http://www.teachparttime.com/terms-of-use/" target="_blank" rel="noopener noreferrer">terms of service</a> and
+						<a href="http://www.teachparttime.com/privacy-policy/" target="_blank" rel="noopener noreferrer" class="link-violet">privacy policy</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner section -->
+
+<!-- Requirements section -->
+<section class="home-requirements-section">
+	<div class="container">
+		<h2 class="typo-h1 text-white text-center">
+			Teacher <span class="typo-bold">Requirements</span>
+		</h2>
+	</div>
+	<hr class="divider divider__pink divider__bold my-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+				<ul class="arrow-list text-white mb-4">
+					<li class="list-item typo-h3 mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
+						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
+						</svg>
+
+						Native fluency English speakers who are based in United States or Canada
+					</li>
+					<li class="list-item typo-h3 mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
+						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
+						</svg>
+
+						Earned a degree <strong class="typo-italic">or currently enrolled in a university program</strong>
+					</li>
+					<li class="list-item typo-h3 mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
+						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
+						</svg>
+
+						Although not required, those with any prior teaching/early childhood experience preferred
+					</li>
+					<li class="list-item typo-h3 mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
+						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
+						</svg>
+
+						Digital literacy, outgoing personality, and consistent passion in class
+					</li>
+					<li class="list-item typo-h3 mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
+						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
+						</svg>
+
+						Available to teach a minimum of 6 hours (12 classes) per week
+					</li>
+				</ul>
+				<img src="/img/home-2.jpg" alt="Teachers" class="img-fluid">
+			</div>
+		</div>
+	</div>
+
+</section>
+<!-- End Requirements section -->
+
+<!-- Benefits section -->
+<section class="home-benefits-section">
+	<div class="container">
+		<h2 class="typo-h1 text-violet text-center">
+			<span class="typo-bold">Benefits</span> of Online Teaching
+		</h2>
+	</div>
+	<hr class="divider divider__pink divider__bold my-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p class="typo-h3 text-gray mb-3">
+					Teaching online has a many financial and lifestyle benefits, such as:
+				</p>
+			</div>
+			<div class="col-12 col-md-6">
+				<ul class="benefits-list">
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">Great Pay Rate</span> ($16-20.00 per hour!)
+					</li>
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">Flexible Schedule</span> (part-time!)
+					</li>
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">Off-Hour Earning</span> (including weekends!)
+					</li>
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">Work at Home</span> (or wherever you want!)
+					</li>
+				</ul>
+			</div>
+			<div class="col-12 col-md-6">
+				<ul class="benefits-list">
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">All Materials Provided</span> (training too!)
+					</li>
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">Teacher/Tech Support</span> (in real-time!)
+					</li>
+					<li class="list-item typo-h3 text-gray mb-3">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
+							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
+										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
+										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
+						</svg>
+
+						<span class="typo-bold">A Rewarding Job</span> (teaching cute kids!)
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Benefits section -->
+
+<!-- About section -->
+<section class="home-about-section">
+	<div class="container">
+		<h2 class="typo-h1 text-white text-center">
+			<span class="typo-bold">About</span> Qkids
+		</h2>
+	</div>
+	<hr class="divider divider__pink divider__bold my-4">
+	<div class="container mt-1">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<img src="/img/home-1.jpg" alt="office" class="img-fluid mb-4">
+			</div>
+			<div class="col-12 col-md-6">
+				<p class="typo-h3 text-white mb-3">
+					<strong>Qkids</strong> is an online teaching community where thousands of people from the USA and Canada
+					teach kids English online.
+				</p>
+				<p class="typo-h3 text-white mb-3">
+					We are seeking college students, school teachers, stay-at-home moms, and all those who have a passion for
+					education to work part-time (minimum of 6 hours per week).
+				</p>
+				<p class="typo-h3 text-white">
+					Knowledge of Chinese is not necessary. Each class is 30 minutes. All curricula are preset and incorporated
+					with animated characters and games. There is paid training before orientation. Further training and support
+					is provided along with coursework.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End About section -->
+
+<!-- Anchor link -->
+<a href="#banner-form-container" class="js-smooth-scroll control-pink-btn form-anchor-link">Apply</a>
+
+<script>
+	var anchor = $('.form-anchor-link');
+
+	$(window).scroll(function () {
+		if($(window).scrollTop() + $(window).height() == $(document).height())
+		{
+			if($('#banner-form-container').is(':visible'))
+			{
+				anchor.show();
+			}
+		}
+	});
+
+</script>
+<!-- End Anchor link -->
+
+<script>
+
+//
+//	Check if we got the session
+//
+if(session)
+{
+	//
+	//	1.	Loop over the whole object and look for the matching HTML
+	//		element, and populate it with the data.
+	//
+	$.each(session.fields, function(key, value) {
+
+		//
+		//	1.	Set the value of the inputs
+		//
+		$('#' + key).val(value);
+
+	});
+}
+
+//
+//	Convert the query part of the URL in to a JS object so we can easily
+//	get to what we want.
+//
+var query_obj = get_queries_from_url(document.location.href);
+
+//
+//	Check if the CID was passed in the URL
+//
+if(query_obj.cid)
+{
+	//
+	//	1.	Set the CID in to the hidden input. This way we know where the
+	//		user came from.
+	//
+	$('#cid').val(query_obj.cid);
+}
+
+//	  ____    _   _
+//	 / __ \  | \ | |
+//	| |  | | |  \| |
+//	| |  | | | . ` |
+//	| |__| | | |\  |
+//	 \____/  |_| \_|
+//
+
+//
+//	<<>	React when the user submits the form
+//
+$('form').on("submit", function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Get the user inputs
+	//
+	var full_name 	= $('#full_name').val();
+	var email 		= $('#email').val();
+	var cid 		= $('#cid').val();
+	var education   = $('#education').val();
+
+	//
+	//	3.	If we have a session we update the data since the user might have
+	//		decided to change the name email or fix a typo.
+	//
+	if(session)
+	{
+		session.fields.full_name = full_name;
+		session.fields.email = email;
+		session.fields.cid = cid;
+		session.fields.education = education;
+	}
+
+	//
+	//	4.	If there isn't a session we create a new one.
+	//
+	if(!session)
+	{
+		session = {
+			fields: {
+				full_name: full_name,
+				email: email,
+				cid: cid,
+                education: education,
+				submission_date: moment().toISOString()
+			}
+		}
+	}
+
+	//
+	//	5.	Insert or Updated the data to Airtable
+	//
+	save_to_airtable(session, function(id) {
+
+		//
+		//	1.	Save the Airtable ID so we can update the user record in all
+		//		the subsequent pages.
+		//
+		session.id = id;
+
+		//
+		//	2.	Create the continuation ID so if used one can continue filling
+		//		the form from another device.
+		//
+		var url = 'https://'
+				+ document.location.hostname
+				+ '/restore?continuation_id='
+				+ id;
+
+		//
+		//	3.	Create the data to be sent to Airtable
+		//
+		var continuation_url = {
+			id: id,
+			fields: {
+				continuation_url: url
+			}
+		}
+
+		//
+		//	4.	Update Airtable
+		//
+		save_to_airtable(continuation_url, function() {
+
+			//
+			//	1.	Save the whole user session so we can save the progress of
+			//		the page.
+			//
+			Cookies.set('tpt_session', session, { secure: true });
+
+			//
+			//	->	Redirect the user to the next step
+			//
+			return window.location.href = 'form';
+
+		});
+
+	});
+
+});
+
+//
+//	This function will take the URL from the browser and parse it to extract
+//	all the query parameters and convert them in to a JS object.
+//
+function get_queries_from_url(url)
+{
+	//
+	//	1.	Split the sting in two peaces, on the left you get the URL. One
+	//		the right you get a new string with all the queries.
+	//
+	var left_right = url.split('?')
+
+	//
+	//	2.	Create the JS object that will hold all the queries
+	//
+	var queries = {};
+
+	//
+	//	3.	Check if we have the right side, meaning the query part of the URL
+	//
+	if(left_right[1])
+	{
+		//
+		//	1.	Take the string from the right side and split it again
+		//		to get the individual queries.
+		//
+		var query = left_right[1].split('&')
+
+		//
+		//	2.	Loop over the individual quires to get to the data that we care
+		//		about.
+		//
+		for(var i = 0; i < query.length; i++)
+		{
+			//
+			//	1.	Split in the middle of the query to get the key and the
+			//		value
+			//
+			var data = query[i].split('=');
+
+			//
+			//	2.	Save what we got in to the JS object
+			//
+			queries[data[0]] = data[1];
+		}
+	}
+
+	//
+	//	->	Return the query string as an JS object.
+	//
+	return queries;
+}
+
+</script>

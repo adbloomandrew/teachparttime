@@ -1,18 +1,24 @@
 {
-  "name": "teachparttime.com",
+  "name": "teachpartime-com",
   "version": "1.0.0",
-  "description": "The official Homepage of teachparttime.com",
-  "main": "home.js",
+  "private": true,
+  "engines": {
+    "node": "8.11.3"
+  },
   "scripts": {
-    "build": "avocado -s .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nf start"
   },
-  "author": "0x4447",
-  "bugs": {
-    "url": "https://github.com/0x4447/0x4447.com/issues"
-  },
-  "homepage": "https://github.com/0x4447/0x4447.com#readme",
   "dependencies": {
-    "@0x4447/avocado": "1.4.0"
+    "body-parser": "1.18.3",
+    "compression": "1.7.2",
+    "cookie-parser": "1.4.3",
+    "express": "4.16.3",
+    "helmet": "3.12.1",
+    "hjs": "0.0.6",
+    "morgan": "1.9.0"
+  },
+  "devDependencies": {
+    "foreman": "^3.0.1",
+    "nodemon": "1.11.0"
   }
 }

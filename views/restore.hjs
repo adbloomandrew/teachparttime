@@ -1,0 +1,137 @@
+<script>
+
+	//
+	//	The data layer set for Google Tag Manager
+	//
+	dataLayer = [{
+		"page": {
+			"type": "restore"
+		}
+	}];
+
+</script>
+
+<p>Restoring session</p>
+
+<script>
+
+//
+//	1.	This is our template array with all the data that we have in the
+//		form. This array will be used to loop over and go over the object
+//		that we got back to see if we have the values that interest us.
+//
+var session_reference = [
+	'email', 'full_name', 'country', 'state', 'city', 'phone',
+	'education', 'work_permit', 'webcam', 'video_url', 'youtube_url',
+	'resume', 'ms_1', 'ms_2', 'ms_3', 'ms_4',
+	'fs_1', 'fs_2', 'fs_3', 'fs_4', 'fs_5',
+	'cid'
+];
+
+//
+//	2.	Check if in the URL we have a continuation ID which will help
+//		the user keep filling the form form another device, or as a way to
+//		keep filling a draft.
+//
+var continuation_id = get_continuation_id(window.location.href);
+
+//
+//	3.	Check to see if we have the ID to get the row from Airtable
+//
+if(continuation_id)
+{
+	//
+	//	->	Execute the query
+	//
+	$.ajax({
+		url: 'https://api.airtable.com/v0/appMm7V8XWifHqCja/QKids/' + continuation_id,
+		type: 'get',
+		dataType: 'json',
+		headers: {
+			Authorization: "Bearer keybQ7ssbtUqLRTtw"
+		}
+	})
+	.done(function(data) {
+
+		//
+		//	1.	Build the form session
+		//
+		let restored_session = {
+			id: continuation_id,
+			fields: {}
+		}
+
+		//
+		//	2.	Loop over the session reference and see if we can match
+		//		the data that we got back with the the reference object
+		//
+		$.each(session_reference, function(index, key) {
+
+			//
+			//	1.	Check if the key has a value behind it
+			//
+			if(data.fields[key])
+			{
+				//
+				//	1.	Save the value to the matching key
+				//
+				restored_session.fields[key] = data.fields[key];
+			}
+
+		});
+
+		//
+		//	3.	Save the session data as cookie
+		//
+		Cookies.set('tpt_session', restored_session, { secure: true });
+
+		//
+		//	<>> Log what happened
+		//
+		console.log("Session Restored...");
+
+		//
+		//	->	Return to the original function
+		//
+		window.location.replace('/form');
+
+	}).fail(function(error) {
+
+		//
+		//	<>> Log what happened
+		//
+		console.log(error.responseText);
+
+		//
+		//	->	Redirect the user to the error page
+		//
+		return window.location.href = 'error';
+
+	});
+}
+
+//
+//	4.	Redirect Home even if there was no ID.
+//
+if(!continuation_id)
+{
+	window.location.replace('/');
+}
+
+//	 ______  _    _  _   _   _____  _______  _____  ____   _   _   _____
+//	|  ____|| |  | || \ | | / ____||__   __||_   _|/ __ \ | \ | | / ____|
+//	| |__   | |  | ||  \| || |        | |     | | | |  | ||  \| || (___
+//	|  __|  | |  | || . ` || |        | |     | | | |  | || . ` | \___ \
+//	| |     | |__| || |\  || |____    | |    _| |_| |__| || |\  | ____) |
+//	|_|      \____/ |_| \_| \_____|   |_|   |_____|\____/ |_| \_||_____/
+//
+
+//
+//	Get the query values from the URL
+//
+function get_continuation_id(url)
+{
+	return url.split('?')[1].split('=')[1];
+}
+
+</script>
