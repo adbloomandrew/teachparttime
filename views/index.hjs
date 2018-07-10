@@ -1,8 +1,8 @@
-<!--
-The data layer set for Google Tag Manager
--->
 <script>
 
+	//
+	//	The data layer set for Google Tag Manager
+	//
 	dataLayer = [{
 		"page": {
 			"type": "home"
