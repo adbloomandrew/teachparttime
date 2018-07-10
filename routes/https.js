@@ -19,15 +19,16 @@ if(process.env.NODE_ENV != 'local')
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-router.use('/error', 		require('./https/error'));
-router.use('/form', 		require('./https/form'));
-router.use('/', 			require('./https/index'));
-router.use('/mouse', 		require('./https/mouse'));
-router.use('/restore', 		require('./https/restore'));
-router.use('/resume', 		require('./https/resume'));
-router.use('/thankyou', 	require('./https/thankyou'));
-router.use('/thankyou_no', 	require('./https/thankyou_no'));
-router.use('/video', 		require('./https/video'));
+router.use('/error', 			require('./https/error'));
+router.use('/form', 			require('./https/form'));
+router.use('/', 				require('./https/index'));
+router.use('/mouse', 			require('./https/mouse'));
+router.use('/restore', 			require('./https/restore'));
+router.use('/resume', 			require('./https/resume'));
+router.use('/thankyou', 		require('./https/thankyou'));
+router.use('/thankyou_no', 		require('./https/thankyou_no'));
+router.use('/thankyou_sip', 	require('./https/thankyou_skip'));
+router.use('/video', 			require('./https/video'));
 
 ////////////////////////////////////////////////////////////////////////////////
 

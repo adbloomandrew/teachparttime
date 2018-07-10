@@ -216,7 +216,7 @@ $('#skip').on('click', function(event) {
 	//	2.	Redirect the user to the thank you page, when they click the
 	//		submit button.
 	//
-	return window.location.href = 'thankyou';
+	return window.location.href = 'thankyou_skip';
 
 });
 
