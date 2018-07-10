@@ -29,6 +29,9 @@
                 <br>
                 <span class="d-block text-red my-3">After recording, you must hit the upload button to save your new video.</span>
             </p>
+
+            <p id="is_video" class="d-none">You already recorded a video.</p>
+
 			<form>
 
 				<div class="w-520 mb-3">
@@ -101,6 +104,11 @@ var flashvars = {
 //	Track if we can go to the final page
 //
 var we_cant_progress = true;
+
+if(session.fields.video_url)
+{
+	window.location.href = 'thankyou';
+}
 
 //	  ____    _   _
 //	 / __ \  | \ | |
