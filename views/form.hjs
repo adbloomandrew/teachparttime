@@ -62,6 +62,17 @@
 					</select>
 				</div>
 
+				{{!-- Work permit --}}
+				<div class="js-form-group mb-3">
+					<label for="webcam" class="typo-h4 typo-bold text-gray form-label w-100">What type of webcam-enabled computer do you have?</label>
+					<select id="webcam" class="form-select">
+						<option value="null" selected="selected" disabled="disabled">Select an option</option>
+						<option value="desktop">Desktop PC or MAC</option>
+						<option value="laptop">Laptop PC or MAC</option>
+						<option value="mobile">Only Smartphone or Tablet</option>
+					</select>
+				</div>
+
 				{{!-- Daytime(Mon-Sun) --}}
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
@@ -190,7 +201,7 @@ var phone_mask = {
 //	Only for the US and Canada you can select a state
 //
 var form_required = [
-	'country', 'city', 'phone', 'work_permit'
+	'country', 'city', 'phone', 'work_permit', 'webcam'
 ];
 
 //
