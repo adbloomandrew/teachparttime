@@ -66,6 +66,14 @@
 
 <script>
 
+//	  _____  ______  _______  _______  _____  _   _   _____   _____
+//	 / ____||  ____||__   __||__   __||_   _|| \ | | / ____| / ____|
+//	| (___  | |__      | |      | |     | |  |  \| || |  __ | (___
+//	 \___ \ |  __|     | |      | |     | |  | . ` || | |_ | \___ \
+//	 ____) || |____    | |      | |    _| |_ | |\  || |__| | ____) |
+//	|_____/ |______|   |_|      |_|   |_____||_| \_| \_____||_____/
+//
+
 //
 //	Get the user session from the cookies
 //
@@ -98,6 +106,14 @@ var s3 = new AWS.S3({
 		Bucket: albumBucketName
 	}
 });
+
+//	 __  __              _____   _   _
+//	|  \/  |     /\     |_   _| | \ | |
+//	| \  / |    /  \      | |   |  \| |
+//	| |\/| |   / /\ \     | |   | . ` |
+//	| |  | |  / ____ \   _| |_  | |\  |
+//	|_|  |_| /_/    \_\ |_____| |_| \_|
+//
 
 //
 //	Check if we've got the cookie from the browser.
@@ -134,6 +150,15 @@ if(session)
 if(is_mobile)
 {
 	$('#skip').removeClass("d-none");
+}
+
+//
+//	Check to see if we the user submited already a resume and if so we skip
+//	this page.
+//
+if(!session.fields.resume.length)
+{
+	return window.location.href = 'thankyou';
 }
 
 //	  ____    _   _
