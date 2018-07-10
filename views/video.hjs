@@ -105,9 +105,13 @@ var flashvars = {
 //
 var we_cant_progress = true;
 
-if(session.fields.video_url)
+//
+//	Check to see if the user already recorded a video, and if so, we display
+//	a message reminding them about this fact.
+//
+if(session.fields.video_url || session.fields.youtube_url)
 {
-	window.location.href = 'thankyou';
+	$('#is_video').removeClass("d-none");
 }
 
 //	  ____    _   _
