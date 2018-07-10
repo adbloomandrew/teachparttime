@@ -9,6 +9,15 @@
 		}
 	}];
 
+	//
+	//	Check to see if the video was already submitted, and if so we skip
+	//	this page and go to the next one,
+	//
+	if(session.fields.video_url || session.fields.youtube_url)
+	{
+		window.location.href = 'resume';
+	}
+
 </script>
 
 <section class="register-register-section">
