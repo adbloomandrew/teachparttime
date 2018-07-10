@@ -158,7 +158,8 @@ if(is_mobile)
 //
 if(session.fields.resume.length > 0)
 {
-	return window.location.href = 'thankyou';
+	 window.location.href = 'thankyou';
+	 return;
 }
 
 //	  ____    _   _
