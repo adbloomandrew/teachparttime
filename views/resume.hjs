@@ -1,8 +1,8 @@
-<!--
-	The data layer set for Google Tag Manager
--->
 <script>
 
+	//
+	//	The data layer set for Google Tag Manager
+	//
 	dataLayer = [{
 		"page": {
 			"type": "resume"
@@ -20,7 +20,7 @@
 	//
 	if(session.fields.resume)
 	{
-		 window.location.href = 'thankyou';
+		window.location.href = 'thankyou';
 	}
 
 </script>
