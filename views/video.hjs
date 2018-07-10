@@ -18,6 +18,15 @@
 		window.location.href = 'resume';
 	}
 
+	//
+	//	Check to see what type of degree the user has, and if they don't
+	//	have any, then we skip this page.
+	//
+	if(session.fields.education == "No Degree")
+	{
+		window.location.href = 'thankyou';
+	}
+
 </script>
 
 <section class="register-register-section">
