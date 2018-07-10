@@ -111,6 +111,14 @@ var we_cant_progress = true;
 //
 if(session.fields.video_url || session.fields.youtube_url)
 {
+	//
+	//	1.	Mark that we can move to the next page.
+	//
+	we_cant_progress = false;
+
+	//
+	//	2.	Show reminder.
+	//
 	$('#is_video').removeClass("d-none");
 }
 
