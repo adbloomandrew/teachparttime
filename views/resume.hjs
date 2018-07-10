@@ -43,11 +43,19 @@
 				<p id="file_name" class="d-none"></p>
 				<p id="upload_status"></p>
 
+                <div class="text-center ">
+
+                    <button type="submit" id="skip" class="d-none btn p-0 mt-5">
+                        <em class="text-black mr-1 text-decoration-none">or</em>
+                        <span class="btn-link">Skip for now and provide later</span>
+                    </button>
+                </div>
+                <hr>
+
                 <div class="d-flex align-items-start justify-content-center flex-wrap mt-4">
                     <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
                         SUBMIT APPLICATION
                     </button>
-                    <button type="submit" id="skip" class="d-none">Skip</button>
                 </div>
 
 			</form>
