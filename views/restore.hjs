@@ -58,7 +58,7 @@ if(continuation_id)
 		//
 		//	1.	Build the form session
 		//
-		let session = {
+		let restored_session = {
 			id: continuation_id,
 			fields: {}
 		}
@@ -77,7 +77,7 @@ if(continuation_id)
 				//
 				//	1.	Save the value to the matching key
 				//
-				session.fields[key] = data.fields[key];
+				restored_session.fields[key] = data.fields[key];
 			}
 
 		});
@@ -85,7 +85,7 @@ if(continuation_id)
 		//
 		//	3.	Save the session data as cookie
 		//
-		Cookies.set('tpt_session', session, { secure: true });
+		Cookies.set('tpt_session', restored_session, { secure: true });
 
 		//
 		//	<>> Log what happened

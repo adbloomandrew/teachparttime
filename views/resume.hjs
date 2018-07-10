@@ -10,11 +10,6 @@
 	}];
 
 	//
-	//	Get the user session from the cookies
-	//
-	var session = Cookies.getJSON('tpt_session');
-
-	//
 	//	Check to see if we the user submited already a resume and if so we skip
 	//	this page.
 	//

@@ -150,11 +150,6 @@
 <script>
 
 //
-//	Get the user session from the cookies
-//
-var session = Cookies.getJSON('tpt_session');
-
-//
 //	A collection of all the states for the US and Canada
 //
 var states = {

@@ -59,13 +59,13 @@
 //
 
 //
-//	1.	This nr. tells Pipe Video to which environment to save the video.
-//		by default we assume we are dealing with the Development environment.
+//	This nr. tells Pipe Video to which environment to save the video.
+//	by default we assume we are dealing with the Development environment.
 //
 var environment = 2;
 
 //
-//	2.	Check if we are running on the production domain
+//	Check if we are running on the production domain
 //
 if(get_domain(document.location.hostname) != 'teachpart-time')
 {
@@ -73,7 +73,7 @@ if(get_domain(document.location.hostname) != 'teachpart-time')
 }
 
 //
-//	3.	Set size options for the video player size that is used for HTML 5
+//	Set size options for the video player size that is used for HTML 5
 //
 var size = {
 	width: 520,
@@ -81,7 +81,7 @@ var size = {
 };
 
 //
-//	4.	Set settings for the video recorder in general
+//	Set settings for the video recorder in general
 //
 var flashvars = {
 	qualityurl: "avq/480p.xml",
@@ -98,12 +98,7 @@ var flashvars = {
 };
 
 //
-//	5.	Get the user session from the cookies
-//
-var session = Cookies.getJSON('tpt_session');
-
-//
-//	6.	Track if we can go to the final page
+//	Track if we can go to the final page
 //
 var we_cant_progress = true;
 

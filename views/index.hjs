@@ -280,14 +280,7 @@
 <script>
 
 //
-//	1.	Get the user session from the cookies. At this stage we might not have
-//		it if we are dealing with a new user. A session will be present
-//		only if we are dealing with a returning user.
-//
-var session = Cookies.getJSON('tpt_session');
-
-//
-//	2.	Check if we got the session
+//	Check if we got the session
 //
 if(session)
 {
@@ -306,13 +299,13 @@ if(session)
 }
 
 //
-//	3.	Convert the query part of the URL in to a JS object so we can easily
-//		get to what we want.
+//	Convert the query part of the URL in to a JS object so we can easily
+//	get to what we want.
 //
 var query_obj = get_queries_from_url(document.location.href);
 
 //
-//	4.	Check if the CID was passed in the URL
+//	Check if the CID was passed in the URL
 //
 if(query_obj.cid)
 {

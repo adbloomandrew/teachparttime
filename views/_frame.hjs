@@ -27,17 +27,22 @@
 			//
 			var is_mobile = true;
 
+			//
+			//	Try to see if the browser has a Touch Event
+			//
 			try
 			{
-				//
-				//	Try to see if the browser has a Touch Event
-				//
 				document.createEvent("TouchEvent")
 			}
 			catch(error)
 			{
 				is_mobile = false;
 			}
+
+			//
+			//	Get the user session from the cookies
+			//
+			var session = Cookies.getJSON('tpt_session');
 
 			//
 			//	This function will save data from the form to Airtable
