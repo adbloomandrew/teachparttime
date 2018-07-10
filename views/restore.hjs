@@ -11,7 +11,9 @@
 
 </script>
 
-<p>Restoring session</p>
+<div id="loader-wrapper">
+	<div id="loader"></div>
+</div>
 
 <script>
 
