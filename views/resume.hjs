@@ -156,7 +156,7 @@ if(is_mobile)
 //	Check to see if we the user submited already a resume and if so we skip
 //	this page.
 //
-if(session.fields.resume.length > 0)
+if(session.fields.resume)
 {
 	 window.location.href = 'thankyou';
 }
