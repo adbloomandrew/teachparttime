@@ -37,7 +37,7 @@
 
 					<form>
 
-						<input type="text" id="full_name" class="form-input mb-3" placeholder="Full name" autocomplete="full-name" required autofocus>
+						<input type="text" id="full_name" class="form-input mb-3" placeholder="Full name" autocomplete="full-name" required>
 
 						<input type="email" id="email" class="form-input mb-3" placeholder="Email" autocomplete="email" required>
 
@@ -69,7 +69,7 @@
 <!-- End Banner section -->
 
 <!-- Requirements section -->
-<section class="home-requirements-section">
+<section class="home-requirements-section" id="requirements">
 	<div class="container">
 		<h2 class="typo-h1 text-white text-center">
 			Teacher <span class="typo-bold">Requirements</span>
