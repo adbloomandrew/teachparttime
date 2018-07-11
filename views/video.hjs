@@ -45,8 +45,11 @@
                     class="link-violet" target="_blank" rel="noopener noreferrer">
                     Preview a sample video introduction here.</a>
                 <br>
-                <span class="d-block text-red my-3">After recording, you must hit the upload button to save your new video.</span>
             </p>
+
+            <div id="for_mobile" class="d-none">
+                <span class="d-block text-red my-3">After recording, you must hit the upload button to save your new video.</span>
+            </div>
 
             <p id="is_video" class="d-none">You already recorded a video.</p>
 
@@ -123,6 +126,14 @@ var flashvars = {
 //
 var we_cant_progress = true;
 
+//	 __  __              _____   _   _
+//	|  \/  |     /\     |_   _| | \ | |
+//	| \  / |    /  \      | |   |  \| |
+//	| |\/| |   / /\ \     | |   | . ` |
+//	| |  | |  / ____ \   _| |_  | |\  |
+//	|_|  |_| /_/    \_\ |_____| |_| \_|
+//
+
 //
 //	Check to see if the user already recorded a video, and if so, we display
 //	a message reminding them about this fact.
@@ -138,6 +149,15 @@ if(session.fields.video_url || session.fields.youtube_url)
 	//	2.	Show reminder.
 	//
 	$('#is_video').removeClass("d-none");
+}
+
+//
+//	Check if we are on a mobile device, and if so, show them a warning
+//	information to let them know what to do after they record a video.
+//
+if(is_mobile)
+{
+	$('#for_mobile').removeClass("d-none");
 }
 
 //	  ____    _   _
