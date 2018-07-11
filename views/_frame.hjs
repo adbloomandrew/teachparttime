@@ -54,7 +54,7 @@
 				//	1.	Redirect the user back to the home page and remove
 				//		URL history, so they can't clikc the back button.
 				//
-				return window.location.replace('/');
+				window.location.replace('/');
 			}
 
 			//
