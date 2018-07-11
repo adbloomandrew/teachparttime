@@ -24,7 +24,7 @@
 	//
 	if(session.fields.education == "No Degree")
 	{
-		window.location.href = 'thankyou_no';
+		window.location.href = 'thankyou2';
 	}
 
 </script>

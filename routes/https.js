@@ -26,7 +26,7 @@ router.use('/mouse', 			require('./https/mouse'));
 router.use('/restore', 			require('./https/restore'));
 router.use('/resume', 			require('./https/resume'));
 router.use('/thankyou', 		require('./https/thankyou'));
-router.use('/thankyou_no', 		require('./https/thankyou_no'));
+router.use('/thankyou2', 		require('./https/thankyou2'));
 router.use('/thankyou_skip', 	require('./https/thankyou_skip'));
 router.use('/video', 			require('./https/video'));
 
