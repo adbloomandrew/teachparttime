@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 		url: "https://" + req.hostname,
 		css: css,
 		partials: {
-			body: 'thankyou_no'
+			body: 'thankyou2'
 		}
 	});
 
