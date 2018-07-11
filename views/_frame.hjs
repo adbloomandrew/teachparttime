@@ -48,7 +48,7 @@
 			//	After we try to get the Session Cookie, we check if the browser
 			//	actually had the session.
 			//
-			if(!session)
+			if(!session && location.search.substring(1).length)
 			{
 				//
 				//	1.	Redirect the user back to the home page and remove
