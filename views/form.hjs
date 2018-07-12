@@ -564,8 +564,6 @@ $('form').on("submit", function(event) {
 	//
 	get_ip(function(error, data) {
 
-		console.log(data);
-
 		//
 		//	1.	Check if there was an error
 		//
@@ -583,9 +581,21 @@ $('form').on("submit", function(event) {
 		}
 
 		//
-		//	->	Redirect the user to the next step
 		//
-		return window.location.href = 'video';
+		//
+		session.fields.ip = data.ip;
+
+		//
+		//
+		//
+		save_to_airtable(session, function() {
+
+			//
+			//	->	Redirect the user to the next step
+			//
+			return window.location.href = 'video';
+
+		});
 
 	});
 
