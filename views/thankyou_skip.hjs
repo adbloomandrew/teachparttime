@@ -1,0 +1,30 @@
+<script>
+
+	//
+	//	The data layer set for Google Tag Manager
+	//
+	dataLayer = [{
+		"page": {
+			"type": "thankyou"
+		}
+	}];
+
+</script>
+
+
+<div class="register-register-section">
+	<div class="container">
+		<div class="card-block register-card">
+			<h1 class="typo-h1 text-blue text-center mb-2">Please check your email</h1>
+			<hr class="divider divider__gray my-3">
+			<p class="text-gray typo-h3 mb-3">
+				We have sent you a custom link to continue the application process when your resume is ready to be
+				uploaded.
+			</p>
+			<p class="text-gray typo-h3 my-2">
+				<span class="text-red">Please note that this is not an optional step.</span><br>
+				In order to submit your Qkids application, you must provide a copy of your latest resume.
+			</p>
+		</div>
+	</div>
+</div>

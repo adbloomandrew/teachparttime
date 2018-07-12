@@ -1,0 +1,35 @@
+<script>
+
+	//
+	//	The data layer set for Google Tag Manager
+	//
+	dataLayer = [{
+		"page": {
+			"type": "thankyou"
+		}
+	}];
+
+</script>
+
+<div class="register-register-section">
+	<div class="container">
+		<div class="card-block register-card">
+			<h1 class="typo-h1 text-blue text-center mb-2">
+				Thank-you for your interest in Qkids
+			</h1>
+			<hr class="divider divider__gray my-3">
+			<p class="text-gray typo-h3 mb-3">
+				The Qkids teacher evaluation team will be reviewing your information shortly. Please note that the team
+				only contacts applicants who meet the
+				<a href="/#requirements" class="link-blue">minimum teacher requirements</a>
+				to continue the online application process.
+			</p>
+			<p class="text-gray typo-h3 mb-3">
+				If you do not receive an email, you may not have met these minimum requirements.
+			</p>
+			<p class="text-gray typo-h3 mb-3">
+				Thank-you for your interest in Qkids!
+			</p>
+		</div>
+	</div>
+</div>
