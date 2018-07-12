@@ -196,7 +196,7 @@ var phone_mask = {
 //	Only for the US and Canada you can select a state
 //
 var form_required = [
-	'country', 'city', 'phone', 'work_permit', 'webcam', 'computer_type'
+	'country', 'city', 'phone', 'work_permit', 'webcam'
 ];
 
 //
