@@ -103,17 +103,17 @@
 //
 //	Initialize the Amazon Cognito credentials provider
 //
-var albumBucketName = 'dev.teachpart-time.com-resumes';
-var bucketRegion = 'us-east-1';
-var IdentityPoolId = 'us-east-1:57db0921-622e-408f-a321-44d3df8d0823';
+var resume_bucket = 'qkids.teachparttime.com';
+var bucket_region = 'us-east-1';
+var identity_pool_id = 'us-east-1:c072492e-81e8-4606-a083-9709fb323621';
 
 //
 //	Get temporary credentials from AWS to allow us to upload file to S3
 //
 AWS.config.update({
-	region: bucketRegion,
+	region: bucket_region,
 	credentials: new AWS.CognitoIdentityCredentials({
-		IdentityPoolId: IdentityPoolId
+		IdentityPoolId: identity_pool_id
 	})
 });
 
@@ -124,7 +124,7 @@ AWS.config.update({
 var s3 = new AWS.S3({
 	apiVersion: '2006-03-01',
 	params: {
-		Bucket: albumBucketName
+		Bucket: resume_bucket
 	}
 });
 
