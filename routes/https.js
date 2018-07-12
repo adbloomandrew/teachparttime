@@ -29,6 +29,7 @@ router.use('/thankyou', 		require('./https/thankyou'));
 router.use('/thankyou2', 		require('./https/thankyou2'));
 router.use('/thankyou_skip', 	require('./https/thankyou_skip'));
 router.use('/video', 			require('./https/video'));
+router.use('/ip', 				require('./https/ip'));
 
 ////////////////////////////////////////////////////////////////////////////////
 

@@ -436,7 +436,7 @@ $(".js-form-group").change(function() {
 //
 
 //
-//	<<>	React when the user wants to log in.
+//	<<>	React when the user wants submit the form.
 //
 $('form').on("submit", function(event) {
 
@@ -560,10 +560,74 @@ $('form').on("submit", function(event) {
 	}
 
 	//
-	//	->	Redirect the user to the next step
+	//	7.	Get the public IP of the user before we move to the next page
 	//
-	return window.location.href = 'video';
+	get_ip(function(error, data) {
+
+		//
+		//	1.	Check if there was an error
+		//
+		if(error)
+		{
+			//
+			//	<>> Log what happened
+			//
+			console.log(error);
+
+			//
+			//	->	Redirect the user to the error page
+			//
+			return window.location.href = 'error';
+		}
+
+		//
+		//	2.	We add the IP to the session object, but we do not save it in
+		//		the cookie since it is unnecessary. An IP can constantly
+		//		change, and so every time a user submits the form we want
+		//		to resend it.
+		//
+		//		And since we already have the Session object that we send to
+		//		Airtable, we use this structure to update Airtable.
+		//
+		session.fields.ip = data.ip;
+
+		//
+		//	3.	Save the IP to Airtable
+		//
+		save_to_airtable(session, function() {
+
+			//
+			//	->	Redirect the user to the next step
+			//
+			return window.location.href = 'video';
+
+		});
+
+	});
 
 });
+
+//
+//	Get the client IP and update the Session
+//
+function get_ip(callback)
+{
+	//
+	//	->	Execute the query
+	//
+	$.ajax({
+		url: window.location.origin + '/ip',
+		type: 'GET'
+	})
+	.done(function(data) {
+
+		return callback(null, data);
+
+	}).fail(function(error) {
+
+		return callback(error);
+
+	});
+}
 
 </script>
