@@ -20,14 +20,14 @@ router.get('/', function(req, res, next) {
 	let ips = req.headers["x-forwarded-for"];
 
 	//
-	//	x.	Set the response
+	//	2.	Set the response
 	//
 	res.json({
 		ip: ips
 	})
 
 	//
-	//	x.	Close the connection with a positive message
+	//	->	Close the connection with a positive message
 	//
 	res.end();
 
