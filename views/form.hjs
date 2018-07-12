@@ -581,12 +581,18 @@ $('form').on("submit", function(event) {
 		}
 
 		//
+		//	2.	We add the IP to the session object, but we do not save it in
+		//		the cookie since it is unnecessary. An IP can constantly
+		//		change, and so every time a user submits the form we want
+		//		to resend it.
 		//
+		//		And since we already have the Session object that we send to
+		//		Airtable, we use this structure to update Airtable.
 		//
 		session.fields.ip = data.ip;
 
 		//
-		//
+		//	3.	Save the IP to Airtable
 		//
 		save_to_airtable(session, function() {
 
