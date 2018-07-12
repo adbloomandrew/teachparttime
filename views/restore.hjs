@@ -24,8 +24,8 @@
 //
 var session_reference = [
 	'email', 'full_name', 'country', 'state', 'city', 'phone',
-	'education', 'work_permit', 'webcam', 'video_url', 'youtube_url',
-	'resume', 'ms_1', 'ms_2', 'ms_3', 'ms_4',
+	'education', 'work_permit', 'webcam', 'computer_type', 'video_url',
+	'youtube_url', 'resume', 'ms_1', 'ms_2', 'ms_3', 'ms_4',
 	'fs_1', 'fs_2', 'fs_3', 'fs_4', 'fs_5',
 	'cid'
 ];
