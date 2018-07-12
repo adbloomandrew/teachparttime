@@ -285,7 +285,7 @@ $("input:file").change(function() {
 		//		Airtable to pull the file in to the table
 		//
 		var url = "https://s3.amazonaws.com/"
-				+ "dev.teachpart-time.com-resumes/"
+				+ "qkids.teachparttime.com/"
 				+ file_name;
 
 		//
