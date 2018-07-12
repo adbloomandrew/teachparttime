@@ -210,6 +210,13 @@ var form_required = [
 ];
 
 //
+//	<<>	Add default phone mask
+//
+$('#phone').inputmask({
+	mask: phone_mask['canada']
+});
+
+//
 //	<<> React every time a country is selected
 //
 $("#country").change(function() {
