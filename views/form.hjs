@@ -76,7 +76,7 @@
 				{{!-- Daytime(Mon-Sun) --}}
 				<div class="js-form-group mb-3" id="ms">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						Your Daytime Availability
+						Your Daytime Availability (Please Choose Two)
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
@@ -105,7 +105,7 @@
 				{{!-- Friday and Saturday night --}}
 				<div class="js-form-group mb-3" id="fs">
 					<div class="typo-h4 typo-bold text-gray form-label w-100 mb-2">
-						Evening Availability (Fri + Sat Only)
+						Evening Availability (Fri + Sat, Please Choose Two)
 					</div>
 					<div class="d-flex flex-column align-items-start">
 						<label class="checkbox-label">
