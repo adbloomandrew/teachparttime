@@ -22,7 +22,15 @@
 	//	Check to see what type of degree the user has, and if they don't
 	//	have any, then we skip this page.
 	//
-	if(session.fields.education == "No Degree")
+	if(
+		session.fields.education == "Associates Degree" ||
+		session.fields.education == "High School Degree" ||
+		session.fields.education == "No Degree" ||
+		session.fields.country == "other" ||
+		session.fields.work_permit == "no" ||
+		session.fields.webcam == "mobile"
+
+		)
 	{
 		window.location.href = 'thankyou2';
 	}
