@@ -22,6 +22,8 @@
 
 		<script>
 
+			////	Detect if mobile
+
 			//
 			//	Check if we are on a mobile device or not
 			//
@@ -38,6 +40,38 @@
 			{
 				is_mobile = false;
 			}
+
+			////	End
+
+			////	Set environment variables.
+
+			//
+			//	Initialize the variables used for storing the resume, and
+			//	by default assume we are dealing with production.
+			//
+			var resume_bucket = 'qkids.teachparttime.com';
+			var bucket_region = 'us-east-1';
+			var identity_pool_id = 'us-east-1:c072492e-81e8-4606-a083-9709fb323621';
+
+			//
+			//	This nr. tells Pipe Video to which environment to save the video.
+			//	by default we assume we are in production.
+			//
+			var pipe_video_env = 1;
+
+			//
+			//  Check if the domain differs from the production one, and if
+			//  so, use development settings.
+			//
+			if(document.location.hostname != 'qkids.teachparttime.com')
+			{
+				resume_bucket = 'qkids.teachparttime.com';
+				bucket_region = 'us-east-1';
+				identity_pool_id = 'us-east-1:c072492e-81e8-4606-a083-9709fb323621';
+				pipe_video_env = 2;
+			}
+
+			////	End
 
 			//
 			//	Get the user session from the cookies

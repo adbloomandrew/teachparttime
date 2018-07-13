@@ -101,13 +101,6 @@
 //
 
 //
-//	Initialize the Amazon Cognito credentials provider
-//
-var resume_bucket = 'qkids.teachparttime.com';
-var bucket_region = 'us-east-1';
-var identity_pool_id = 'us-east-1:c072492e-81e8-4606-a083-9709fb323621';
-
-//
 //	Get temporary credentials from AWS to allow us to upload file to S3
 //
 AWS.config.update({
