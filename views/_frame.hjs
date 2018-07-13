@@ -63,7 +63,7 @@
 			//  Check if the domain differs from the production one, and if
 			//  so, use development settings.
 			//
-			if(document.location.hostname != 'qkids.teachparttime.com')
+			if(document.location.hostname != 'qkids.teachpart-time.com')
 			{
 				resume_bucket = 'dev.teachpart-time.com-resumes';
 				bucket_region = 'us-east-1';
