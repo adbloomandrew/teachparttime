@@ -29,8 +29,7 @@
 		session.fields.country == "other" ||
 		session.fields.work_permit == "no" ||
 		session.fields.webcam == "mobile"
-
-		)
+	  )
 	{
 		window.location.href = 'thankyou2';
 	}
