@@ -41,7 +41,7 @@
 				is_mobile = false;
 			}
 
-			////	End
+			////	<<>>
 
 			////	Set environment variables.
 
@@ -71,7 +71,7 @@
 				pipe_video_env = 2;
 			}
 
-			////	End
+			////	<<>>
 
 			//
 			//	Get the user session from the cookies
