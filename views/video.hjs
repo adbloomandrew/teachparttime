@@ -22,7 +22,14 @@
 	//	Check to see what type of degree the user has, and if they don't
 	//	have any, then we skip this page.
 	//
-	if(session.fields.education == "No Degree")
+	if(
+		session.fields.education == "Associates Degree" ||
+		session.fields.education == "High School Degree" ||
+		session.fields.education == "No Degree" ||
+		session.fields.country == "other" ||
+		session.fields.work_permit == "no" ||
+		session.fields.webcam == "mobile"
+	  )
 	{
 		window.location.href = 'thankyou2';
 	}
@@ -83,20 +90,6 @@
 //
 
 //
-//	This nr. tells Pipe Video to which environment to save the video.
-//	by default we assume we are dealing with the Development environment.
-//
-var environment = 2;
-
-//
-//	Check if we are running on the production domain
-//
-if(get_domain(document.location.hostname) != 'teachpart-time')
-{
-	environment = 1;
-}
-
-//
 //	Set size options for the video player size that is used for HTML 5
 //
 var size = {
@@ -110,7 +103,7 @@ var size = {
 var flashvars = {
 	qualityurl: "avq/480p.xml",
 	accountHash: "9686b37512ceb0ef660755cdb0e8bd5f",
-	eid: environment,
+	eid: pipe_video_env,
 	showMenu: "true",
 	mrt: 120,
 	sis: 0,
