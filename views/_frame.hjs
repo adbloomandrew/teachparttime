@@ -65,9 +65,9 @@
 			//
 			if(document.location.hostname != 'qkids.teachparttime.com')
 			{
-				resume_bucket = 'qkids.teachparttime.com';
+				resume_bucket = 'dev.teachpart-time.com-resumes';
 				bucket_region = 'us-east-1';
-				identity_pool_id = 'us-east-1:c072492e-81e8-4606-a083-9709fb323621';
+				identity_pool_id = 'us-east-1:57db0921-622e-408f-a321-44d3df8d0823';
 				pipe_video_env = 2;
 			}
 
