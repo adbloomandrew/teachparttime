@@ -289,14 +289,9 @@ $("input:file").change(function() {
 				+ file_name;
 
 		//
-		//	3.	Save the URL in to the user session in a way that Airtable
-		//		is able to understand that it is dealing with a file.
+		//	3.	Save the URL to the resume in to the user session.
 		//
-		session.fields.resume = [
-			{
-				"url": url
-			}
-		];
+		session.fields.resume = url;
 
 		//
 		//	4.	Save the file name of the Resume so we can display it
