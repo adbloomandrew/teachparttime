@@ -37,6 +37,7 @@
 </script>
 
 <script crossorigin="anonymous" src="/js/aws-sdk-2.259.1.min.js"></script>
+<script crossorigin="anonymous" src="/js/uuid-v1.js"></script>
 
 <section class="register-register-section">
 	<div class="container">
