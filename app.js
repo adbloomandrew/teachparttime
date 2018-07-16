@@ -96,7 +96,7 @@ app.use(helmet.contentSecurityPolicy({
 		frameSrc: ["'self'", "www.youtube.com"],
 		imgSrc: ["'self'", "data:", "*.addpipe.com"],
 		mediaSrc: ["'none'"],
-		objectSrc: ["'none'", "*.addpipe.com"],
+		objectSrc: ["*.addpipe.com"],
 		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com", "cdnjs.cloudflare.com"],
 		styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"]
 	}
