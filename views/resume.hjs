@@ -37,6 +37,7 @@
 </script>
 
 <script crossorigin="anonymous" src="/js/aws-sdk-2.259.1.min.js"></script>
+<script crossorigin="anonymous" src="/js/uuid-v1.js"></script>
 
 <section class="register-register-section">
 	<div class="container">
@@ -240,17 +241,24 @@ $("input:file").change(function() {
 	var file = files[0];
 
 	//
-	//	4.	Get the file name
+	//	4.	Get the file format
 	//
-	var file_name = file.name;
+	var format = file.name.split('.')[1];
 
 	//
-	//	5.	Updated the UI to let the user know which file was selected
+	//	5.	Randomize the file name of the resume so we don't run in a
+	//		situation where two user could have the same file name which
+	//		would overwrite the resume of another user.
+	//
+	var file_name = uuidv1() + '.' + format;
+
+	//
+	//	6.	Updated the UI to let the user know which file was selected
 	//
 	$('#js-file-name').text(file_name ? file_name : 'No file chosen');
 
 	//
-	//	6.	Create a request object which will allow us to monitor the progress
+	//	7.	Create a request object which will allow us to monitor the progress
 	//		of the upload
 	//
 	var request = s3.putObject({
@@ -260,7 +268,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	7.	Add a listener to react every time there is a progress update so
+	//	8.	Add a listener to react every time there is a progress update so
 	//		we know how much of the file was sent.
 	//
 	request.on('httpUploadProgress', function (progress) {
@@ -271,7 +279,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	8.	Start the upload process
+	//	9.	Start the upload process
 	//
 	request.send(function(res) {
 
@@ -285,18 +293,14 @@ $("input:file").change(function() {
 		//		Airtable to pull the file in to the table
 		//
 		var url = "https://s3.amazonaws.com/"
-				+ "qkids.teachparttime.com/"
+				+ resume_bucket
+				+ "/"
 				+ file_name;
 
 		//
-		//	3.	Save the URL in to the user session in a way that Airtable
-		//		is able to understand that it is dealing with a file.
+		//	3.	Save the URL to the resume in to the user session.
 		//
-		session.fields.resume = [
-			{
-				"url": url
-			}
-		];
+		session.fields.resume = url;
 
 		//
 		//	4.	Save the file name of the Resume so we can display it
