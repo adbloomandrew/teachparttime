@@ -241,9 +241,11 @@ $("input:file").change(function() {
 	var file = files[0];
 
 	//
-	//	4.	Get the file name
+	//	4.	Randomize the file name of the resume so we don't run in a
+	//		situation where two user could have the same file name which
+	//		would overwrite the resume of another user.
 	//
-	var file_name = file.name;
+	var file_name = uuidv1();
 
 	//
 	//	5.	Updated the UI to let the user know which file was selected
