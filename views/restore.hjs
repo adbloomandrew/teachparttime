@@ -56,15 +56,33 @@ if(continuation_id)
 	.done(function(data) {
 
 		//
-		//	1.	Build the form session
+		//	1.	We want to find out if the user already put all the information
+		//		in the form. By default we assume they didn't
+		//
+		var form = false;
+
+		//
+		//	2.	Check the state of the Form submission and switch the state
+		//		if necessary.
+		//
+		if(data.fields["Basic Info Complete"] === "Yes")
+		{
+			form = true;
+		}
+
+		//
+		//	3.	Build the form session
 		//
 		let restored_session = {
 			id: continuation_id,
+			state: {
+				form: form
+			},
 			fields: {}
 		}
 
 		//
-		//	2.	Loop over the session reference and see if we can match
+		//	4.	Loop over the session reference and see if we can match
 		//		the data that we got back with the the reference object
 		//
 		$.each(session_reference, function(index, key) {
@@ -83,7 +101,7 @@ if(continuation_id)
 		});
 
 		//
-		//	3.	Save the session data as cookie
+		//	5.	Save the session data as cookie
 		//
 		Cookies.set('tpt_session', restored_session, { secure: true });
 

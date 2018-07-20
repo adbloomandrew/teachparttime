@@ -9,6 +9,22 @@
 		}
 	}];
 
+	//
+	//	Check to see if we have the state, by default the state is only
+	//	available if the session was restored from a URL.
+	//
+	if(session.state)
+	{
+		//
+		//	Check to see if the form was already submitted, and if so we skip
+		//	this page and go to the next one,
+		//
+		if(session.state.form)
+		{
+			window.location.href = 'video';
+		}
+	}
+
 </script>
 
 <script crossorigin="anonymous" src="/js/jquery.inputmask.bundle.min.js"></script>
