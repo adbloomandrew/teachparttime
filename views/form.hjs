@@ -9,8 +9,6 @@
 		}
 	}];
 
-	console.log(session.state);
-
 	//
 	//	Check to see if we have the state, by default the state is only
 	//	available if the session was restored from a URL.
