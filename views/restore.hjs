@@ -55,6 +55,9 @@ if(continuation_id)
 	})
 	.done(function(data) {
 
+		console.log(data.fields);
+		console.log(data.fields["Basic Info Complete"]);
+
 		//
 		//	1.	We want to find out if the user already put all the information
 		//		in the form. By default we assume they didn't
