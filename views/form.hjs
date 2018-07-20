@@ -9,6 +9,15 @@
 		}
 	}];
 
+	//
+	//	Check to see if the form was already submitted, and if so we skip
+	//	this page and go to the next one,
+	//
+	if(session.state.form)
+	{
+		window.location.href = 'video';
+	}
+
 </script>
 
 <script crossorigin="anonymous" src="/js/jquery.inputmask.bundle.min.js"></script>
