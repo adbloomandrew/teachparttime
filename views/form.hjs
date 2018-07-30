@@ -544,14 +544,14 @@ $('form').on("submit", function(event) {
 		//		If the result is a positive number, then we know something was
 		//		checked.
 		//
-		if(!mon_sun)
+		if(mon_sun < 2)
 		{
-			missing_list.push("at least one Mon to Sun time");
+			missing_list.push("at least two Mon to Sun time");
 		}
 
-		if(!fri_sat)
+		if(fri_sat < 2)
 		{
-			missing_list.push("at least one Fri to Sat time");
+			missing_list.push("at least two Fri to Sat time");
 		}
 	}
 
