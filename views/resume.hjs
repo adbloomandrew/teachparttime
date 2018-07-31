@@ -241,24 +241,30 @@ $("input:file").change(function() {
 	var file = files[0];
 
 	//
-	//	4.	Get the file format
+	//	4.	Split the name of the file using dots to find out the format
 	//
-	var format = file.name.split('.')[1];
+	var filename_paces = file.name.split('.')
 
 	//
-	//	5.	Randomize the file name of the resume so we don't run in a
+	//	5.	Get the last element of the array which should be the file format
+	//		and return the individual string.
+	//
+	var format = filename_paces.slice(-1)[0];
+
+	//
+	//	6.	Randomize the file name of the resume so we don't run in a
 	//		situation where two user could have the same file name which
 	//		would overwrite the resume of another user.
 	//
 	var file_name = uuidv1() + '.' + format;
 
 	//
-	//	6.	Updated the UI to let the user know which file was selected
+	//	7.	Updated the UI to let the user know which file was selected
 	//
 	$('#js-file-name').text(file_name ? file_name : 'No file chosen');
 
 	//
-	//	7.	Create a request object which will allow us to monitor the progress
+	//	8.	Create a request object which will allow us to monitor the progress
 	//		of the upload
 	//
 	var request = s3.putObject({
@@ -268,7 +274,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	8.	Add a listener to react every time there is a progress update so
+	//	9.	Add a listener to react every time there is a progress update so
 	//		we know how much of the file was sent.
 	//
 	request.on('httpUploadProgress', function (progress) {
@@ -279,7 +285,7 @@ $("input:file").change(function() {
 	});
 
 	//
-	//	9.	Start the upload process
+	//	10.	Start the upload process
 	//
 	request.send(function(res) {
 
