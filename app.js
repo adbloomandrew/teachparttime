@@ -95,9 +95,9 @@ app.use(helmet.contentSecurityPolicy({
 		fontSrc: ["'self'", "fonts.gstatic.com"],
 		frameSrc: ["'self'", "www.youtube.com"],
 		imgSrc: ["'self'", "data:", "*.addpipe.com"],
-		mediaSrc: ["'none'"],
+		mediaSrc: ["'none'", "*.addpipe.com"],
 		objectSrc: ["*.addpipe.com"],
-		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com", "cdnjs.cloudflare.com"],
+		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com", "cdnjs.cloudflare.com", "*.googletagmanager.com"],
 		styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"]
 	}
 }));
