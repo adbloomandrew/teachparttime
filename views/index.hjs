@@ -1,16 +1,3 @@
-<script>
-
-	//
-	//	The data layer set for Google Tag Manager
-	//
-	dataLayer = [{
-		"page": {
-			"type": "home"
-		}
-	}];
-
-</script>
-
 <!-- Banner section -->
 <section class="home-banner-section">
 	<div class="container">

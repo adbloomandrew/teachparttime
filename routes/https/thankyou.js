@@ -24,7 +24,8 @@ router.get('/', function(req, res, next) {
 		css: css,
 		partials: {
 			body: 'thankyou'
-		}
+		},
+		page: "thankyou"
 	});
 
 });
