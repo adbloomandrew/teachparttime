@@ -1,15 +1,6 @@
 <script>
 
 	//
-	//	The data layer set for Google Tag Manager
-	//
-	dataLayer = [{
-		"page": {
-			"type": "video"
-		}
-	}];
-
-	//
 	//	Check to see if the video was already submitted, and if so we skip
 	//	this page and go to the next one,
 	//

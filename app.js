@@ -94,10 +94,10 @@ app.use(helmet.contentSecurityPolicy({
 		connectSrc: ["'self'", "api.airtable.com", "cognito-identity.us-east-1.amazonaws.com", "s3.amazonaws.com", "*.addpipe.com", "wss://*.addpipe.com"],
 		fontSrc: ["'self'", "fonts.gstatic.com"],
 		frameSrc: ["'self'", "www.youtube.com"],
-		imgSrc: ["'self'", "data:", "*.addpipe.com"],
+		imgSrc: ["'self'", "data:", "*.addpipe.com", "*.googletagmanager.com", "*.google-analytics.com"],
 		mediaSrc: ["*.addpipe.com"],
 		objectSrc: ["*.addpipe.com"],
-		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com", "cdnjs.cloudflare.com", "*.googletagmanager.com"],
+		scriptSrc: ["'self'", "'unsafe-inline'", "*.addpipe.com", "cdnjs.cloudflare.com", "*.googletagmanager.com", "*.google-analytics.com"],
 		styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"]
 	}
 }));

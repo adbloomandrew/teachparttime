@@ -1,15 +1,6 @@
 <script>
 
 	//
-	//	The data layer set for Google Tag Manager
-	//
-	dataLayer = [{
-		"page": {
-			"type": "resume"
-		}
-	}];
-
-	//
 	//	Check to see if we the user submited already a resume and if so we skip
 	//	this page.
 	//

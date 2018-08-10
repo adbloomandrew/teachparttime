@@ -1,16 +1,3 @@
-<script>
-
-    //
-    //  The data layer set for Google Tag Manager
-    //
-	dataLayer = [{
-		"page": {
-			"type": "mouse"
-		}
-	}];
-
-</script>
-
 <div class="example-section">
     <div class="container">
         <h1 class="typo-h1 text-violet text-center">A Town Mouse and A Country Mouse</h1>
