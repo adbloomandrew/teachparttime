@@ -1,16 +1,3 @@
-<script>
-
-	//
-	//	The data layer set for Google Tag Manager
-	//
-	dataLayer = [{
-		"page": {
-			"type": "restore"
-		}
-	}];
-
-</script>
-
 <div id="loader-wrapper">
 	<div id="loader"></div>
 </div>
