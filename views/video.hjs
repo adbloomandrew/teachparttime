@@ -69,8 +69,15 @@
 					<input type="url" class="form-input mb-1" id="youtube_url"
 						   required placeholder="http://youtube.com/My-Video-URL" title="http://youtube.com/My-Video-URL">
 				</div>
-				<div class="d-flex align-items-start justify-content-end flex-wrap">
-					<button type="submit" id="submit" class="control-gray-btn submit-btn">Next</button>
+				<div class="d-flex align-items-start justify-content-between flex-wrap">
+					<div class="text-left">
+						<button class="control-gray-btn">PREV</button>
+						<div class="step-description">Profile Info</div>
+					</div>
+					<div class="text-right">
+						<button type="submit" id="submit" class="control-gray-btn submit-btn">Next</button>
+						<div class="step-description">Upload Resume</div>
+					</div>
 				</div>
 			</form>
 		</div>
