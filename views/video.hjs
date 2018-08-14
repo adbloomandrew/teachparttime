@@ -246,6 +246,9 @@ $(".js-form-group").change(function() {
 //
 function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 {
+	//
+	//	1.	Save the video to the DB
+	//
 	video_saved(location, filename);
 }
 
@@ -257,6 +260,18 @@ function onSaveOk(
 	audioCodec, videoCodec, fileType, videoId, audioOnly, location
 )
 {
+	console.log(streamDuration);
+	//
+	//	1.	Check if the movie is not longer then 1min
+	//
+	if(streamDuration > 60)
+	{
+		window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+	}
+
+	//
+	//	2.	Save the video to the DB
+	//
 	video_saved(location, streamName);
 }
 
