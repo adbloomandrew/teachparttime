@@ -77,9 +77,13 @@
                 </div>
                 <hr>
 
-                <div class="d-flex align-items-start justify-content-center flex-wrap mt-4">
+                <div class="d-flex align-items-start justify-content-between flex-wrap mt-4">
+					<div class="text-left">
+						<button class="control-gray-btn">PREV</button>
+						<div class="step-description">Record Video</div>
+					</div>
                     <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
-                        SUBMIT APPLICATION
+                        SUBMIT
                     </button>
                 </div>
 
