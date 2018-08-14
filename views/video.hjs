@@ -261,29 +261,12 @@ $(".js-form-group").change(function() {
 function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 {
 	//
-	//	1.	Save the video to the DB
-	//
-	video_saved(location, filename);
-}
-
-//
-//	FOR DESKTOP: react when the video is saved
-//
-function onSaveOk(
-	streamName, streamDuration, userId, cameraName, micName, recorderId,
-	audioCodec, videoCodec, fileType, videoId, audioOnly, location
-)
-{
-	//
 	//	1.	Get the end time of a recording
 	//
 	end_time = Math.round((new Date()).getTime() / 1000);
 
-	console.log(end_time, start_time)
-	console.log(end_time - start_time)
-
 	//
-	//	1.	Check if the movie is not longer then 1min
+	//	2.	Check if the movie is not longer then 1min
 	//
 	if(end_time - start_time > 60)
 	{
@@ -305,7 +288,48 @@ function onSaveOk(
 	}
 
 	//
-	//	2.	Save the video to the DB
+	//	1.	Save the video to the DB
+	//
+	video_saved(location, filename);
+}
+
+//
+//	FOR DESKTOP: react when the video is saved
+//
+function onSaveOk(
+	streamName, streamDuration, userId, cameraName, micName, recorderId,
+	audioCodec, videoCodec, fileType, videoId, audioOnly, location
+)
+{
+	//
+	//	1.	Get the end time of a recording
+	//
+	end_time = Math.round((new Date()).getTime() / 1000);
+
+	//
+	//	2.	Check if the movie is not longer then 1min
+	//
+	if(end_time - start_time > 60)
+	{
+		//
+		//	1.	Check if the alert was already show once.
+		//
+		if(video_length_alert_never_show)
+		{
+			//
+			//	1.	Update the state so we won't show this message again.
+			//
+			video_length_alert_never_show = false;
+
+			//
+			//	2.	Display an alert.
+			//
+			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+		}
+	}
+
+	//
+	//	3.	Save the video to the DB
 	//
 	video_saved(location, streamName);
 }
