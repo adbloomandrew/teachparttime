@@ -81,6 +81,13 @@
 //
 
 //
+//	This variable is used to track how many time the pipeVideo onSave()
+//	function was called. Since we want to show the user the message about
+//	exceeding the video length just once.
+//
+var video_length_alert_never_show = true;
+
+//
 //	Set size options for the video player size that is used for HTML 5
 //
 var size = {
@@ -260,13 +267,26 @@ function onSaveOk(
 	audioCodec, videoCodec, fileType, videoId, audioOnly, location
 )
 {
-	console.log(parseInt(streamDuration, 10));
 	//
 	//	1.	Check if the movie is not longer then 1min
 	//
 	if(parseInt(streamDuration, 10) > 60)
 	{
-		return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+		//
+		//	1.	Check if the alert was already show once.
+		//
+		if(video_length_alert_never_show)
+		{
+			//
+			//	1.	Update the state so we won't show this message again.
+			//
+			video_length_alert_never_show = false;
+
+			//
+			//	2.	Display an alert.
+			//
+			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+		}
 	}
 
 	//
