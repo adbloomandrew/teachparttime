@@ -33,16 +33,23 @@
 			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Record a Brief Video</h1>
 			<hr class="divider divider__gray my-3">
             <p class="typo-h4 text-gray mb-3">
-                <span class="typo-bold text-black">
-                    Please record a brief video introduction of yourself (60 seconds).
-                </span>
-                State your name, where you are from and what
-                experience you have with kids that will make you a great online
-                teacher.
-                <a href="https://www.youtube.com/watch?v=nOgrYxcBTyw"
+                <div class="typo-bold text-black">
+                    Please record a video introduction that is between 1 and 3 minutes. 
+                </div>
+				(Note: applications with video clips under 1 minute will not be accepted.) 
+				<br><br>
+				In your video, tell us your name, where you are from,
+				your education and share any experience with kids you may have.
+				<br><br>
+				We also recommend you read a children’s story for any remaining time.
+				<a href="https://www.youtube.com/watch?v=nOgrYxcBTyw"
                     class="link-violet" target="_blank" rel="noopener noreferrer">
-                    Preview a sample video introduction here.</a>
-                <br>
+					Follow this link to preview a sample video introduction
+				</a>.
+                <br><br>
+				<span class="text-red">
+					Finally, after recording you must hit the upload button to save your video.
+				</span><br>
             </p>
 
             <div id="for_mobile" class="d-none">
