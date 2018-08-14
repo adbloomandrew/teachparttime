@@ -295,6 +295,17 @@ function onSaveOk(
 	video_saved(location, streamName);
 }
 
+//
+//	React when the video recording starts
+//
+function onRecordingStarted(recorderId)
+{
+	video_length_alert_never_show = true;
+
+	var args = Array.prototype.slice.call(arguments);
+	console.log("onRecordingStarted("+args.join(', ')+")");
+}
+
 //	 _____    _____   _____    ______
 //	|  __ \  |_   _| |  __ \  |  ____|
 //	| |__) |   | |   | |__) | | |__
