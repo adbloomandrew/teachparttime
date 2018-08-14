@@ -260,13 +260,13 @@ function onSaveOk(
 	audioCodec, videoCodec, fileType, videoId, audioOnly, location
 )
 {
-	console.log(streamDuration);
+	console.log(parseInt(streamDuration, 10));
 	//
 	//	1.	Check if the movie is not longer then 1min
 	//
-	if(streamDuration > 60)
+	if(parseInt(streamDuration, 10) > 60)
 	{
-		window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+		return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
 	}
 
 	//
