@@ -88,6 +88,13 @@
 var video_length_alert_never_show = true;
 
 //
+//	This two variable are used to track the difference in time, to see if
+//	a video exceeds the 1min mark
+//
+var start_time = 0;
+var end_time = 0;
+
+//
 //	Set size options for the video player size that is used for HTML 5
 //
 var size = {
@@ -268,9 +275,17 @@ function onSaveOk(
 )
 {
 	//
+	//	1.	Get the end time of a recording
+	//
+	end_time = Math.round((new Date()).getTime() / 1000);
+
+	console.log(end_time, start_time)
+	console.log(end_time - start_time)
+
+	//
 	//	1.	Check if the movie is not longer then 1min
 	//
-	if(parseInt(streamDuration, 10) > 60)
+	if(end_time - start_time > 60)
 	{
 		//
 		//	1.	Check if the alert was already show once.
@@ -298,11 +313,15 @@ function onSaveOk(
 //
 //	React when the video recording starts
 //
-function onRecordingStarted(recorderId)
+function onRecordingStarted()
 {
+	//
+	//	1.	Set and reset this variable so when people re-record will have
+	//		the right memory state.
+	//
 	video_length_alert_never_show = true;
 
-	console.log("Recording started: ", recorderId);
+	start_time = Math.round((new Date()).getTime() / 1000);
 }
 
 //	 _____    _____   _____    ______
