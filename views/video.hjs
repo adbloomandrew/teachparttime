@@ -396,6 +396,11 @@ function onRecordingStarted()
 function video_saved(location, streamName)
 {
 	//
+	//	<>> Debug
+	//
+	console.log("Saving the video");
+
+	//
 	//	1.	Mark that we can move forward
 	//
 	we_cant_progress = false;
