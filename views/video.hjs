@@ -331,7 +331,7 @@ function onSaveOk(
 			//
 			//	2.	Make sure that if the user exceeded 1m they can't click next
 			//
-			we_cant_progress = false;
+			we_cant_progress = true;
 
 			//
 			//	3.	Display an alert.
