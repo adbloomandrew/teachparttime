@@ -281,7 +281,12 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 			video_length_alert_never_show = false;
 
 			//
-			//	2.	Display an alert.
+			//	2.	Make sure that if the user exceeded 1m they can't click next
+			//
+			we_cant_progress = false;
+
+			//
+			//	3.	Display an alert.
 			//
 			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
 		}
@@ -322,7 +327,12 @@ function onSaveOk(
 			video_length_alert_never_show = false;
 
 			//
-			//	2.	Display an alert.
+			//	2.	Make sure that if the user exceeded 1m they can't click next
+			//
+			we_cant_progress = false;
+
+			//
+			//	3.	Display an alert.
 			//
 			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
 		}
