@@ -291,11 +291,13 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
 		}
 	}
-
-	//
-	//	1.	Save the video to the DB
-	//
-	video_saved(location, filename);
+	else
+	{
+		//
+		//	1.	Save the video to the DB
+		//
+		video_saved(location, filename);
+	}
 }
 
 //
@@ -337,11 +339,13 @@ function onSaveOk(
 			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
 		}
 	}
-
-	//
-	//	3.	Save the video to the DB
-	//
-	video_saved(location, streamName);
+	else
+	{
+		//
+		//	3.	Save the video to the DB
+		//
+		video_saved(location, streamName);
+	}
 }
 
 //
