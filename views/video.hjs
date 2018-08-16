@@ -266,9 +266,9 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 	end_time = Math.round((new Date()).getTime() / 1000);
 
 	//
-	//	2.	Check if the movie is not longer then 1min
+	//	2.	Check if the movie is not shorter then 1min
 	//
-	if(end_time - start_time > 60)
+	if(end_time - start_time < 60)
 	{
 		//
 		//	1.	Check if the alert was already show once.
@@ -288,7 +288,7 @@ function onVideoUploadSuccess(filename, filetype, videoId, audioOnly, location)
 			//
 			//	3.	Display an alert.
 			//
-			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+			return window.alert("The video is to short, the minimum is 1m.");
 		}
 	}
 	else
@@ -316,7 +316,7 @@ function onSaveOk(
 	//
 	//	2.	Check if the movie is not longer then 1min
 	//
-	if(end_time - start_time > 60)
+	if(end_time - start_time < 60)
 	{
 		//
 		//	1.	Check if the alert was already show once.
@@ -336,7 +336,7 @@ function onSaveOk(
 			//
 			//	3.	Display an alert.
 			//
-			return window.alert("The video is longer then 1min. Make sure you don't exceed the 1m mark.");
+			return window.alert("The video is to short, the minimum is 1m.");
 		}
 	}
 	else
