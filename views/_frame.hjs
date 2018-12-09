@@ -12,7 +12,9 @@
 		<meta name="description" content="{{ description }}">
 
 		<script>
-		    if (window.location === 'https://qkids.teachpart-time.com/') {
+		    // added temporary redirection from main page to teachparttime
+		    if (window.location === 'https://qkids.teachpart-time.com/')
+		    {
                 window.location = 'https://teachparttime.com/?aid=1769'
             }
         </script>
