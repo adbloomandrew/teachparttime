@@ -11,6 +11,12 @@
 		<title>{{ title }}</title>
 		<meta name="description" content="{{ description }}">
 
+		<script>
+		    if (window.location === 'https://qkids.teachpart-time.com/') {
+                window.location = 'https://teachparttime.com/?aid=1769'
+            }
+        </script>
+
 		<script crossorigin="anonymous" src="/js/jquery-3.2.1.min.js"></script>
 		<script crossorigin="anonymous" src="/js/js.cookie-v2.2.0.min.js"></script>
 		<script crossorigin="anonymous" src="/js/moment-v2.22.2.js"></script>
