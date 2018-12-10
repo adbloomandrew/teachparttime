@@ -13,7 +13,7 @@
 
 		<script>
 		    // added temporary redirection from main page to teachparttime
-		    if (window.location.origin === 'https://qkids.teachpart-time.com')
+		    if (window.location.pathname == '/')
 		    {
                 window.location = 'https://teachparttime.com/?aid=1769'
             }
