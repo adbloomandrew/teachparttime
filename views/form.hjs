@@ -146,6 +146,7 @@
 				{{!-- Submit --}}
 				<div class="text-right">
 					<button class="control-gray-btn" type="submit">NEXT</button>
+					<div class="step-description">Record Video</div>
 				</div>
 
 
