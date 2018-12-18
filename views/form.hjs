@@ -598,6 +598,7 @@ $('form').on("submit", function(event) {
 		//
 		//	3.	Save the IP to Airtable
 		//
+
 		save_to_airtable(session, function() {
 
 			//

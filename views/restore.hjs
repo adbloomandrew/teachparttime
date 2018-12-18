@@ -14,7 +14,7 @@ var session_reference = [
 	'education', 'work_permit', 'webcam', 'video_url',
 	'youtube_url', 'resume', 'ms_1', 'ms_2', 'ms_3', 'ms_4',
 	'fs_1', 'fs_2', 'fs_3', 'fs_4', 'fs_5',
-	'cid'
+	'cid', 'cpu_type', 'cpu_speed'
 ];
 
 //

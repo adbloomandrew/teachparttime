@@ -110,7 +110,7 @@ else
 	//
 	//	1.	Create HTTP server.
 	//
-	let server = http.createServer(app);
+  let server = http.createServer(app);
 
 	//
 	//	2.	Listen for connection on specified port

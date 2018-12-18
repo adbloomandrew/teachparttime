@@ -573,7 +573,6 @@ $('form').on("submit", function(event) {
 	//	5.	Insert or Updated the data to Airtable
 	//
 	save_to_airtable(session, function(id) {
-
 		//
 		//	1.	Save the Airtable ID so we can update the user record in all
 		//		the subsequent pages.
@@ -603,7 +602,6 @@ $('form').on("submit", function(event) {
 		//	4.	Update Airtable
 		//
 		save_to_airtable(continuation_url, function() {
-
 			//
 			//	1.	Save the whole user session so we can save the progress of
 			//		the page.
