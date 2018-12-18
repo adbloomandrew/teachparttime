@@ -10,6 +10,20 @@
 	}
 
 	//
+	// Determine if we're the last page, since this page is skippable and the user
+	// can return to it later on.
+	//
+	session.is_last_page = false;
+	if(	(session.fields.video_url || session.fields.youtube_url) &&
+			(session.fields.cpu_type && session.fields.cpu_speed)
+		)
+	{
+		session.is_last_page = true;
+	} else {
+		$("#submit").attr('disabled', true);
+	}
+
+	//
 	//	Check to see what type of degree the user has, and if they don't
 	//	have any, then we skip this page.
 	//
@@ -76,9 +90,8 @@
                     </button>
                 </div>
                 <hr>
-
                 <div class="d-flex align-items-start justify-content-center flex-wrap mt-4">
-                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
+                    <button type="submit" id="submit" class="control-pink-btn submit-btn">
                         LAST STEP
                     </button>
                 </div>
@@ -153,7 +166,12 @@ if(session)
 		//
 		$('#file_name').removeClass("d-none");
 	}
-}
+
+	if(session.is_last_page)
+	{
+		$("#skip").hide();
+		$("#submit").text("SUBMIT");
+	}}
 
 //
 //	Check if we are on a mobile device, and if so, allow the user to skip.
@@ -176,7 +194,38 @@ if(is_mobile)
 //
 //	<<> React to a file select, this way we can change the state of the page
 //
-$('#submit, #skip').on('click', function(event) {
+$('#submit').on('click', function(event) {
+
+	//
+	//	1.	Prevent the default form action so we can process the action
+	//		our way.
+	//
+	event.preventDefault();
+
+	//
+	//	2.	Redirect the user to the computer specs page, when they click the
+	//		submit button.
+	//
+	if(session.fields.resume) {
+		//
+		// Resume submitted!
+		//
+		return window.location.href = 'computer';
+	} else {
+		//
+		// Resume not submitted yet, show alert
+		//
+		if(session.is_last_page) {
+			alert("You must upload your resume to complete your application");
+		}
+	}
+
+});
+
+//
+//	<<> React to a file select, this way we can change the state of the page
+//
+$('#skip').on('click', function(event) {
 
 	//
 	//	1.	Prevent the default form action so we can process the action
@@ -189,7 +238,6 @@ $('#submit, #skip').on('click', function(event) {
 	//		submit button.
 	//
 	return window.location.href = 'computer';
-
 });
 
 //
@@ -311,7 +359,6 @@ $("input:file").change(function() {
 			//		submit button to let the user complete the form.
 			//
 			$('#submit').removeAttr("disabled");
-
 		});
 
 	});

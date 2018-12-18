@@ -158,7 +158,6 @@
 				//
 				session.fields.updated_at = moment().toISOString();
 
-        console.log("Saving to airtable");
 				$.ajax({
 					url: 'https://api.airtable.com/v0/appMm7V8XWifHqCja/QKids' + airtable_row_id,
 					type: action_type,

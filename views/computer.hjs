@@ -8,7 +8,6 @@
 	{
 		window.location.href = 'thankyou';
 	}
-
 	//
 	//	Check to see what type of degree the user has, and if they don't
 	//	have any, then we skip this page.
@@ -312,7 +311,13 @@ $('#submit').on('click', function(event) {
 			//
 			//	->	Redirect the user to the thank you page
 			//
-			return window.location.href = 'thankyou';
+			if(session.fields.resume)
+			{
+				return window.location.href = 'thankyou';
+			} else
+			{
+				return window.location.href = 'resume';
+			}
 		});
 	} else {
 		console.log("missing session! Refresh the page!")
