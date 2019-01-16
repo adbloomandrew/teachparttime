@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 	//	->	Render the HTML page
 	//
 	res.render("_featured-frame", {
-		title: "Qkids - Apply to Teach Kids English Online",
+    title: "Qkids - Apply to Teach Kids English Online",
 		description: "Qkids is an online teaching community where thousands of people from the USA and Canada are earning between $16 - $20.00 per hour to teach kids English online.",
 		url: "https://" + req.hostname,
 		css: css,
