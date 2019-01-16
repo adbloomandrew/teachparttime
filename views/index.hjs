@@ -1,264 +1,479 @@
-<!-- Banner section -->
-<section class="home-banner-section">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-12 col-lg-6">
-				<div class="typo-paragraph text-violet mb-2">Watch our short video about life as a Qkids Teacher:</div>
-				<div class="video-wrap mb-5 mb-lg-0">
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Zs9_Z0XSJ00" frameborder="0" allow="encrypted-media" allowfullscreen=""></iframe>
+<div id="x-root" class="x-root">
+	<div id="top" class="site">
+		<div class="x-main full" role="main">
+			<article id="post-361" class="post-361 page type-page status-publish hentry no-post-thumbnail">
+				<div class="entry-content content">
+					<div id="cs-content" class="cs-content">
+						<div class="e361-1 x-section">
+							<div class="e361-2 x-container max width">
+								<div class="e361-3 x-column x-sm x-1-1">
+<span class="e361-4 x-image">
+  <img alt="Image" src="/img/qk-logo.png" width="205" height="62">
+</span></div>
+							</div>
+						</div>
+						<div class="e361-5 x-section">
+							<div class="e361-6 x-container max width">
+								<div class="e361-7 x-column x-sm x-3-5">
+									<div class="e361-8 x-frame x-frame-video-embed">
+										<div class="x-frame-inner">
+											<div class="e361-8 x-video x-video-embed">
+												<iframe width="560" height="315"
+														src="https://www.youtube.com/embed/omd641UNGyE?controls=0"
+														frameborder="0"
+														allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+														allowfullscreen></iframe>
+											</div>
+										</div>
+									</div>
+									<hr class="e361-9 x-line">
+								</div>
+								<div class="e361-10 x-column x-sm x-2-5">
+									<div class="e361-11 x-text">
+										<h3><span style="color: #ffffff;"><strong>Make Money</strong> Teaching English Online to Kids.</span>
+										</h3></div>
+									<div class="e361-12 x-text">
+										<p><span
+												style="color: #ffffff;">If you hold a Bachelor's degree, you can earn <strong>$16-20/hr (USD)</strong> to teach kids English online <em>from home</em>. <strong><a
+												style="color: #97d9ba;" href="#faq">Read all candidate requirements and review our FAQ here.</a></strong></span>
+										</p></div>
+									<div class="e361-13 x-bar-content-area">
+
+										<form class="signup">
+
+											<input type="text" id="full_name" class="signup--text_input" size="35"
+												   placeholder="Full name" autocomplete="full-name" required
+												   style="font-size: 18px;"/>
+											<input class="signup--text_input" id="email" size="35" type="email"
+												   placeholder="Email" autocomplete="email" required
+												   style="font-size: 18px;"/>
+											<select name="custom_education" id="education">
+												<option value="null" selected="selected" disabled="disabled">What is
+													your Education level?
+												</option>
+												<option value="University/College Degree">University/College Degree
+												</option>
+												<option value="Enrolled in University/College">Enrolled in
+													University/College
+												</option>
+												<option value="Associates Degree">Associates Degree</option>
+												<option value="High School Degree">High School Degree</option>
+												<option value="No Degree">No Degree</option>
+											</select>
+											<input type="hidden" id="cid" class="signup--text_input">
+
+											<button type="submit" class="btn" style="text-shadow: none;width: 350px;">
+												Apply
+											</button>
+										</form>
+
+
+									</div>
+									<div class="e361-14 x-text">
+										<p><span style="color: #ffffff;">You can withdraw consent anytime. By subscribing, you agree to our <a
+												style="color: #ffffff;" href="https://teachparttime.com/terms-of-use/">terms of use</a> and <a
+												style="color: #ffffff;" href="https://teachparttime.com/privacy-policy/">privacy policy.</a></span>
+										</p></div>
+								</div>
+							</div>
+						</div>
+						<div class="e361-15 x-section">
+							<div class="e361-16 x-container max width plans">
+								<div class="e361-17 x-column x-sm x-1-3">
+									<i class="x-icon x-icon-o-money-bill-alt"
+									   style="text-align: center; color: rgb(123, 151, 229); font-size: 50px;"
+									   data-x-icon-o="&#xf3d1;" aria-hidden="true"></i>
+									<div class="e361-19 x-text">
+										<h5><strong>Great Extra Income</strong></h5></div>
+									<div class="e361-20 x-text">
+										<p><span style="color: #808080;">Most online teachers will earn between $16-20/hr (USD) and work 10 - 20hrs per week. This includes both loyalty bonuses and wage growth.</span>
+										</p></div>
+								</div>
+								<div class="e361-21 x-column x-sm x-1-3">
+									<i class="x-icon x-icon-o-home-heart"
+									   style="text-align: center; color: rgb(123, 151, 229); font-size: 50px;"
+									   data-x-icon-o="&#xf4c9;" aria-hidden="true"></i>
+									<div class="e361-23 x-text">
+										<h5><strong>Work from Home</strong></h5></div>
+									<div class="e361-24 x-text">
+										<p><span style="color: #808080;">Your commute just got a whole lot shorter! As an online teacher, you can work from the comfort of home. Turn a spare bedroom or existing home office into your new classroom!</span>
+										</p></div>
+								</div>
+								<div class="e361-25 x-column x-sm x-1-3">
+									<i class="x-icon x-icon-o-child"
+									   style="text-align: center; color: rgb(123, 151, 229); font-size: 50px;"
+									   data-x-icon-o="&#xf1ae;" aria-hidden="true"></i>
+									<div class="e361-27 x-text">
+										<h5><strong>Fun and Rewarding</strong></h5></div>
+									<div class="e361-28 x-text">
+										<p><span style="color: #808080;">The majority of our opportunities are for teaching kids between ages 5 and 12. These are eager learners who bring a frequent smile to their teachers face.</span>
+										</p></div>
+								</div>
+							</div>
+						</div>
+						<div class="e361-29 x-section">
+							<div class="e361-30 x-container max width">
+								<div class="e361-31 x-column x-sm x-1-1">
+									<div class="e361-32 x-text" id="#faq">
+										<h5><span style="color: #808080;">How to become an Online Teacher</span></h5>
+									</div>
+								</div>
+							</div>
+							<div class="e361-33 x-container max width">
+								<div class="e361-34 x-column x-sm x-1-2">
+<span class="e361-35 x-image">
+  <img alt="Image" src="/img/primary.jpg" width="600" height="400">
+</span>
+									<hr class="e361-36 x-line  x-hide- x-hide-lg x-hide-md x-hide-xl">
+								</div>
+								<div class="e361-37 x-column x-sm x-1-2">
+									<div class="e361-38 x-text">
+										<h3><strong>1.<br/>Provide basic information</h3></div>
+									<div class="e361-39 x-text">
+										<p>Provide us with some very basic information about yourself including your
+											name, email and level of education. We also ask for you to share any
+											relevant experience with children that you may have.</p></div>
+								</div>
+							</div>
+							<div class="e361-40 x-container max width">
+								<div class="e361-41 x-column x-sm x-1-2">
+<span class="e361-42 x-image">
+  <img alt="Image" src="/img/middle2.jpg" width="600" height="400">
+</span>
+									<hr class="e361-43 x-line  x-hide- x-hide-lg x-hide-md x-hide-xl">
+								</div>
+								<div class="e361-44 x-column x-sm x-1-2">
+									<div class="e361-45 x-text">
+										<h3><strong>2.<br/>Record your video</strong></h3></div>
+									<div class="e361-46 x-text">
+										<p>Record a brief video introduction of yourself (60 seconds). State your name,
+											where you are from and what experience you have with kids that will make you
+											a great online teacher.</p></div>
+								</div>
+							</div>
+							<div class="e361-47 x-container max width">
+								<div class="e361-48 x-column x-sm x-1-2">
+<span class="e361-49 x-image">
+  <img alt="Image" src="/img/last.jpg" width="600" height="400">
+</span>
+									<hr class="e361-50 x-line  x-hide- x-hide-lg x-hide-md x-hide-xl">
+								</div>
+								<div class="e361-51 x-column x-sm x-1-2">
+									<div class="e361-52 x-text">
+										<h3><strong>3.<br/>Submit your resume</strong></h3></div>
+									<div class="e361-53 x-text">
+										<p>As the final step to your application, you will be asked to provide your
+											resume along with your computer specs. Successful applicants will be
+											contacted within days of submission by the Qkids team with next steps.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="e361-54 x-section" id="#faq">
+							<div class="e361-55 x-container max width">
+								<div class="e361-56 x-column x-sm x-1-1">
+									<div class="e361-57 x-text">
+										<a name="faq"></a><h5><span
+											style="color: #808080;">Frequently Asked Questions</span></h5></div>
+								</div>
+							</div>
+							<div class="e361-58 x-container max width">
+								<div class="e361-59 x-column x-sm x-1-2">
+									<div class="e361-60 x-acc" role="tablist" id="x-acc-e361-60">
+										<div class="e361-61 x-acc-item" id="">
+											<button id="tab-e361-61" class="x-acc-header" role="tab" type="button"
+													aria-selected="false" aria-expanded="false"
+													aria-controls="panel-e361-61" data-x-toggle="collapse"
+													data-x-toggleable="e361-61" data-x-toggle-group="e361-60">
+    <span class="x-acc-header-content">
+      <span class="x-acc-header-indicator">&#x25b8;</span>      <span class="x-acc-header-text"><span
+			style="color: #7b97e5;">What are the teacher requirements?</span></span>
+    </span>
+											</button>
+											<div id="panel-e361-61" role="tabpanel" aria-hidden="true"
+												 aria-labelledby="tab-e361-61" data-x-toggleable="e361-61"
+												 data-x-toggle-collapse="1" class="x-collapsed">
+												<div class="x-acc-content">
+													<p><span style="color: #888888;">-Eligible to legally work in the U.S. or Canada<br><br>
+- Currently reside in the U.S. or Canada (due to the internet restriction)<br><br>
+-Earned a Bachelor’s degree or above<br><br>
+-Able to teach 6+ hours weekly<br><br>
+-Prior teaching experience or equivalent in education, tutoring, mentoring, or homeschooling</li>
+														-English teaching certificates (TESOL, TEFL, CELTA, etc) is highly preferred<br><br>
+-Digital literacy and the ability to lead an engaging learning atmosphere<br><br>
+-Technical requirements: a computer with stable internet connection and clear audio/video capacity</span></p></div>
+											</div>
+										</div>
+										<div class="e361-62 x-acc-item" id="">
+											<button id="tab-e361-62" class="x-acc-header" role="tab" type="button"
+													aria-selected="false" aria-expanded="false"
+													aria-controls="panel-e361-62" data-x-toggle="collapse"
+													data-x-toggleable="e361-62" data-x-toggle-group="e361-60">
+    <span class="x-acc-header-content">
+      <span class="x-acc-header-indicator">&#x25b8;</span>      <span class="x-acc-header-text"><font color="#7b97e5">What is the entire hiring process?</font></span>
+    </span>
+											</button>
+											<div id="panel-e361-62" role="tabpanel" aria-hidden="true"
+												 aria-labelledby="tab-e361-62" data-x-toggleable="e361-62"
+												 data-x-toggle-collapse="1" class="x-collapsed">
+												<div class="x-acc-content">
+													<p><span style="color: #888888;">1) Apply with all required materials<br>2) Initial screening<br>3) Demo Interview 1<br>4) Demo Interview 2<br>5) Trial Classes & Background Check<br>6) Contract<br><br>
+Note that if your application materials pass the Qkids preliminary screening, you will be contacted within 3 business days for further steps.
+</span></p></div>
+											</div>
+										</div>
+										<div class="e361-63 x-acc-item" id="">
+											<button id="tab-e361-63" class="x-acc-header" role="tab" type="button"
+													aria-selected="false" aria-expanded="false"
+													aria-controls="panel-e361-63" data-x-toggle="collapse"
+													data-x-toggleable="e361-63" data-x-toggle-group="e361-60">
+    <span class="x-acc-header-content">
+      <span class="x-acc-header-indicator">&#x25b8;</span>      <span class="x-acc-header-text"><font color="#7b97e5">Payment and Earnings Questions</font></span>
+    </span>
+											</button>
+											<div id="panel-e361-63" role="tabpanel" aria-hidden="true"
+												 aria-labelledby="tab-e361-63" data-x-toggleable="e361-63"
+												 data-x-toggle-collapse="1" class="x-collapsed">
+												<div class="x-acc-content">
+													<font color="#888888"><strong>How much do I get paid?</strong><br>
+														Base pay: $8 base pay for full lessons. $4 base pay for standby
+														lessons (approximately 10 minutes with no teaching
+														required).<br><br> Incentive eligibility for $1 Performance Fee
+														for each lesson based on family review. Eligibility for $1
+														Attendance Bonus for each lesson once a minimum of 15 lessons
+														are taught in a week. Limited Attendance policies requiring 24
+														hour notice for schedule changes and minimum 5 hour notice to
+														maintain eligibility for overall attendance fee.<br><br>
+														<strong>How and when will I be paid?</strong><br>
+														All teachers will be paid via bank transfer to your U.S. or
+														Canada bank accounts. The transfer fee is covered by Qkids. The
+														pay date is no later than the 15th of each month where you will
+														be paid for the entire previous month of teaching. The pay date
+														will automatically extend to the next week in the event of any
+														Chinese national holidays.<br><br>
+														<strong>How much tax do I need to pay?</strong><br>
+														All Qkids teachers are independent contractors and will be
+														responsible for your own taxes in accordance with state and
+														country laws, and individual tax jurisdictions.<br><br>
+														<strong>I am a resident of Canada, do I get paid in US
+															dollars?</strong><br>
+														Yes, all teachers will be paid in US dollars.<br><br>
+														<strong>How long is the contract? Can I take time
+															off?</strong><br>
+														The contract term is 6 months with the possibility to extend
+														upon re-evaluation. Please inform the Class Coordination Team 2
+														weeks in advance if you need to take extended time off during
+														the contract.</font></div>
+											</div>
+										</div>
+									</div>
+									<hr class="e361-64 x-line  x-hide- x-hide-lg x-hide-md x-hide-xl">
+								</div>
+								<div class="e361-65 x-column x-sm x-1-2">
+									<div class="e361-66 x-acc" role="tablist" id="x-acc-e361-66">
+										<div class="e361-67 x-acc-item" id="">
+											<button id="tab-e361-67" class="x-acc-header" role="tab" type="button"
+													aria-selected="false" aria-expanded="false"
+													aria-controls="panel-e361-67" data-x-toggle="collapse"
+													data-x-toggleable="e361-67" data-x-toggle-group="e361-66">
+    <span class="x-acc-header-content">
+      <span class="x-acc-header-indicator">&#x25b8;</span>      <span class="x-acc-header-text"><font color="#7b97e5">Common Interview Process Questions</font></span>
+    </span>
+											</button>
+											<div id="panel-e361-67" role="tabpanel" aria-hidden="true"
+												 aria-labelledby="tab-e361-67" data-x-toggleable="e361-67"
+												 data-x-toggle-collapse="1" class="x-collapsed">
+												<div class="x-acc-content">
+													<font color="#888888">
+														<Strong>Why do we ask for a video demo?</strong><br>
+														As an alternative to a Skype interview, we find asking the
+														candidates to make a 1-2-minute-long video of themselves telling
+														or reading a children’s story to be more efficient. You can
+														simply send us the YouTube link, Google Drive link or the video
+														file.
+														<br><br>
+														<Strong>What is Demo Interview 1 and 2?</strong><br>
+														The Demo Interview is a unique combination of interview
+														questions and demonstrating your teaching skills and
+														knowledge.<br><br>
+														In Demo Interview 1, you will spend most of your time
+														demonstrating technical proficiency (i.e. knowledge of the
+														Qkids' teaching platform buttons, tools, and how to manage sound
+														and video quality). Then you will answer a few questions about
+														teaching and student interactions.<br><br>
+														In Demo Interview 2, you will have a full Q&A interview session
+														for about 25 minutes. Afterward, you will briefly demonstrate
+														some of your teaching skills and personality.
+														<br><br>
+														<Strong>What is the trial class period?</strong><br>
+														You will be teaching 2 - 5 actual lessons with students. You
+														will receive family feedback from those classes.<br><br>
+														<Strong>Will I get paid for the trial classes?</strong><br>
+														Yes, you will receive the regular base rate of $8USD per lesson.
+													</font></div>
+											</div>
+										</div>
+										<div class="e361-68 x-acc-item" id="">
+											<button id="tab-e361-68" class="x-acc-header" role="tab" type="button"
+													aria-selected="false" aria-expanded="false"
+													aria-controls="panel-e361-68" data-x-toggle="collapse"
+													data-x-toggleable="e361-68" data-x-toggle-group="e361-66">
+    <span class="x-acc-header-content">
+      <span class="x-acc-header-indicator">&#x25b8;</span>      <span class="x-acc-header-text"><font color="#7b97e5">Common New Teacher Questions</font></span>
+    </span>
+											</button>
+											<div id="panel-e361-68" role="tabpanel" aria-hidden="true"
+												 aria-labelledby="tab-e361-68" data-x-toggleable="e361-68"
+												 data-x-toggle-collapse="1" class="x-collapsed">
+												<div class="x-acc-content">
+													<font color="#888888"><strong>How do I teach?</strong><br>
+														You will be teaching through Qkids patented and interactive
+														gaming-based learning platform. All curricula are preset and
+														incorporated with animated characters and games.
+														<br><br><strong>Do I need to do any lesson plans?</strong><br>
+														Not necessarily, but you will need to prepare for each lesson by
+														familiarizing yourself with the materials. Preview the lessons
+														and possibly have appropriate props available to aid in
+														teaching.
+														<br><br><strong>How long is one lesson?</strong><br>
+														Each in-lesson time is 30 minutes. Teachers are required to
+														check the classroom equipment three minutes before the lesson.
+														<br><br><strong>How many students will I be teaching per
+															lesson?</strong><br>
+														1 - 4 students.
+														Will I be teaching the same students every time?
+														We try to match the same teachers and students the best we can,
+														but you should expect to see a few new faces in every class.
+														<br><br><strong>Do I need to communicate with
+															parents?</strong><br>
+														No, Qkids staff will communicate with parents and provide
+														feedback periodically.</font></div>
+											</div>
+										</div>
+										<div class="e361-69 x-acc-item" id="">
+											<button id="tab-e361-69" class="x-acc-header" role="tab" type="button"
+													aria-selected="false" aria-expanded="false"
+													aria-controls="panel-e361-69" data-x-toggle="collapse"
+													data-x-toggleable="e361-69" data-x-toggle-group="e361-66">
+    <span class="x-acc-header-content">
+      <span class="x-acc-header-indicator">&#x25b8;</span>      <span class="x-acc-header-text"><font color="#7b97e5">Common Time and Schedule Questions</font></span>
+    </span>
+											</button>
+											<div id="panel-e361-69" role="tabpanel" aria-hidden="true"
+												 aria-labelledby="tab-e361-69" data-x-toggleable="e361-69"
+												 data-x-toggle-collapse="1" class="x-collapsed">
+												<div class="x-acc-content">
+													<font color="#888888">
+														<strong>How much time do I need to commit to this
+															job?</strong><br>
+														The minimum is 6 hours (12 lessons).
+														<br><br><strong>What are the available time slots?</strong><br>
+														Slots are available 7 days a week in the morning (EST AM)
+														between 5:40 - 8:10a. Additionally, in the evening on Friday and
+														Saturday (EST PM) between 7:40 - 10:50p.
+														<br><br><strong>How does the scheduling work?</strong><br>
+														Your class schedule is set weekly. You can check your schedule
+														for the upcoming week in the Qkids Teacher Software every Sunday
+														evening.
+														<br><br><strong>What is the class cancellation
+														policy?</strong><br>
+														In case of emergency, you may cancel the scheduled class by
+														notifying Qkids Class Coordination Team at least 24 hours in
+														advance.
+													</font></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="e361-70 x-section">
+							<div class="e361-71 x-container marginless-columns">
+								<div class="e361-72 x-column x-sm x-1-2">
+<span class="e361-73 x-image">
+  <img alt="Image" src="/img/register2.jpg" width="600" height="450">
+</span></div>
+								<div class="e361-74 x-column x-sm x-1-2">
+									<div class="e361-75 x-text">
+										<h3><span style="color: #ffffff;"><strong>What are you waiting for?<br/>Apply today to get started.</strong></span>
+										</h3></div>
+									<a class="e361-76 x-anchor x-anchor-button" tabindex="0" href="#top">
+  <span class="x-anchor-content">
+        <span class="x-anchor-text"><span
+				class="x-anchor-text-primary">&nbsp; &nbsp; Go&nbsp; &nbsp; &nbsp;</span></span>          </span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+			</article>
+		</div>
+		<footer class="x-colophon top">
+			<div class="x-container max width">
+				<div class="x-column x-md x-1-1 last"></div>
 			</div>
-			<div class="col-12 col-lg-6" id="banner-form-container">
-				<div class="card-block">
-					<h2 class="typo-h1 text-violet text-center mb-0">
-						<span class="typo-bold">Earn $16-20/hr</span> and begin <span class="d-sm-block">Your Online Teaching Career.</span>
-					</h2>
-					<hr class="divider my-2">
-					<p class="typo-paragraph text-gray mb-3">
-						Apply to join thousands of people who work parttime from home and teach online with Qkids.
-					</p>
-
-					<form>
-
-						<input type="text" id="full_name" class="form-input mb-3" placeholder="Full name" autocomplete="full-name" required>
-
-						<input type="email" id="email" class="form-input mb-3" placeholder="Email" autocomplete="email" required>
-
-                        <select id="education" class="form-select mb-3">
-                            <option value="null" selected="selected" disabled="disabled">What is your Education level?</option>
-                            <option value="University/College Degree">University/College Degree</option>
-                            <option value="Enrolled in University/College">Enrolled in University/College</option>
-                            <option value="Associates Degree">Associates Degree</option>
-                            <option value="High School Degree">High School Degree</option>
-                            <option value="No Degree">No Degree</option>
-                        </select>
-
-						<input type="hidden" id="cid" class="form-input mb-3">
-
-						<button type="submit" class="control-pink-btn w-100 mb-2">Apply</button>
-
-					</form>
-
-					<p class="typo-paragraph text-gray">
-						You can withdraw consent anytime. By applying, you agree to our
-						<a class="link-violet" href="http://www.teachparttime.com/terms-of-use/" target="_blank" rel="noopener noreferrer">terms of service</a> and
-						<a href="http://www.teachparttime.com/privacy-policy/" target="_blank" rel="noopener noreferrer" class="link-violet">privacy policy</a>.
-					</p>
+		</footer>
+		<footer class="x-colophon bottom" role="contentinfo">
+			<div class="x-container max width">
+				<ul id="menu-bottom-navigation" class="x-nav">
+					<li id="menu-item-256"
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a
+							href="https://teachparttime.com/about-us/">About Us</a></li>
+					<li id="menu-item-257"
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257"><a
+							href="https://teachparttime.com/contact-us/">Contact Us</a></li>
+					<li id="menu-item-120"
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-120"><a
+							href="https://teachparttime.com/privacy-policy/">Privacy Policy</a></li>
+					<li id="menu-item-119"
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-119"><a
+							href="https://teachparttime.com/terms-of-use/">Terms of Use</a></li>
+					<li id="menu-item-261"
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-261"><a
+							href="https://teachparttime.com/unsubscribe/">Unsubscribe</a></li>
+				</ul>
+				<div class="x-social-global"><a href="#holder" class="facebook" title="Facebook" target="_blank"><i
+						class="x-icon-facebook-square" data-x-icon-b="&#xf082;" aria-hidden="true"></i></a><a
+						href="#holder" class="twitter" title="Twitter" target="_blank"><i class="x-icon-twitter-square"
+																						  data-x-icon-b="&#xf081;"
+																						  aria-hidden="true"></i></a>
 				</div>
+				<div class="x-colophon-content">
+					<p>Copyright © 2018 TeachPartTime.com, All rights reserved.</p></div>
 			</div>
-		</div>
-	</div>
-</section>
-<!-- End Banner section -->
+		</footer>
+	</div> <!-- END .x-site -->
+	<a class="x-scroll-top right fade" title="Back to Top">
+		<i class="x-icon-angle-up" data-x-icon-s="&#xf106;"></i>
+	</a>
+	<script>
+      jQuery(document).ready(function ($) {
+        var windowObj = $(window);
+        var body = $('body');
+        var bodyOffsetBottom = windowObj.scrollBottom();             // 1
+        var bodyHeightAdjustment = body.height() - bodyOffsetBottom;     // 2
+        var bodyHeightAdjusted = body.height() - bodyHeightAdjustment; // 3
+        var scrollTopAnchor = $('.x-scroll-top');
 
-<!-- Requirements section -->
-<section class="home-requirements-section" id="requirements">
-	<div class="container">
-		<h2 class="typo-h1 text-white text-center">
-			Teacher <span class="typo-bold">Requirements</span>
-		</h2>
-	</div>
-	<hr class="divider divider__pink divider__bold my-3">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-				<ul class="arrow-list text-white mb-4">
-					<li class="list-item typo-h3 mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
-						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
-						</svg>
+        function sizingUpdate() {
+          var bodyOffsetTop = windowObj.scrollTop();
+          if (bodyOffsetTop > (bodyHeightAdjusted * 0.25)) {
+            scrollTopAnchor.addClass('in');
+          } else {
+            scrollTopAnchor.removeClass('in');
+          }
+        }
 
-						Native fluency English speakers who are based in United States or Canada
-					</li>
-					<li class="list-item typo-h3 mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
-						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
-						</svg>
-
-						Earned a degree <strong class="typo-italic">or currently enrolled in a university program</strong>
-					</li>
-					<li class="list-item typo-h3 mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
-						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
-						</svg>
-
-						Although not required, those with any prior teaching/early childhood experience preferred
-					</li>
-					<li class="list-item typo-h3 mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
-						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
-						</svg>
-
-						Digital literacy, outgoing personality, and consistent passion in class
-					</li>
-					<li class="list-item typo-h3 mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="451.846px" height="451.847px" viewBox="0 0 451.846 451.847" style="enable-background:new 0 0 451.846 451.847" xml:space="preserve">
-						  <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-							  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-							  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"/>
-						</svg>
-
-						Available to teach a minimum of 6 hours (12 classes) per week
-					</li>
-				</ul>
-				<img src="/img/home-2.jpg" alt="Teachers" class="img-fluid">
-			</div>
-		</div>
-	</div>
-
-</section>
-<!-- End Requirements section -->
-
-<!-- Benefits section -->
-<section class="home-benefits-section">
-	<div class="container">
-		<h2 class="typo-h1 text-violet text-center">
-			<span class="typo-bold">Benefits</span> of Online Teaching
-		</h2>
-	</div>
-	<hr class="divider divider__pink divider__bold my-4">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<p class="typo-h3 text-gray mb-3">
-					Teaching online has a many financial and lifestyle benefits, such as:
-				</p>
-			</div>
-			<div class="col-12 col-md-6">
-				<ul class="benefits-list">
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">Great Pay Rate</span> ($16-20.00 per hour!)
-					</li>
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">Flexible Schedule</span> (part-time!)
-					</li>
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">Off-Hour Earning</span> (including weekends!)
-					</li>
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">Work at Home</span> (or wherever you want!)
-					</li>
-				</ul>
-			</div>
-			<div class="col-12 col-md-6">
-				<ul class="benefits-list">
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">All Materials Provided</span> (training too!)
-					</li>
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">Teacher/Tech Support</span> (in real-time!)
-					</li>
-					<li class="list-item typo-h3 text-gray mb-3">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45.701px" height="45.7px" viewBox="0 0 45.701 45.7" style="enable-background:new 0 0 45.701 45.7" xml:space="preserve">
-							<path d="M20.687,38.332c-2.072,2.072-5.434,2.072-7.505,0L1.554,26.704c-2.072-2.071-2.072-5.433,0-7.504
-										c2.071-2.072,5.433-2.072,7.505,0l6.928,6.927c0.523,0.522,1.372,0.522,1.896,0L36.642,7.368c2.071-2.072,5.433-2.072,7.505,0
-										c0.995,0.995,1.554,2.345,1.554,3.752c0,1.407-0.559,2.757-1.554,3.752L20.687,38.332z"/>
-						</svg>
-
-						<span class="typo-bold">A Rewarding Job</span> (teaching cute kids!)
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End Benefits section -->
-
-<!-- About section -->
-<section class="home-about-section">
-	<div class="container">
-		<h2 class="typo-h1 text-white text-center">
-			<span class="typo-bold">About</span> Qkids
-		</h2>
-	</div>
-	<hr class="divider divider__pink divider__bold my-4">
-	<div class="container mt-1">
-		<div class="row">
-			<div class="col-12 col-md-6">
-				<img src="/img/home-1.jpg" alt="office" class="img-fluid mb-4">
-			</div>
-			<div class="col-12 col-md-6">
-				<p class="typo-h3 text-white mb-3">
-					<strong>Qkids</strong> is an online teaching community where thousands of people from the USA and Canada
-					teach kids English online.
-				</p>
-				<p class="typo-h3 text-white mb-3">
-					We are seeking college students, school teachers, stay-at-home moms, and all those who have a passion for
-					education to work part-time (minimum of 6 hours per week).
-				</p>
-				<p class="typo-h3 text-white">
-					Knowledge of Chinese is not necessary. Each class is 30 minutes. All curricula are preset and incorporated
-					with animated characters and games. There is paid training before orientation. Further training and support
-					is provided along with coursework.
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End About section -->
-
-<!-- Anchor link -->
-<a href="#banner-form-container" class="js-smooth-scroll control-pink-btn form-anchor-link">Apply</a>
-
-<script>
-	var anchor = $('.form-anchor-link');
-
-	$(window).scroll(function () {
-		if($(window).scrollTop() + $(window).height() == $(document).height())
-		{
-			if($('#banner-form-container').is(':visible'))
-			{
-				anchor.show();
-			}
-		}
-	});
-
-</script>
-<!-- End Anchor link -->
+        windowObj.bind('scroll', sizingUpdate).resize(sizingUpdate);
+        sizingUpdate();
+        scrollTopAnchor.click(function () {
+          $('html, body').animate({scrollTop: 0}, 850, 'xEaseInOutExpo');
+          return false;
+        });
+      });
+	</script>
+</div>
 
 <script>
 
