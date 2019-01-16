@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="author" content="0x4447 LLC">
+
+		<title>{{ title }}</title>
+		<meta name="description" content="{{ description }}">
+		<script crossorigin="anonymous" src="/js/jquery-3.2.1.min.js"></script>
+		<script crossorigin="anonymous" src="/js/js.cookie-v2.2.0.min.js"></script>
+		<script crossorigin="anonymous" src="/js/moment-v2.22.2.js"></script>
+		
+		<!-- new-->
+		<link rel='stylesheet' id='wp-block-library-css' href='/css/style.min.css' type='text/css' media='all'/>
+		<link rel='stylesheet' id='wp-block-library-theme-css' href='/css/theme.min.css' type='text/css' media='all'/>
+		<link rel='stylesheet' id='x-stack-css' href='/css/integrity-light.css' type='text/css' media='all'/>
+		<link rel='stylesheet' id='x-cranium-migration-css' href='/css/integrity-light(1).css' type='text/css' media='all'/>
+		<script type='text/javascript' src='/js/jquery.js'></script>
+		<script type='text/javascript' src='/js/jquery-migrate.min.js'></script>
+		<script type='text/javascript' src='/js/cs-head.js'></script>
+		<style id="x-generated-css">
+			a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .x-breadcrumb-wrap a:hover, .widget ul li a:hover, .widget ol li a:hover, .widget.widget_text ul li a, .widget.widget_text ol li a, .widget_nav_menu .current-menu-item > a, .x-accordion-heading .x-accordion-toggle:hover, .x-comment-author a:hover, .x-comment-time:hover, .x-recent-posts a:hover .h-recent-posts {
+				color: rgb(88, 97, 243);
+			}
+
+			a:hover, .widget.widget_text ul li a:hover, .widget.widget_text ol li a:hover, .x-twitter-widget ul li a:hover {
+				color: rgb(0, 7, 124);
+			}
+
+			.rev_slider_wrapper, a.x-img-thumbnail:hover, .x-slider-container.below, .page-template-template-blank-3-php .x-slider-container.above, .page-template-template-blank-6-php .x-slider-container.above {
+				border-color: rgb(88, 97, 243);
+			}
+
+			.entry-thumb:before, .x-pagination span.current, .flex-direction-nav a, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .mejs-time-current, .x-dropcap, .x-skill-bar .bar, .x-pricing-column.featured h2, .h-comments-title small, .x-entry-share .x-share:hover, .x-highlight, .x-recent-posts .x-recent-posts-img:after {
+				background-color: rgb(88, 97, 243);
+			}
+
+			.x-nav-tabs > .active > a, .x-nav-tabs > .active > a:hover {
+				box-shadow: inset 0 3px 0 0 rgb(88, 97, 243);
+			}
+
+			.x-main {
+				width: 69.536945%;
+			}
+
+			.x-sidebar {
+				width: 25.536945%;
+			}
+
+			.x-comment-author, .x-comment-time, .comment-form-author label, .comment-form-email label, .comment-form-url label, .comment-form-rating label, .comment-form-comment label, .widget_calendar #wp-calendar caption, .widget.widget_rss li .rsswidget {
+				font-family: "Merriweather", serif;
+				font-weight: 400;
+			}
+
+			.p-landmark-sub, .p-meta, input, button, select, textarea {
+				font-family: "Merriweather Sans", sans-serif;
+			}
+
+			.widget ul li a, .widget ol li a, .x-comment-time {
+				color: #848484;
+			}
+
+			.widget_text ol li a, .widget_text ul li a {
+				color: rgb(88, 97, 243);
+			}
+
+			.widget_text ol li a:hover, .widget_text ul li a:hover {
+				color: rgb(0, 7, 124);
+			}
+
+			.comment-form-author label, .comment-form-email label, .comment-form-url label, .comment-form-rating label, .comment-form-comment label, .widget_calendar #wp-calendar th, .p-landmark-sub strong, .widget_tag_cloud .tagcloud a:hover, .widget_tag_cloud .tagcloud a:active, .entry-footer a:hover, .entry-footer a:active, .x-breadcrumbs .current, .x-comment-author, .x-comment-author a {
+				color: rgb(119, 149, 236);
+			}
+
+			.widget_calendar #wp-calendar th {
+				border-color: rgb(119, 149, 236);
+			}
+
+			.h-feature-headline span i {
+				background-color: rgb(119, 149, 236);
+			}
+
+			@media (max-width: 979px) {
+			}
+
+			html {
+				font-size: 14px;
+			}
+
+			@media (min-width: 480px) {
+				html {
+					font-size: 14px;
+				}
+			}
+
+			@media (min-width: 767px) {
+				html {
+					font-size: 14px;
+				}
+			}
+
+			@media (min-width: 979px) {
+				html {
+					font-size: 14px;
+				}
+			}
+
+			@media (min-width: 1200px) {
+				html {
+					font-size: 14px;
+				}
+			}
+
+			body {
+				font-style: normal;
+				font-weight: 400;
+				color: #848484;
+				background-color: rgb(246, 245, 250);
+			}
+
+			.w-b {
+				font-weight: 400 !important;
+			}
+
+			h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+				font-family: "Merriweather", serif;
+				font-style: normal;
+				font-weight: 400;
+			}
+
+			h1, .h1 {
+				letter-spacing: -0.017em;
+			}
+
+			h2, .h2 {
+				letter-spacing: -0.023em;
+			}
+
+			h3, .h3 {
+				letter-spacing: -0.029em;
+			}
+
+			h4, .h4 {
+				letter-spacing: -0.039em;
+			}
+
+			h5, .h5 {
+				letter-spacing: -0.044em;
+			}
+
+			h6, .h6 {
+				letter-spacing: -0.067em;
+			}
+
+			.w-h {
+				font-weight: 400 !important;
+			}
+
+			.x-container.width {
+				width: 88%;
+			}
+
+			.x-container.max {
+				max-width: 1200px;
+			}
+
+			.x-main.full {
+				float: none;
+				display: block;
+				width: auto;
+			}
+
+			@media (max-width: 979px) {
+				.x-main.full, .x-main.left, .x-main.right, .x-sidebar.left, .x-sidebar.right {
+					float: none;
+					display: block;
+					width: auto !important;
+				}
+			}
+
+			.entry-header, .entry-content {
+				font-size: 1rem;
+			}
+
+			body, input, button, select, textarea {
+				font-family: "Merriweather Sans", sans-serif;
+			}
+
+			h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a, blockquote {
+				color: rgb(119, 149, 236);
+			}
+
+			.cfc-h-tx {
+				color: rgb(119, 149, 236) !important;
+			}
+
+			.cfc-h-bd {
+				border-color: rgb(119, 149, 236) !important;
+			}
+
+			.cfc-h-bg {
+				background-color: rgb(119, 149, 236) !important;
+			}
+
+			.cfc-b-tx {
+				color: #848484 !important;
+			}
+
+			.cfc-b-bd {
+				border-color: #848484 !important;
+			}
+
+			.cfc-b-bg {
+				background-color: #848484 !important;
+			}
+
+			.x-btn, .button, [type="submit"] {
+				color: #fff;
+				border-color: transparent;
+				background-color: rgb(128, 220, 184);
+				text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
+				border-radius: 0.25em;
+				padding: 0.714em 1.286em 0.952em;
+				font-size: 21px;
+			}
+
+			.x-btn:hover, .button:hover, [type="submit"]:hover {
+				color: #fff;
+				border-color: transparent;
+				background-color: rgb(128, 220, 184);
+				text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.5);
+			}
+
+			.x-btn.x-btn-real, .x-btn.x-btn-real:hover {
+				margin-bottom: 0.25em;
+				text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.65);
+			}
+
+			.x-btn.x-btn-real {
+				box-shadow: 0 0.25em 0 0 transparent, 0 4px 9px rgba(0, 0, 0, 0.75);
+			}
+
+			.x-btn.x-btn-real:hover {
+				box-shadow: 0 0.25em 0 0 rgb(0, 0, 0), 0 4px 9px rgba(0, 0, 0, 0.75);
+			}
+
+			.x-btn.x-btn-flat, .x-btn.x-btn-flat:hover {
+				margin-bottom: 0;
+				text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.65);
+				box-shadow: none;
+			}
+
+			.x-btn.x-btn-transparent, .x-btn.x-btn-transparent:hover {
+				margin-bottom: 0;
+				border-width: 3px;
+				text-shadow: none;
+				text-transform: uppercase;
+				background-color: transparent;
+				box-shadow: none;
+			}
+
+			.x-topbar .p-info a:hover, .x-widgetbar .widget ul li a:hover {
+				color: rgb(88, 97, 243);
+			}
+
+			.x-topbar .p-info, .x-topbar .p-info a, .x-navbar .desktop .x-nav > li > a, .x-navbar .desktop .sub-menu a, .x-navbar .mobile .x-nav li > a, .x-breadcrumb-wrap a, .x-breadcrumbs .delimiter {
+				color: rgb(112, 112, 112);
+			}
+
+			.x-navbar .desktop .x-nav > li > a:hover, .x-navbar .desktop .x-nav > .x-active > a, .x-navbar .desktop .x-nav > .current-menu-item > a, .x-navbar .desktop .sub-menu a:hover, .x-navbar .desktop .sub-menu .x-active > a, .x-navbar .desktop .sub-menu .current-menu-item > a, .x-navbar .desktop .x-nav .x-megamenu > .sub-menu > li > a, .x-navbar .mobile .x-nav li > a:hover, .x-navbar .mobile .x-nav .x-active > a, .x-navbar .mobile .x-nav .current-menu-item > a {
+				color: rgb(112, 112, 112);
+			}
+
+			.x-navbar .desktop .x-nav > li > a:hover, .x-navbar .desktop .x-nav > .x-active > a, .x-navbar .desktop .x-nav > .current-menu-item > a {
+				box-shadow: inset 0 4px 0 0 rgb(88, 97, 243);
+			}
+
+			.x-navbar .desktop .x-nav > li > a {
+				height: 80px;
+				padding-top: 37px;
+			}
+
+			.x-navbar .desktop .x-nav > li ul {
+				top: 65px;;
+			}
+
+			@media (max-width: 979px) {
+			}
+
+			.x-navbar-inner {
+				min-height: 80px;
+			}
+
+			.x-brand {
+				margin-top: 15px;
+				font-family: "Lato", sans-serif;
+				font-size: 38px;
+				font-style: normal;
+				font-weight: 300;
+				letter-spacing: -0.079em;
+				text-transform: uppercase;
+				color: #272727;
+			}
+
+			.x-brand:hover, .x-brand:focus {
+				color: #272727;
+			}
+
+			.x-brand img {
+				width: 100px;
+			}
+
+			.x-navbar .x-nav-wrap .x-nav > li > a {
+				font-family: "Lato", sans-serif;
+				font-style: normal;
+				font-weight: 400;
+				letter-spacing: 0.29em;
+				text-transform: uppercase;
+			}
+
+			.x-navbar .desktop .x-nav > li > a {
+				font-size: 0px;
+			}
+
+			.x-navbar .desktop .x-nav > li > a:not(.x-btn-navbar-woocommerce) {
+				padding-left: 16px;
+				padding-right: 16px;
+			}
+
+			.x-navbar .desktop .x-nav > li > a > span {
+				margin-right: -0.29em;
+			}
+
+			.x-btn-navbar {
+				margin-top: 0px;
+			}
+
+			.x-btn-navbar, .x-btn-navbar.collapsed {
+				font-size: 0px;
+			}
+
+			@media (max-width: 979px) {
+				.x-widgetbar {
+					left: 0;
+					right: 0;
+				}
+			}
+
+			.e361-60.x-acc, .e361-66.x-acc {
+				width: 100%;
+				font-size: 1em;
+				background-color: transparent;
+			}
+
+			.e361-60.x-acc .x-acc-item, .e361-66.x-acc .x-acc-item {
+				overflow: hidden;
+				border-radius: 4px;
+				background-color: rgba(255, 255, 255, 1);
+				box-shadow: 0em 0.15em 0.5em 0em hsla(0, 0%, 0%, 0.2);
+			}
+
+			.e361-60.x-acc .x-acc-item + .x-acc-item, .e361-66.x-acc .x-acc-item + .x-acc-item {
+				margin-top: 15px;
+			}
+
+			.e361-60.x-acc .x-acc-header, .e361-66.x-acc .x-acc-header {
+				border-width: 0px;
+				border-style: none;
+				border-color: transparent;
+				border-radius: 0px 0px 0px 0px;
+				padding: 15px 20px 15px 20px;
+				font-family: inherit;
+				font-size: 1em;
+				font-style: normal;
+				font-weight: inherit;
+				line-height: 1.3;
+				text-align: left;
+				color: rgba(0, 0, 0, 1);
+				background-color: rgba(255, 255, 255, 1);
+			}
+
+			.e361-60.x-acc .x-acc-header:hover, .e361-66.x-acc .x-acc-header:hover, .e361-60.x-acc .x-acc-header[class*="active"], .e361-66.x-acc .x-acc-header[class*="active"] {
+				color: rgba(0, 0, 0, 0.5);
+				background-color: rgba(255, 255, 255, 1);
+			}
+
+			.e361-60.x-acc .x-acc-header-indicator, .e361-66.x-acc .x-acc-header-indicator {
+				width: auto;
+				height: 1em;
+				font-size: 1em;
+				color: rgba(0, 0, 0, 1);
+				transform: translate3d(0, 0, 0) rotate(0deg);
+			}
+
+			.e361-60.x-acc .x-acc-header:hover .x-acc-header-indicator, .e361-66.x-acc .x-acc-header:hover .x-acc-header-indicator, .e361-60.x-acc .x-acc-header[class*="active"] .x-acc-header-indicator, .e361-66.x-acc .x-acc-header[class*="active"] .x-acc-header-indicator {
+				color: rgba(0, 0, 0, 1);
+			}
+
+			.e361-60.x-acc .x-acc-header.x-active .x-acc-header-indicator, .e361-66.x-acc .x-acc-header.x-active .x-acc-header-indicator {
+				transform: translate3d(0, 0, 0) rotate(90deg);
+			}
+
+			.e361-60.x-acc .x-acc-header-text, .e361-66.x-acc .x-acc-header-text {
+				margin-left: 0.5em;
+			}
+
+			.e361-60.x-acc .x-acc-content, .e361-66.x-acc .x-acc-content {
+				border-width: 1px 0 0 0;
+				border-style: solid;
+				border-color: rgba(225, 225, 225, 1) transparent transparent transparent;
+				padding: 20px 20px 20px 20px;
+				font-family: inherit;
+				font-size: 1em;
+				font-style: normal;
+				font-weight: inherit;
+				line-height: 1.6;
+				color: rgba(0, 0, 0, 1);
+				background-color: transparent;
+			}
+
+			.e361-76.x-anchor {
+				margin: -1.0em 2.5em 2.5em 1.7em;
+				border-radius: 0.35em;
+				font-size: 1.5em;
+				background-color: #97d9ba;
+				box-shadow: 0em 0.15em 0.65em 0em transparent;
+			}
+
+			.e361-76.x-anchor .x-anchor-content {
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				padding: 0.575em 0.85em 0.575em 0.85em;
+			}
+
+			.e361-76.x-anchor[class*="active"] {
+				background-color: rgb(128, 220, 184);
+				box-shadow: 0em 0.15em 0.65em 0em transparent;
+			}
+
+			.e361-76.x-anchor .x-anchor-text {
+				margin: 5px;
+			}
+
+			.e361-76.x-anchor .x-anchor-text-primary {
+				font-family: inherit;
+				font-size: 1em;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 1;
+				color: rgb(255, 255, 255);
+			}
+
+			.e361-76.x-anchor[class*="active"] .x-anchor-text-primary {
+				color: rgb(255, 255, 255);
+			}
+
+			.e361-17.x-column, .e361-21.x-column, .e361-25.x-column {
+				border-radius: 3px;
+				padding: 30px 20px 20px 20px;
+				box-shadow: 0em 0.15em 0.5em 0em transparent;
+			}
+
+			.e361-3.x-column, .e361-17.x-column {
+				text-align: center;
+			}
+
+			.e361-10.x-column {
+				text-align: left;
+			}
+
+			.e361-3.x-column, .e361-7.x-column, .e361-31.x-column, .e361-34.x-column, .e361-37.x-column, .e361-41.x-column, .e361-44.x-column, .e361-48.x-column, .e361-51.x-column, .e361-56.x-column, .e361-59.x-column, .e361-65.x-column {
+				background-color: transparent;
+			}
+
+			.e361-10.x-column, .e361-17.x-column, .e361-21.x-column, .e361-25.x-column {
+				background-color: transparent;
+			}
+
+			.e361-72.x-column, .e361-74.x-column {
+				background-color: rgb(123, 151, 229);
+			}
+
+			.e361-3.x-column, .e361-7.x-column, .e361-10.x-column, .e361-17.x-column, .e361-21.x-column, .e361-25.x-column, .e361-31.x-column, .e361-34.x-column, .e361-37.x-column, .e361-41.x-column, .e361-44.x-column, .e361-48.x-column, .e361-51.x-column, .e361-56.x-column, .e361-59.x-column, .e361-65.x-column, .e361-72.x-column, .e361-74.x-column {
+				z-index: 1;
+			}
+
+			.e361-9.x-line {
+				height: 5px;
+			}
+
+			.e361-36.x-line, .e361-43.x-line, .e361-50.x-line {
+				height: 1em;
+			}
+
+			.e361-64.x-line {
+				height: 15px;
+			}
+
+			.e361-4.x-image {
+				width: 150px;
+			}
+
+			.e361-4.x-image, .e361-35.x-image, .e361-42.x-image, .e361-49.x-image, .e361-73.x-image {
+				background-color: transparent;
+			}
+
+			.e361-35.x-image img, .e361-42.x-image img, .e361-49.x-image img {
+				border-radius: 3px;
+			}
+
+			.e361-2.x-container {
+				margin: -2em auto 0em auto;
+			}
+
+			.e361-6.x-container {
+				margin: 1em auto 1em auto;
+				background-color: transparent;
+			}
+
+			.e361-16.x-container {
+				margin: -75px auto 0px auto;
+			}
+
+			.e361-30.x-container, .e361-33.x-container, .e361-55.x-container, .e361-71.x-container {
+				margin: 0em auto 0em auto;
+			}
+
+			.e361-40.x-container, .e361-47.x-container {
+				margin: 45px auto 0px auto;
+			}
+
+			.e361-58.x-container {
+				margin: 35px auto 0px auto;
+			}
+
+			.e361-2.x-container, .e361-16.x-container, .e361-30.x-container, .e361-33.x-container, .e361-40.x-container, .e361-47.x-container, .e361-55.x-container, .e361-58.x-container, .e361-71.x-container {
+				background-color: transparent;
+			}
+
+			.e361-2.x-container, .e361-6.x-container, .e361-16.x-container, .e361-30.x-container, .e361-33.x-container, .e361-40.x-container, .e361-47.x-container, .e361-55.x-container, .e361-58.x-container, .e361-71.x-container {
+				z-index: 1;
+			}
+
+			.e361-1.x-section {
+				margin: 0em 0em -2em 0em;
+				padding: 45px 0px 45px 0px;
+				background-color: rgb(46, 60, 116);
+			}
+
+			.e361-5.x-section, .e361-29.x-section, .e361-54.x-section {
+				margin: 0em;
+			}
+
+			.e361-15.x-section {
+				margin: 0em 0em -25px 0em;
+				text-align: center;
+			}
+
+			.e361-70.x-section {
+				margin: 0em 0em -1.5em 0em;
+			}
+
+			.e361-5.x-section, .e361-70.x-section {
+				padding: 0em;
+				background-color: rgb(123, 151, 229);
+			}
+
+			.e361-15.x-section, .e361-29.x-section, .e361-54.x-section {
+				padding: 65px 0px 65px 0px;
+			}
+
+			.e361-15.x-section, .e361-54.x-section {
+				background-color: rgb(246, 245, 250);
+			}
+
+			.e361-29.x-section {
+				background-color: rgb(255, 255, 255);
+			}
+
+			.e361-1.x-section, .e361-5.x-section, .e361-15.x-section, .e361-29.x-section, .e361-54.x-section, .e361-70.x-section {
+				z-index: 1;
+			}
+
+			.e361-39.x-text, .e361-46.x-text, .e361-53.x-text {
+				max-width: 32em;
+				margin: 0.5em 0em 0em 0em;
+				line-height: 1.6;
+				color: #888888;
+			}
+
+			.e361-11.x-text, .e361-12.x-text {
+				margin: 0em 0em 0.75em 0em;
+			}
+
+			.e361-14.x-text {
+				margin: -1em 0em .75em 0em;
+				font-size: .75em;
+			}
+
+			.e361-19.x-text, .e361-23.x-text, .e361-27.x-text {
+				margin: -01em 0em 1em 0em;
+			}
+
+			.e361-20.x-text, .e361-24.x-text, .e361-28.x-text, .e361-57.x-text {
+				margin: 0em;
+			}
+
+			.e361-32.x-text {
+				margin: -1em -2.5em 2.5em -2.5em;
+			}
+
+			.e361-38.x-text, .e361-45.x-text, .e361-52.x-text {
+				margin: 0em 0em 1em 0em;
+			}
+
+			.e361-75.x-text {
+				margin: 2.5em;
+			}
+
+			.e361-11.x-text, .e361-12.x-text, .e361-14.x-text, .e361-19.x-text, .e361-20.x-text, .e361-23.x-text, .e361-24.x-text, .e361-27.x-text, .e361-28.x-text, .e361-32.x-text, .e361-38.x-text, .e361-39.x-text, .e361-45.x-text, .e361-46.x-text, .e361-52.x-text, .e361-53.x-text, .e361-57.x-text, .e361-75.x-text {
+				padding: 0em;
+				font-family: inherit;
+				font-style: normal;
+				font-weight: 400;
+				letter-spacing: 0em;
+				text-transform: none;
+				background-color: transparent;
+			}
+
+			.e361-11.x-text, .e361-12.x-text, .e361-19.x-text, .e361-23.x-text, .e361-27.x-text, .e361-32.x-text, .e361-38.x-text, .e361-45.x-text, .e361-52.x-text, .e361-57.x-text, .e361-75.x-text {
+				font-size: 1em;
+			}
+
+			.e361-20.x-text, .e361-24.x-text, .e361-28.x-text, .e361-39.x-text, .e361-46.x-text, .e361-53.x-text {
+				font-size: 1.1em;
+			}
+
+			.e361-11.x-text, .e361-12.x-text, .e361-14.x-text, .e361-19.x-text, .e361-20.x-text, .e361-23.x-text, .e361-24.x-text, .e361-27.x-text, .e361-28.x-text, .e361-32.x-text, .e361-38.x-text, .e361-45.x-text, .e361-52.x-text, .e361-57.x-text, .e361-75.x-text {
+				line-height: 1.4;
+			}
+
+			.e361-19.x-text, .e361-23.x-text, .e361-27.x-text, .e361-32.x-text, .e361-57.x-text {
+				text-align: center;
+			}
+
+			.e361-20.x-text, .e361-24.x-text, .e361-28.x-text, .e361-38.x-text, .e361-45.x-text, .e361-52.x-text {
+				text-align: left;
+			}
+
+			.e361-11.x-text, .e361-14.x-text, .e361-75.x-text {
+				color: rgba(0, 0, 0, 1);
+			}
+
+			.e361-12.x-text {
+				color: #97d9ba;
+			}
+
+			.e361-19.x-text, .e361-23.x-text, .e361-27.x-text, .e361-32.x-text, .e361-38.x-text, .e361-45.x-text, .e361-52.x-text, .e361-57.x-text {
+				color: rgb(123, 151, 229);
+			}
+
+			.e361-20.x-text, .e361-24.x-text, .e361-28.x-text {
+				color: rgb(136, 136, 136);
+			}
+
+			.e361-11.x-text > :first-child, .e361-12.x-text > :first-child, .e361-14.x-text > :first-child, .e361-19.x-text > :first-child, .e361-20.x-text > :first-child, .e361-23.x-text > :first-child, .e361-24.x-text > :first-child, .e361-27.x-text > :first-child, .e361-28.x-text > :first-child, .e361-32.x-text > :first-child, .e361-38.x-text > :first-child, .e361-39.x-text > :first-child, .e361-45.x-text > :first-child, .e361-46.x-text > :first-child, .e361-52.x-text > :first-child, .e361-53.x-text > :first-child, .e361-57.x-text > :first-child, .e361-75.x-text > :first-child {
+				margin-top: 0;
+			}
+
+			.e361-11.x-text > :last-child, .e361-12.x-text > :last-child, .e361-14.x-text > :last-child, .e361-19.x-text > :last-child, .e361-20.x-text > :last-child, .e361-23.x-text > :last-child, .e361-24.x-text > :last-child, .e361-27.x-text > :last-child, .e361-28.x-text > :last-child, .e361-32.x-text > :last-child, .e361-38.x-text > :last-child, .e361-39.x-text > :last-child, .e361-45.x-text > :last-child, .e361-46.x-text > :last-child, .e361-52.x-text > :last-child, .e361-53.x-text > :last-child, .e361-57.x-text > :last-child, .e361-75.x-text > :last-child {
+				margin-bottom: 0;
+			}
+
+			.e361-8.x-frame {
+				width: 100%;
+				font-size: 16px;
+				background-color: transparent;
+			}
+
+			.e361-8 .x-frame-inner {
+				padding-bottom: calc((9 / 16) * 100%);
+			}
+
+			.e361-8 .x-mejs .mejs-controls {
+				margin: auto 15px 15px 15px;
+				border-radius: 3px;
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+
+			.e361-8 .x-mejs .mejs-button button {
+				color: rgba(255, 255, 255, 0.5);
+			}
+
+			.e361-8 .x-mejs .mejs-button button:hover, .e361-8 .x-mejs .mejs-button button:focus {
+				color: rgba(255, 255, 255, 1);
+			}
+
+			.e361-8 .x-mejs .mejs-time-total {
+				border-radius: 2px;
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+
+			.e361-8 .x-mejs .mejs-time-loaded {
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+
+			.e361-8 .x-mejs .mejs-time-current {
+				background-color: rgba(255, 255, 255, 1);
+			}
+
+			.e361-8 .x-mejs .mejs-time {
+				color: rgba(255, 255, 255, 0.5);
+			}
+
+			#rezaWasHereinput[type="text"] {
+				width: 350px;
+				padding: 12px 10px;
+				box-sizing: border-box;
+				font-size: 14px;
+			}
+
+			select {
+				width: 350px;
+				padding: 12px 10px;
+				box-sizing: border-box;
+				font-size: 14px;
+			}
+
+			input[type="submit"] {
+				text-shadow: none;
+				width: 350px;
+			}
+
+			.signup--text_input {
+				width: 350px;
+				padding: 12px 10px;
+				box-sizing: border-box;
+				font-size: 16px;
+			}</style>
+		<link rel="stylesheet"
+			  href="//fonts.googleapis.com/css?family=Merriweather+Sans:400,400i,700,700i|Merriweather:400|Lato:300,400&#038;subset=latin,latin-ext"
+			  type="text/css" media="all" data-x-google-fonts/>
+		<!-- new -->
+
+		<script>
+			//
+			//	The data layer set for Google Tag Manager
+			//
+			dataLayer = [{
+				"page": {
+					"type": "{{ page }}"
+				}
+			}];
+		</script>
+
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					'gtm.start': new Date().getTime(), event: 'gtm.js'
+				});
+				var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-M6V74LN');
+		</script>
+		<!-- End Google Tag Manager -->
+
+		<script>
+
+			////	<<>>
+
+			////	Detect if mobile
+
+			//
+			//	Check if we are on a mobile device or not
+			//
+			var is_mobile = true;
+
+			//
+			//	Try to see if the browser has a Touch Event
+			//
+			try
+			{
+				document.createEvent("TouchEvent")
+			}
+			catch(error)
+			{
+				is_mobile = false;
+			}
+
+			////	<<>>
+
+			////	Set environment variables.
+
+			//
+			//	Initialize the variables used for storing the resume, and
+			//	by default assume we are dealing with production.
+			//
+			var resume_bucket = 'qkids.teachparttime.com';
+			var bucket_region = 'us-east-1';
+			var identity_pool_id = 'us-east-1:c072492e-81e8-4606-a083-9709fb323621';
+
+			//
+			//	This nr. tells Pipe Video to which environment to save the video.
+			//	by default we assume we are in production.
+			//
+			var pipe_video_env = 1;
+
+			//
+			//  Check if the domain differs from the production one, and if
+			//  so, use development settings.
+			//
+			if(document.location.hostname != 'qkids.teachpart-time.com')
+			{
+				resume_bucket = 'dev.teachpart-time.com-resumes';
+				bucket_region = 'us-east-1';
+				identity_pool_id = 'us-east-1:57db0921-622e-408f-a321-44d3df8d0823';
+				pipe_video_env = 2;
+			}
+
+			////	<<>>
+
+			//
+			//	Get the user session from the cookies
+			//
+			var session = Cookies.getJSON('tpt_session');
+
+			//
+			//	Skip this step if we are restoring the session.
+			//
+			if(location.pathname != '/restore')
+			{
+				//
+				//	After we try to get the Session Cookie, we check if the browser
+				//	actually had the session.
+				//
+				if(!session && location.pathname.length > 1)
+				{
+					//
+					//	1.	Redirect the user back to the home page and remove
+					//		URL history, so they can't clikc the back button.
+					//
+					window.location.replace('/');
+				}
+			}
+
+			//
+			//	This function will save data from the form to Airtable
+			//
+			function save_to_airtable(session, callback)
+			{
+
+				//
+				//	1.	Make a variable that will hold the end part of the URL
+				//		where if we created a row, we can later one updated it
+				//
+				var airtable_row_id = "";
+				var action_type = "post";
+
+				//
+				//	2.	Check if we have the row ID in Airtable, if we do we know
+				//		we can update the data instead of creating it.
+				//
+				if(session.id)
+				{
+					airtable_row_id = "/" + session.id;
+					action_type = "patch"
+				}
+
+				//
+				//	->	Execute the query
+				//
+				$.ajax({
+					url: 'https://api.airtable.com/v0/appMm7V8XWifHqCja/QKids' + airtable_row_id,
+					type: action_type,
+					dataType: 'json',
+					headers: {
+						Authorization: "Bearer keyrV0cKo5ihXnbGO"
+					},
+					data: {
+						fields: session.fields
+					}
+				})
+				.done(function(data) {
+
+					console.log("Saved...");
+
+					return callback(data.id);
+
+				}).fail(function(error) {
+
+					//
+					//	<>> Log what happened
+					//
+					console.log(error);
+
+					//
+					//	->	Redirect the user to the error page
+					//
+					return window.location.href = 'error';
+
+				});
+			}
+
+		</script>
+
+	</head>
+
+	<body class="page-template page-template-template-blank-8 page-template-template-blank-8-php page page-id-361 x-integrity x-integrity-light x-full-width-layout-active x-content-sidebar-active x-post-meta-disabled x-portfolio-meta-disabled x-navbar-static-active x-v6_3_8 cornerstone-v3_4_6">
+
+		<!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6V74LN"
+					height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+		{{>body}}
+
+		<script type='text/javascript' src='/js/cs-body.js'></script>
+		<script type='text/javascript' src='/js/x.js'></script>
+		<script type='text/javascript' src='/js/comment-reply.min.js'></script>
+		<script type='text/javascript' src='/js/wp-embed.min.js'></script>
+	</body>
+
+</html>
