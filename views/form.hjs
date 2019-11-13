@@ -603,7 +603,7 @@ $('form').on("submit", function(event) {
 			//
 			//	->	Redirect the user to the next step
 			//
-			return window.location.href = 'video';
+			return window.location.href = 'resume';
 
 		});
 

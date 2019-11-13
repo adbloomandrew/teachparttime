@@ -6,7 +6,7 @@
 	//
 	if(session.fields.video_url || session.fields.youtube_url)
 	{
-		window.location.href = 'resume';
+		window.location.href = 'thankyou';
 	}
 
 	//
