@@ -33,7 +33,7 @@
 <section class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
-			<h1 class="typo-h1 text-blue text-center mb-2">Final Step: Upload Your Resume</h1>
+			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Upload Your Resume</h1>
 			<hr class="divider divider__gray my-3">
 
 			<form>
@@ -77,9 +77,9 @@
                 </div>
                 <hr>
 
-                <div class="d-flex align-items-start justify-content-center flex-wrap mt-4">
-                    <button type="submit" id="submit" class="control-pink-btn submit-btn" disabled>
-                        SUBMIT APPLICATION
+                <div class="d-flex align-items-start justify-content-end flex-wrap mt-4">
+                    <button type="submit" id="submit" class="control-gray-btn submit-btn" disabled>
+                        NEXT
                     </button>
                 </div>
 

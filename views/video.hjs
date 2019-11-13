@@ -30,7 +30,7 @@
 <section class="register-register-section">
 	<div class="container">
 		<div class="card-block register-card">
-			<h1 class="typo-h1 text-blue text-center mb-2">Step 3: Record a Brief Video</h1>
+			<h1 class="typo-h1 text-blue text-center mb-2">Final Step: Record a Brief Video</h1>
 			<hr class="divider divider__gray my-3">
             <p class="typo-h4 text-gray mb-3">
                 <span class="typo-bold text-black">
@@ -62,8 +62,8 @@
 					<input type="url" class="form-input mb-1" id="youtube_url"
 						   required placeholder="http://youtube.com/My-Video-URL" title="http://youtube.com/My-Video-URL">
 				</div>
-				<div class="d-flex align-items-start justify-content-end flex-wrap">
-					<button type="submit" id="submit" class="control-gray-btn submit-btn">Next</button>
+				<div class="d-flex align-items-start justify-content-center flex-wrap">
+					<button type="submit" id="submit" class="control-pink-btn submit-btn">SUBMIT APPLICATION</button>
 				</div>
 			</form>
 		</div>
