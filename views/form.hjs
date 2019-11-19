@@ -12,7 +12,7 @@
 		//
 		if(session.state.form)
 		{
-			window.location.href = 'video';
+			window.location.href = 'resume';
 		}
 	}
 
