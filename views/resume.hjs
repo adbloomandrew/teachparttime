@@ -14,6 +14,7 @@
 	//	have any, then we skip this page.
 	//
 	if(
+		session.fields.education == "Enrolled in University/College" ||
 		session.fields.education == "Associates Degree" ||
 		session.fields.education == "High School Degree" ||
 		session.fields.education == "No Degree" ||
